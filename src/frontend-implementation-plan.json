@@ -1,22 +1,99 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Remove global typography text-shadow for clearer readability",
+  "title": "Detailed Skills content with category images and Portfolio reuse",
   "requirements": [
     {
-      "id": "REQ-41",
-      "summary": "Remove the global site-wide text-shadow applied to typography so all headings/body text render without shadows while keeping the waterfall background/overlay unchanged.",
+      "id": "REQ-51",
+      "summary": "Replace meter-only Skills categories with detailed English content sections for Legal (short), Digital Marketing (short), Graphics Design (detailed), Video Editing (basic but detailed), and WordPress Website Design (detailed, WordPress-only).",
       "acceptanceCriteria": [
-        "In `frontend/src/index.css`, the global typography rule that applies `text-shadow` to elements (e.g., h1–h6, p, span, a, li, label, div[class*=\"text\"]) is removed or updated so `text-shadow` is not applied.",
-        "No headings or body text on any page shows a text-shadow in the browser (verify at least Home, About, Services, Skills, Portfolio, Contact).",
-        "The waterfall background and overlay remain unchanged and continue to sit behind all page content (no interaction blocking).",
-        "Typography remains readable after shadow removal; if any text becomes hard to read, adjust only global color tokens (e.g., `--foreground`, `--muted-foreground`) rather than adding back shadows or page-specific overrides."
+        "The Skills page no longer shows only percentage meters for the main categories; it shows detailed written content per category.",
+        "Legal Skills and Digital Marketing are presented as shortened, portfolio-friendly summaries (not the full long text blocks), while Graphics Design, Video Editing (basic), and WordPress Website Design are presented with detailed descriptions.",
+        "The detailed content includes the user-requested items: legal areas (e.g., land, crime, tax), digital marketing items (Facebook page creation/optimization, post scheduling, ads, social media management, SEO, SMM), graphics design categories (logo, banner, flyer, t-shirt, etc.), video editing basic (image add, text writing, etc.), and WordPress website design categories (site builder/development related).",
+        "All user-facing text on the updated sections is in English."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/index.css",
+          "path": "frontend/src/data/skillsDetails.ts",
+          "operation": "create",
+          "description": "Create a single source of truth for the five Skills Details categories (headings, short paragraphs, and bullet lists) matching the requested scope: Legal Skills (short), Digital Marketing (short), Graphics Design (detailed), Video Editing (basic but detailed), WordPress Website Design (WordPress-only, detailed)."
+        },
+        {
+          "path": "frontend/src/components/skills/SkillsDetailsSection.tsx",
+          "operation": "create",
+          "description": "Add a reusable Skills Details section component that renders the categories from frontend/src/data/skillsDetails.ts with headings, paragraphs, and bullet lists. Use shadcn-ui Card (and related primitives) for consistent section/card layout. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/SkillsPage.tsx",
           "operation": "modify",
-          "description": "Remove (or neutralize) the global typography selector block that applies `text-shadow` to headings and common text elements so shadows are not applied anywhere. If readability regresses after removal, adjust only global color tokens (e.g., `--foreground`, `--muted-foreground`) in the same file; do not add page-specific overrides and do not change the waterfall background/overlay styles."
+          "description": "Update the Skills page to render the new detailed Skills Details section (and remove the main-category meter grid usage). Ensure all visible text is English and matches the requested level of detail per category."
+        }
+      ]
+    },
+    {
+      "id": "REQ-52",
+      "summary": "Add one static image per skill category and render it alongside each detailed Skills section/card with meaningful English alt text and responsive layout.",
+      "acceptanceCriteria": [
+        "Each of the five skill categories (Legal, Digital Marketing, Graphics Design, Video Editing, WordPress Website Design) displays one image next to/within its section/card.",
+        "All images are served from static assets in the frontend (no backend image serving).",
+        "All images include meaningful English alt text and do not break layout on mobile/tablet/desktop."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/skills-legal.dim_1200x800.png",
+          "operation": "create",
+          "description": "Add the generated static asset for the Legal Skills category image at frontend/public/assets/generated/skills-legal.dim_1200x800.png."
+        },
+        {
+          "path": "frontend/public/assets/generated/skills-digital-marketing.dim_1200x800.png",
+          "operation": "create",
+          "description": "Add the generated static asset for the Digital Marketing category image at frontend/public/assets/generated/skills-digital-marketing.dim_1200x800.png."
+        },
+        {
+          "path": "frontend/public/assets/generated/skills-graphic-design.dim_1200x800.png",
+          "operation": "create",
+          "description": "Add the generated static asset for the Graphics Design category image at frontend/public/assets/generated/skills-graphic-design.dim_1200x800.png."
+        },
+        {
+          "path": "frontend/public/assets/generated/skills-video-editing.dim_1200x800.png",
+          "operation": "create",
+          "description": "Add the generated static asset for the Video Editing category image at frontend/public/assets/generated/skills-video-editing.dim_1200x800.png."
+        },
+        {
+          "path": "frontend/public/assets/generated/skills-wordpress-webdesign.dim_1200x800.png",
+          "operation": "create",
+          "description": "Add the generated static asset for the WordPress Website Design category image at frontend/public/assets/generated/skills-wordpress-webdesign.dim_1200x800.png."
+        },
+        {
+          "path": "frontend/src/data/skillsDetails.ts",
+          "operation": "modify",
+          "description": "Wire each skills category to its corresponding static image path under frontend/public/assets/generated/ and define meaningful English alt text per category."
+        },
+        {
+          "path": "frontend/src/components/skills/SkillsDetailsSection.tsx",
+          "operation": "modify",
+          "description": "Render each category image with its corresponding alt text inside the Skills Details cards/sections, ensuring responsive behavior (image + content stacks on small screens and aligns side-by-side on larger screens). Use shadcn-ui Card layout patterns for consistency. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-53",
+      "summary": "Add a 'Skills Details' section beneath the projects grid on the Portfolio page, reusing the same detailed skills content and images as the Skills page.",
+      "acceptanceCriteria": [
+        "The Portfolio page includes a visible section labeled \"Skills Details\" (English) beneath the projects grid.",
+        "The \"Skills Details\" section displays the same detailed category content and images as the Skills page (no duplicated inconsistent text).",
+        "The Portfolio page remains responsive and maintains existing project filtering and grid behavior."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/PortfolioPage.tsx",
+          "operation": "modify",
+          "description": "Add a new section labeled \"Skills Details\" below the ProjectsGrid, rendering the shared SkillsDetailsSection component so content/images remain consistent with the Skills page."
+        },
+        {
+          "path": "frontend/src/components/skills/SkillsDetailsSection.tsx",
+          "operation": "modify",
+          "description": "Support a reusable rendering mode suitable for embedding on Portfolio (e.g., optional heading display or spacing variants), while still sourcing all content from frontend/src/data/skillsDetails.ts. Use shadcn-ui components for consistent typography/card structure. Verify the component's usage instructions before implementing."
         }
       ]
     }

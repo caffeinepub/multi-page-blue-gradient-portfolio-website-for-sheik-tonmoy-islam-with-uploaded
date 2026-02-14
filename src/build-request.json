@@ -1,42 +1,83 @@
 {
   "kind": "build_request",
-  "title": "Remove global text-shadow for clearer typography across all pages",
+  "title": "Apply detailed Skills content (short legal/marketing, detailed design/video/WordPress) with images",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-41",
-      "text": "Remove the global site-wide typography text-shadow so that headings and body text render with no text-shadow across all routes/pages (Home, About, Services, Skills, Portfolio, Contact) for clearer readability over the waterfall background.",
+      "id": "REQ-51",
+      "text": "Update the Skills content to match the user-provided structure: Legal Skills (shorter summary), Digital Marketing (shorter summary), Graphics Design (detailed), Video Editing (basic but detailed), and Website Design (WordPress only, detailed). Replace the current meter-only skill lists with readable detailed sections that include headings, short paragraphs, and bullet lists for categories.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-7",
-          "msg-9"
+          "msg-apply-this"
         ],
         "quotes": [
-          "should the text‑shadow be removed,I can apply it globally",
-          "build it"
+          "apply this",
+          "yes,yes i went shirter, yes i went detailed description"
         ]
       },
       "acceptanceCriteria": [
-        "In `frontend/src/index.css`, the global typography rule that applies `text-shadow` to elements (e.g., h1–h6, p, span, a, li, label, div[class*=\"text\"]) is removed or updated so `text-shadow` is not applied.",
-        "No headings or body text on any page shows a text-shadow in the browser (verify at least Home, About, Services, Skills, Portfolio, Contact).",
-        "The waterfall background and overlay remain unchanged and continue to sit behind all page content (no interaction blocking).",
-        "Typography remains readable after shadow removal; if any text becomes hard to read, adjust only global color tokens (e.g., `--foreground`, `--muted-foreground`) rather than adding back shadows or page-specific overrides."
+        "The Skills page no longer shows only percentage meters for the main categories; it shows detailed written content per category.",
+        "Legal Skills and Digital Marketing are presented as shortened, portfolio-friendly summaries (not the full long text blocks), while Graphics Design, Video Editing (basic), and WordPress Website Design are presented with detailed descriptions.",
+        "The detailed content includes the user-requested items: legal areas (e.g., land, crime, tax), digital marketing items (Facebook page creation/optimization, post scheduling, ads, social media management, SEO, SMM), graphics design categories (logo, banner, flyer, t-shirt, etc.), video editing basic (image add, text writing, etc.), and WordPress website design categories (site builder/development related).",
+        "All user-facing text on the updated sections is in English."
+      ]
+    },
+    {
+      "id": "REQ-52",
+      "text": "Add relevant images/pictures alongside the detailed Skills content by creating one visual per skills category and rendering them as static frontend assets. Each category section/card must display its corresponding image with proper alt text.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-apply-this"
+        ],
+        "quotes": [
+          "totall description with image picture."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Each of the five skill categories (Legal, Digital Marketing, Graphics Design, Video Editing, WordPress Website Design) displays one image next to/within its section/card.",
+        "All images are served from static assets in the frontend (no backend image serving).",
+        "All images include meaningful English alt text and do not break layout on mobile/tablet/desktop."
+      ]
+    },
+    {
+      "id": "REQ-53",
+      "text": "Update the Portfolio page to include (below the projects grid) a new \"Skills Details\" section that reuses the same detailed skill categories and images, since the user requested detailed skills on the portfolio page.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-portfolio-skills-request"
+        ],
+        "quotes": [
+          "in this web site my portfolio page are all skill are should be in detail."
+        ]
+      },
+      "acceptanceCriteria": [
+        "The Portfolio page includes a visible section labeled \"Skills Details\" (English) beneath the projects grid.",
+        "The \"Skills Details\" section displays the same detailed category content and images as the Skills page (no duplicated inconsistent text).",
+        "The Portfolio page remains responsive and maintains existing project filtering and grid behavior."
       ]
     }
   ],
   "constraints": [
-    "Do not edit any frontend files under `frontend/src/components/ui` (compose them only).",
-    "Do not edit files listed as immutable in SYSTEM_CONTEXT (e.g., `frontend/src/main.tsx`, `frontend/src/hooks/useActor.ts`, `frontend/src/hooks/useInternetIdentity.ts`).",
-    "Keep the backend as a single Motoko actor; no backend changes are required for this request."
+    "Do not edit files in frontend immutablePaths (including frontend/src/hooks/useInternetIdentity.ts(x), frontend/src/hooks/useActor.ts, frontend/src/main.tsx, and frontend/src/components/ui).",
+    "Keep backend architecture single-actor; no backend changes are required for this request.",
+    "All user-facing text must be in English."
   ],
   "nonGoals": [
-    "Do not change page content, routing, or site structure.",
-    "Do not change the waterfall background image, overlay design, or replace assets.",
-    "Do not add new animations, fonts, or third-party libraries."
+    "Do not add new authentication methods beyond Internet Identity.",
+    "Do not add external integrations (email sending, analytics, third-party CMS, etc.).",
+    "Do not change contact form persistence behavior or backend schema."
   ],
   "imageRequirements": {
-    "required": [],
+    "required": [
+      "Photorealistic legal-themed skills illustration (skills-legal.dim_1200x800.png)",
+      "Photorealistic digital marketing-themed skills illustration (skills-digital-marketing.dim_1200x800.png)",
+      "Photorealistic graphic design-themed skills illustration (skills-graphic-design.dim_1200x800.png)",
+      "Photorealistic basic video editing-themed skills illustration (skills-video-editing.dim_1200x800.png)",
+      "Photorealistic WordPress website design-themed skills illustration (skills-wordpress-webdesign.dim_1200x800.png)"
+    ],
     "edits": []
   },
   "userProfileUpdate": {

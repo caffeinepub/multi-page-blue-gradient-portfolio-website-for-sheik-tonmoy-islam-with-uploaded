@@ -1,24 +1,64 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-14T18:56:11.181Z",
+  "generatedAt": "2026-02-14T19:59:55.101Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 1,
-    "implemented": 1,
+    "total": 3,
+    "implemented": 3,
     "items": [
       {
-        "id": "REQ-41",
-        "summary": "Remove the global site-wide typography text-shadow so that headings and body text render with no text-shadow across all routes/pages (Home, About, Services, Skills, Portfolio, Contact) for clearer readability over the waterfall background.",
+        "id": "REQ-51",
+        "summary": "Update the Skills content to match the user-provided structure: Legal Skills (shorter summary), Digital Marketing (shorter summary), Graphics Design (detailed), Video Editing (basic but detailed), and Website Design (WordPress only, detailed). Replace the current meter-only skill lists with readable detailed sections that include headings, short paragraphs, and bullet lists for categories.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/index.css"
+          "frontend/src/data/skillsDetails.ts",
+          "frontend/src/components/skills/SkillsDetailsSection.tsx",
+          "frontend/src/pages/SkillsPage.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/index.css"
+          "frontend/src/data/skillsDetails.ts",
+          "frontend/src/components/skills/SkillsDetailsSection.tsx",
+          "frontend/src/pages/SkillsPage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-52",
+        "summary": "Add relevant images/pictures alongside the detailed Skills content by creating one visual per skills category and rendering them as static frontend assets. Each category section/card must display its corresponding image with proper alt text.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/public/assets/generated/skills-legal.dim_1200x800.png",
+          "frontend/public/assets/generated/skills-digital-marketing.dim_1200x800.png",
+          "frontend/public/assets/generated/skills-graphic-design.dim_1200x800.png",
+          "frontend/public/assets/generated/skills-video-editing.dim_1200x800.png",
+          "frontend/public/assets/generated/skills-wordpress-webdesign.dim_1200x800.png",
+          "frontend/src/data/skillsDetails.ts",
+          "frontend/src/components/skills/SkillsDetailsSection.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/public/assets/generated/skills-legal.dim_1200x800.png",
+          "frontend/public/assets/generated/skills-digital-marketing.dim_1200x800.png",
+          "frontend/public/assets/generated/skills-graphic-design.dim_1200x800.png",
+          "frontend/public/assets/generated/skills-video-editing.dim_1200x800.png",
+          "frontend/public/assets/generated/skills-wordpress-webdesign.dim_1200x800.png",
+          "frontend/src/data/skillsDetails.ts",
+          "frontend/src/components/skills/SkillsDetailsSection.tsx"
+        ]
+      },
+      {
+        "id": "REQ-53",
+        "summary": "Update the Portfolio page to include (below the projects grid) a new \"Skills Details\" section that reuses the same detailed skill categories and images, since the user requested detailed skills on the portfolio page.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/PortfolioPage.tsx",
+          "frontend/src/components/skills/SkillsDetailsSection.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/PortfolioPage.tsx",
+          "frontend/src/components/skills/SkillsDetailsSection.tsx"
         ]
       }
     ]
@@ -28,7 +68,15 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/index.css",
+    "frontend/public/assets/generated/skills-digital-marketing.dim_1200x800.png",
+    "frontend/public/assets/generated/skills-graphic-design.dim_1200x800.png",
+    "frontend/public/assets/generated/skills-legal.dim_1200x800.png",
+    "frontend/public/assets/generated/skills-video-editing.dim_1200x800.png",
+    "frontend/public/assets/generated/skills-wordpress-webdesign.dim_1200x800.png",
+    "frontend/src/components/skills/SkillsDetailsSection.tsx",
+    "frontend/src/data/skillsDetails.ts",
+    "frontend/src/pages/PortfolioPage.tsx",
+    "frontend/src/pages/SkillsPage.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

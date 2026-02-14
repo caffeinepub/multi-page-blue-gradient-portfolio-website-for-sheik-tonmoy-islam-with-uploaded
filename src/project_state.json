@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 25,
-  "summary": "Update the existing multi-page portfolio website for Sheik Tonmoy Islam so the visual theme is fully replaced with a full-page, static (generated) waterfall picture background applied across every page; then rebuild and redeploy under the existing domain identifier \"sheik-tonmoy-islam\".",
+  "projectStateVersion": 33,
+  "summary": "Update the existing multi-page portfolio website for Sheik Tonmoy Islam so the visual theme is fully replaced with a full-page blue ocean animated (CSS/3D-style subtle moving effect) background applied across every page, using a generated blue ocean image as the static fallback; then rebuild and redeploy under the existing domain identifier \"sheik-tonmoy-islam\".",
   "architectural_notes": [
     "Implement as a multi-page site with separate routes/pages for Home, About, Services, Skills, Portfolio/Projects, Contact.",
     "Include explicit contact details on the Contact page: email gamil-official.tonmoyislam@gmail.com and WhatsApp 01999785559.",
@@ -9,7 +9,10 @@
     "Re-enable images for the bio/profile picture using the previously uploaded asset \"Tonmoy islam pic.png\".",
     "Theme direction change: replace the blue-gradient theme with a full-page animated (video-style) 3D waterfall background across all pages.",
     "Theme direction update: replace the animated 3D waterfall video background with a static (generated) waterfall picture background across all pages.",
-    "Typography update: remove text-shadow globally (headings + body) across all pages for clearer text over the waterfall background."
+    "Typography update: remove text-shadow globally (headings + body) across all pages for clearer text over the waterfall background.",
+    "Theme direction update: replace the static waterfall picture background with a full-page blue ocean animated background (subtle CSS/3D-style motion) across all pages.",
+    "Generate a blue ocean background image and use it as the static fallback background across all pages when animation isn’t available.",
+    "Typography update: change global text color to yellow across all pages; headings and body use the same color for improved visibility."
   ],
   "known_issues": [
     "Initial build attempt failed with platform error: \"The AI couldn't implement your request. Please simplify or rephrase your prompt.\"",
@@ -17,7 +20,8 @@
     "Site must be updated to remove all images and ensure no broken/missing image placeholders remain anywhere in the UI.",
     "Typography clarity request: remove text-shadow globally across all pages to make text fully clear/easy on the eyes (may require adjusting text color strength if needed after shadow removal)."
   ],
-  "isFixRequest": true,
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Photorealistic legal-themed skills illustration (skills-legal.dim_1200x800.png)\n- Photorealistic digital marketing-themed skills illustration (skills-digital-marketing.dim_1200x800.png)\n- Photorealistic graphic design-themed skills illustration (skills-graphic-design.dim_1200x800.png)\n- Photorealistic basic video editing-themed skills illustration (skills-video-editing.dim_1200x800.png)\n- Photorealistic WordPress website design-themed skills illustration (skills-wordpress-webdesign.dim_1200x800.png)",
   "existing_features": [
     {
       "id": "feature-create-a-responsive-multi-page-portfolio-website-with-separate-pages-for-home-about-services-skills-portfolio-projects-and-contact-including-a-persistent-top-navigation-and-footer",
@@ -346,6 +350,102 @@
         "REQ-41"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-generate-and-add-a-new-high-resolution-blue-ocean-background-image-to-the-frontend-as-a-static-asset-and-use-it-as-the-site-wide-static-fallback-background-across-every-route-page-home-about-services-skills-portfolio-contact",
+      "title": "Generate and add a new high-resolution blue ocean background image to the frontend as a static asset, and use it as the site-wide static fallback background across every route/page (Home, About, Services, Skills, Portfolio, Contact).",
+      "reqIds": [
+        "REQ-42"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-current-site-wide-waterfall-background-implementation-with-a-blue-ocean-animated-background-that-uses-a-subtle-moving-effect-css-3d-style-applied-globally-via-the-existing-layout-frontend-src-components-layout-sitelayout-tsx-so-it-is-visible-across-all-routes-pages",
+      "title": "Replace the current site-wide waterfall background implementation with a blue ocean animated background that uses a subtle moving effect (CSS/3D-style), applied globally via the existing layout (`frontend/src/components/layout/SiteLayout.tsx`) so it is visible across all routes/pages.",
+      "reqIds": [
+        "REQ-43"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-global-styling-to-remove-disable-the-waterfall-specific-background-overlay-css-and-replace-it-with-ocean-specific-background-readability-overlay-styles-ensuring-the-overlay-background-layers-never-block-interactions-pointer-events-disabled-and-remain-behind-all-ui-content",
+      "title": "Update global styling to remove/disable the waterfall-specific background/overlay CSS and replace it with ocean-specific background + readability overlay styles, ensuring the overlay/background layers never block interactions (pointer-events disabled) and remain behind all UI content.",
+      "reqIds": [
+        "REQ-44"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-accessibility-and-performance-fallbacks-for-the-animated-ocean-background-respect-reduced-motion-preferences-by-disabling-animation-and-showing-only-the-static-ocean-image-and-ensure-the-implementation-does-not-introduce-console-errors-or-noticeable-performance-degradation-during-normal-navigation-scrolling",
+      "title": "Add accessibility and performance fallbacks for the animated ocean background: respect reduced-motion preferences by disabling animation and showing only the static ocean image, and ensure the implementation does not introduce console errors or noticeable performance degradation during normal navigation/scrolling.",
+      "reqIds": [
+        "REQ-45"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-rebuild-and-republish-the-updated-site-so-the-blue-ocean-animated-background-theme-is-live-under-the-existing-production-identifier-exactly-sheik-tonmoy-islam",
+      "title": "Rebuild and republish the updated site so the blue ocean animated background theme is live under the existing production identifier exactly: \"sheik-tonmoy-islam\".",
+      "reqIds": [
+        "REQ-46"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-site-wide-typography-color-to-yellow-across-all-pages-routes-so-that-both-headings-and-body-text-render-in-yellow-by-default-i-e-anything-currently-using-the-theme-foreground-color-should-become-yellow",
+      "title": "Update the site-wide typography color to yellow across all pages/routes so that both headings and body text render in yellow by default (i.e., anything currently using the theme foreground color should become yellow).",
+      "reqIds": [
+        "REQ-47"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-navigation-buttons-and-common-ui-text-that-should-remain-readable-adopt-the-updated-yellow-text-styling-where-they-use-theme-foreground-muted-tokens-while-preserving-intentional-exceptions-e-g-elements-that-explicitly-set-text-white-should-remain-unchanged-unless-they-become-unreadable",
+      "title": "Ensure navigation, buttons, and common UI text that should remain readable adopt the updated yellow text styling where they use theme foreground/muted tokens, while preserving intentional exceptions (e.g., elements that explicitly set `text-white` should remain unchanged unless they become unreadable).",
+      "reqIds": [
+        "REQ-48"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-rebuild-and-republish-the-site-so-the-yellow-site-wide-typography-change-is-live-under-the-existing-production-identifier-exactly-sheik-tonmoy-islam",
+      "title": "Rebuild and republish the site so the yellow site-wide typography change is live under the existing production identifier exactly: \"sheik-tonmoy-islam\".",
+      "reqIds": [
+        "REQ-49"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-about-page-so-only-the-about-page-body-text-is-yellow-while-keeping-all-about-page-headings-unchanged",
+      "title": "Update the About page so ONLY the About page body text is yellow, while keeping all About page headings unchanged.",
+      "reqIds": [
+        "REQ-50"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-skills-content-to-match-the-user-provided-structure-legal-skills-shorter-summary-digital-marketing-shorter-summary-graphics-design-detailed-video-editing-basic-but-detailed-and-website-design-wordpress-only-detailed-replace-the-current-meter-only-skill-lists-with-readable-detailed-sections-that-include-headings-short-paragraphs-and-bullet-lists-for-categories",
+      "title": "Update the Skills content to match the user-provided structure: Legal Skills (shorter summary), Digital Marketing (shorter summary), Graphics Design (detailed), Video Editing (basic but detailed), and Website Design (WordPress only, detailed). Replace the current meter-only skill lists with readable detailed sections that include headings, short paragraphs, and bullet lists for categories.",
+      "reqIds": [
+        "REQ-51"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-relevant-images-pictures-alongside-the-detailed-skills-content-by-creating-one-visual-per-skills-category-and-rendering-them-as-static-frontend-assets-each-category-section-card-must-display-its-corresponding-image-with-proper-alt-text",
+      "title": "Add relevant images/pictures alongside the detailed Skills content by creating one visual per skills category and rendering them as static frontend assets. Each category section/card must display its corresponding image with proper alt text.",
+      "reqIds": [
+        "REQ-52"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-portfolio-page-to-include-below-the-projects-grid-a-new-skills-details-section-that-reuses-the-same-detailed-skill-categories-and-images-since-the-user-requested-detailed-skills-on-the-portfolio-page",
+      "title": "Update the Portfolio page to include (below the projects grid) a new \"Skills Details\" section that reuses the same detailed skill categories and images, since the user requested detailed skills on the portfolio page.",
+      "reqIds": [
+        "REQ-53"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -400,6 +500,30 @@
     {
       "id": "AR-12",
       "summary": "Remove text-shadow from site-wide typography (headings and body) and apply globally across all pages to improve clarity",
+      "reqIds": [],
+      "status": "in_progress"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Replace the site-wide static waterfall background with a blue ocean animated background (subtle CSS/3D-style motion) on every page, generating a blue ocean image to use as the static fallback across all pages",
+      "reqIds": [],
+      "status": "in_progress"
+    },
+    {
+      "id": "AR-14",
+      "summary": "Update site-wide typography color to yellow across all pages (apply to both headings and body text) to improve visibility over the animated blue ocean background",
+      "reqIds": [],
+      "status": "in_progress"
+    },
+    {
+      "id": "AR-15",
+      "summary": "Make ONLY the About page body text yellow while keeping About page headings unchanged (page-specific exception to global typography styling)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-16",
+      "summary": "Update the Skills (and/or Portfolio) page content to include detailed skill categories and descriptions: Legal (shorter summary), Digital Marketing (shorter summary), Graphics Design (detailed), Video Editing (basic but detailed), Website Design/WordPress (detailed), and include relevant images/pictures alongside the content",
       "reqIds": [],
       "status": "in_progress"
     }

@@ -64,7 +64,7 @@ export default function AboutPage() {
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl mb-6">
               About <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">Me</span>
             </h1>
-            <p className="text-xl text-foreground/90 max-w-3xl mx-auto lg:mx-0">
+            <p className="text-xl text-yellow-400 max-w-3xl mx-auto lg:mx-0">
               A unique blend of legal knowledge, business insight, and creative technical expertise
             </p>
           </div>
@@ -78,14 +78,14 @@ export default function AboutPage() {
         {/* Bio Section */}
         <div className="max-w-4xl mb-20 mx-auto lg:mx-0">
           <div className="prose prose-lg dark:prose-invert">
-            <p className="text-lg leading-relaxed text-foreground/80">
+            <p className="text-lg leading-relaxed text-yellow-400">
               I am <strong>Sheik Tonmoy Islam</strong>, a multi-disciplinary professional who brings
               together diverse skill sets to solve complex challenges. As an{' '}
               <strong>Internship Junior Lawyer</strong>, I understand the legal frameworks that
               govern business operations. As a <strong>Business Professional</strong>, I apply
               strategic thinking to drive growth and innovation.
             </p>
-            <p className="text-lg leading-relaxed text-foreground/80 mt-4">
+            <p className="text-lg leading-relaxed text-yellow-400 mt-4">
               My expertise extends into the digital realm as a <strong>Digital Marketer</strong>,
               where I craft compelling campaigns that resonate with audiences. As a{' '}
               <strong>Graphics Designer</strong> and <strong>Video Editor</strong>, I create visual
@@ -93,7 +93,7 @@ export default function AboutPage() {
               <strong>Website Designer</strong> enable me to build digital experiences that are both
               beautiful and functional.
             </p>
-            <p className="text-lg leading-relaxed text-foreground/80 mt-4">
+            <p className="text-lg leading-relaxed text-yellow-400 mt-4">
               This unique combination of legal, business, creative, and technical skills allows me to
               approach projects from multiple angles, delivering comprehensive solutions that address
               both the strategic and tactical needs of modern businesses.
@@ -129,7 +129,7 @@ export default function AboutPage() {
                 1
               </div>
               <h3 className="text-xl font-semibold mb-2">Integrity</h3>
-              <p className="text-foreground/70">
+              <p className="text-yellow-400">
                 Upholding the highest ethical standards in all professional endeavors
               </p>
             </div>
@@ -138,7 +138,7 @@ export default function AboutPage() {
                 2
               </div>
               <h3 className="text-xl font-semibold mb-2">Innovation</h3>
-              <p className="text-foreground/70">
+              <p className="text-yellow-400">
                 Embracing new technologies and creative approaches to problem-solving
               </p>
             </div>
@@ -147,7 +147,7 @@ export default function AboutPage() {
                 3
               </div>
               <h3 className="text-xl font-semibold mb-2">Excellence</h3>
-              <p className="text-foreground/70">
+              <p className="text-yellow-400">
                 Striving for the highest quality in every project and interaction
               </p>
             </div>

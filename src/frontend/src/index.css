@@ -6,21 +6,21 @@
     :root {
         --radius: 0.625rem;
         
-        /* Blue gradient theme - Light mode */
+        /* Yellow text theme - Light mode */
         --background: 0.99 0.01 240;
-        --foreground: 0.98 0.08 240;
+        --foreground: 0.85 0.18 95;
         --card: 1 0 0;
-        --card-foreground: 0.98 0.08 240;
+        --card-foreground: 0.85 0.18 95;
         --popover: 1 0 0;
-        --popover-foreground: 0.98 0.08 240;
+        --popover-foreground: 0.85 0.18 95;
         --primary: 0.55 0.18 240;
         --primary-foreground: 0.99 0 0;
         --secondary: 0.95 0.02 240;
-        --secondary-foreground: 0.98 0.08 240;
+        --secondary-foreground: 0.85 0.18 95;
         --muted: 0.96 0.01 240;
-        --muted-foreground: 0.92 0.06 240;
+        --muted-foreground: 0.75 0.15 95;
         --accent: 0.92 0.03 200;
-        --accent-foreground: 0.98 0.08 240;
+        --accent-foreground: 0.85 0.18 95;
         --destructive: 0.577 0.245 27.325;
         --destructive-foreground: 0.985 0 0;
         --border: 0.90 0.01 240;
@@ -34,23 +34,23 @@
     }
 
     .dark {
-        /* Blue gradient theme - Dark mode */
+        /* Yellow text theme - Dark mode */
         --background: 0.12 0.02 240;
-        --foreground: 0.98 0.08 240;
+        --foreground: 0.90 0.20 95;
         --card: 0.18 0.02 240;
-        --card-foreground: 0.98 0.08 240;
+        --card-foreground: 0.90 0.20 95;
         --popover: 0.15 0.02 240;
-        --popover-foreground: 0.98 0.08 240;
+        --popover-foreground: 0.90 0.20 95;
         --primary: 0.65 0.20 220;
         --primary-foreground: 0.12 0.02 240;
         --secondary: 0.22 0.03 240;
-        --secondary-foreground: 0.98 0.08 240;
+        --secondary-foreground: 0.90 0.20 95;
         --muted: 0.25 0.02 240;
-        --muted-foreground: 0.88 0.06 240;
+        --muted-foreground: 0.78 0.16 95;
         --accent: 0.30 0.04 200;
-        --accent-foreground: 0.98 0.08 240;
+        --accent-foreground: 0.90 0.20 95;
         --destructive: 0.60 0.22 20;
-        --destructive-foreground: 0.98 0.08 240;
+        --destructive-foreground: 0.90 0.20 95;
         --border: 0.25 0.02 240;
         --input: 0.25 0.02 240;
         --ring: 0.60 0.18 220;
@@ -77,8 +77,8 @@
     }
 }
 
-/* Waterfall Static Background Styles */
-.waterfall-background-static {
+/* Ocean Background Styles */
+.ocean-background-static {
     position: fixed;
     top: 0;
     left: 0;
@@ -86,13 +86,14 @@
     height: 100vh;
     z-index: 0;
     pointer-events: none;
-    background-image: url('/assets/generated/waterfall-bg.dim_1920x1080.png');
+    background-image: url('/assets/generated/blue-ocean-bg.dim_1920x1080.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-.waterfall-overlay {
+/* Animated ocean wave layers */
+.ocean-wave-layer {
     position: fixed;
     top: 0;
     left: 0;
@@ -100,10 +101,83 @@
     height: 100vh;
     z-index: 1;
     pointer-events: none;
+    opacity: 0.15;
+    background: linear-gradient(
+        135deg,
+        transparent 0%,
+        rgba(59, 130, 246, 0.3) 25%,
+        rgba(6, 182, 212, 0.3) 50%,
+        rgba(59, 130, 246, 0.3) 75%,
+        transparent 100%
+    );
+    background-size: 400% 400%;
+}
+
+.ocean-wave-1 {
+    animation: ocean-wave-drift 20s ease-in-out infinite;
+    animation-delay: 0s;
+}
+
+.ocean-wave-2 {
+    animation: ocean-wave-drift 25s ease-in-out infinite reverse;
+    animation-delay: -5s;
+    opacity: 0.1;
+}
+
+.ocean-wave-3 {
+    animation: ocean-wave-drift 30s ease-in-out infinite;
+    animation-delay: -10s;
+    opacity: 0.08;
+}
+
+@keyframes ocean-wave-drift {
+    0% {
+        background-position: 0% 50%;
+        transform: translateY(0) scale(1);
+    }
+    25% {
+        background-position: 50% 25%;
+        transform: translateY(-10px) scale(1.02);
+    }
+    50% {
+        background-position: 100% 50%;
+        transform: translateY(0) scale(1);
+    }
+    75% {
+        background-position: 50% 75%;
+        transform: translateY(10px) scale(0.98);
+    }
+    100% {
+        background-position: 0% 50%;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Readability overlay */
+.ocean-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    pointer-events: none;
     background: linear-gradient(
         to bottom,
         rgba(0, 0, 0, 0.3) 0%,
         rgba(0, 0, 0, 0.2) 50%,
         rgba(0, 0, 0, 0.4) 100%
     );
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .ocean-wave-layer {
+        animation: none;
+        opacity: 0;
+    }
+    
+    .ocean-background-static {
+        opacity: 1;
+    }
 }

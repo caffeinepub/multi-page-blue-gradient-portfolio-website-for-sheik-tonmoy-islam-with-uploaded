@@ -36,7 +36,7 @@ export default function SiteFooter() {
 
           {/* Quick Links */}
           <div className="flex flex-col space-y-4">
-            <h3 className="font-semibold text-lg">Quick Links</h3>
+            <h3 className="font-semibold text-lg text-foreground">Quick Links</h3>
             <nav className="flex flex-col space-y-2">
               {footerLinks.map((link) => (
                 <Link
@@ -52,7 +52,7 @@ export default function SiteFooter() {
 
           {/* Contact Info */}
           <div className="flex flex-col space-y-4">
-            <h3 className="font-semibold text-lg">Get In Touch</h3>
+            <h3 className="font-semibold text-lg text-foreground">Get In Touch</h3>
             <p className="text-sm text-muted-foreground">
               Ready to collaborate? Reach out through the contact page to discuss your project.
             </p>

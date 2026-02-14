@@ -4,6 +4,7 @@ import GradientBackground from '../components/common/GradientBackground';
 import { setSEO } from '../lib/seo';
 import ProjectsGrid from '../components/portfolio/ProjectsGrid';
 import ProjectFilter from '../components/portfolio/ProjectFilter';
+import SkillsDetailsSection from '../components/skills/SkillsDetailsSection';
 import { projects } from '../data/projects';
 
 export default function PortfolioPage() {
@@ -46,6 +47,11 @@ export default function PortfolioPage() {
 
         {/* Projects Grid */}
         <ProjectsGrid projects={filteredProjects} />
+
+        {/* Skills Details Section */}
+        <div className="mt-24">
+          <SkillsDetailsSection showHeading={true} />
+        </div>
       </Container>
     </GradientBackground>
   );
