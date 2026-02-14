@@ -33,7 +33,7 @@ export default function PortfolioPage() {
               Portfolio
             </span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto lg:mx-0">
+          <p className="text-xl text-foreground/90 max-w-3xl mx-auto lg:mx-0">
             A showcase of projects demonstrating my diverse capabilities
           </p>
         </div>

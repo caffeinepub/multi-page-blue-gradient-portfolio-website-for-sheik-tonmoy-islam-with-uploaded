@@ -1,18 +1,21 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 13,
-  "summary": "Build a multi-page portfolio website for Sheik Tonmoy Islam using React + Tailwind with a blue-gradient theme, including all standard portfolio sections, and deploy with a shareable live link using the domain identifier \"sheik-tonmoy-islam\"; remove all pictures from the website entirely (no profile/portrait images anywhere).",
+  "projectStateVersion": 23,
+  "summary": "Update the existing multi-page portfolio website for Sheik Tonmoy Islam so the visual theme is fully replaced with a full-page, static (generated) waterfall picture background applied across every page; then rebuild and redeploy under the existing domain identifier \"sheik-tonmoy-islam\".",
   "architectural_notes": [
-    "Use React + Tailwind for frontend styling with a blue-gradient theme.",
     "Implement as a multi-page site with separate routes/pages for Home, About, Services, Skills, Portfolio/Projects, Contact.",
     "Include explicit contact details on the Contact page: email gamil-official.tonmoyislam@gmail.com and WhatsApp 01999785559.",
     "Republish and replace the old published link using the valid domain identifier exactly: sheik-tonmoy-islam.",
-    "Do not display any pictures/images anywhere on the site (remove all portrait/photo components and image references)."
+    "Re-enable images for the bio/profile picture using the previously uploaded asset \"Tonmoy islam pic.png\".",
+    "Theme direction change: replace the blue-gradient theme with a full-page animated (video-style) 3D waterfall background across all pages.",
+    "Theme direction update: replace the animated 3D waterfall video background with a static (generated) waterfall picture background across all pages.",
+    "Typography visibility spec update (site-wide, all pages incl. About): headings and body text use the same stronger (more saturated) text color with a lighter/subtler (lower-contrast) text shadow vs the previously requested strong high-contrast shadow."
   ],
   "known_issues": [
     "Initial build attempt failed with platform error: \"The AI couldn't implement your request. Please simplify or rephrase your prompt.\"",
     "Publishing blocked by domain validation error: \"Domain Sheik Tonmoy Islam 742 @ must be between 5 and 50 characters and contain only letters, numbers, and hyphens.\"",
-    "Site must be updated to remove all images and ensure no broken/missing image placeholders remain anywhere in the UI."
+    "Site must be updated to remove all images and ensure no broken/missing image placeholders remain anywhere in the UI.",
+    "Site-wide typography readability issue: text blends into the waterfall background; requires stronger text color and strong shadow for contrast on all pages."
   ],
   "isFixRequest": true,
   "existing_features": [
@@ -199,6 +202,142 @@
         "REQ-23"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-re-enable-image-rendering-on-the-website-and-add-the-previously-uploaded-bio-picture-file-tonmoy-islam-pic-png-back-into-the-ui-as-a-portrait",
+      "title": "Re-enable image rendering on the website and add the previously uploaded bio picture file \"Tonmoy islam pic.png\" back into the UI as a portrait.",
+      "reqIds": [
+        "REQ-24"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-place-the-bio-picture-tonmoy-islam-pic-png-in-the-about-page-as-a-clearly-visible-biography-portrait-near-the-about-header-and-bio-content-while-keeping-the-existing-layout-responsive-and-visually-clean",
+      "title": "Place the bio picture \"Tonmoy islam pic.png\" in the About page as a clearly visible biography portrait (near the About header and bio content) while keeping the existing layout responsive and visually clean.",
+      "reqIds": [
+        "REQ-25"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-rebuild-and-republish-the-site-so-the-updated-version-with-the-bio-picture-restored-is-live-under-the-existing-production-identifier-exactly-sheik-tonmoy-islam",
+      "title": "Rebuild and republish the site so the updated version (with the bio picture restored) is live under the existing production identifier exactly: \"sheik-tonmoy-islam\".",
+      "reqIds": [
+        "REQ-26"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-full-page-animated-video-style-3d-waterfall-background-that-is-visible-across-every-route-page-home-about-services-skills-portfolio-contact-and-replaces-the-existing-blue-gradient-page-background-theme",
+      "title": "Implement a full-page, animated video-style “3D waterfall” background that is visible across every route/page (Home, About, Services, Skills, Portfolio, Contact) and replaces the existing blue-gradient page background theme.",
+      "reqIds": [
+        "REQ-27"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-waterfall-background-as-static-frontend-assets-and-integrate-it-in-a-production-safe-way-autoplay-muted-loop-with-accessibility-performance-fallbacks",
+      "title": "Add the waterfall background as static frontend assets and integrate it in a production-safe way (autoplay, muted, loop) with accessibility/performance fallbacks.",
+      "reqIds": [
+        "REQ-28"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-or-refactor-existing-gradient-background-wrappers-so-they-do-not-conflict-with-the-new-waterfall-background-while-preserving-component-structure-and-responsive-spacing",
+      "title": "Remove or refactor existing gradient-background wrappers so they do not conflict with the new waterfall background, while preserving component structure and responsive spacing.",
+      "reqIds": [
+        "REQ-29"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-rebuild-and-republish-the-updated-site-waterfall-background-theme-to-production-under-the-existing-identifier-exactly-sheik-tonmoy-islam-and-ensure-the-live-url-loads-correctly",
+      "title": "Rebuild and republish the updated site (waterfall background theme) to production under the existing identifier exactly \"sheik-tonmoy-islam\" and ensure the live URL loads correctly.",
+      "reqIds": [
+        "REQ-30"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-generate-a-new-static-waterfall-background-image-and-add-it-to-the-frontend-as-a-static-asset-under-frontend-public-assets-generated-suitable-for-full-screen-background-use-high-resolution-photorealistic-waterfall-scene",
+      "title": "Generate a new static waterfall background image and add it to the frontend as a static asset under `frontend/public/assets/generated/`, suitable for full-screen background use (high-resolution, photorealistic waterfall scene).",
+      "reqIds": [
+        "REQ-31"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-current-animated-3d-waterfall-video-background-implementation-with-a-static-background-image-implementation-that-applies-across-every-route-page-home-about-services-skills-portfolio-contact-via-the-global-layout-frontend-src-components-layout-sitelayout-tsx",
+      "title": "Replace the current animated 3D waterfall video background implementation with a static background image implementation that applies across every route/page (Home, About, Services, Skills, Portfolio, Contact) via the global layout (`frontend/src/components/layout/SiteLayout.tsx`).",
+      "reqIds": [
+        "REQ-32"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-styling-so-the-static-waterfall-background-has-an-always-on-readability-overlay-scrim-equivalent-to-the-current-waterfall-overlay-and-ensure-the-overlay-background-do-not-block-interactions-pointer-events-disabled-and-remain-behind-all-page-content",
+      "title": "Update styling so the static waterfall background has an always-on readability overlay (scrim) equivalent to the current waterfall overlay, and ensure the overlay/background do not block interactions (pointer-events disabled) and remain behind all page content.",
+      "reqIds": [
+        "REQ-33"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-or-disable-any-now-unused-waterfall-video-asset-references-in-code-paths-e-g-waterfallvideobackground-sources-poster-usage-so-production-builds-do-not-depend-on-video-files-for-the-background-rendering",
+      "title": "Remove or disable any now-unused waterfall video asset references in code paths (e.g., `WaterfallVideoBackground` sources/poster usage) so production builds do not depend on video files for the background rendering.",
+      "reqIds": [
+        "REQ-34"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-rebuild-and-republish-the-updated-site-so-the-static-waterfall-image-background-version-is-live-under-the-existing-production-identifier-exactly-sheik-tonmoy-islam",
+      "title": "Rebuild and republish the updated site so the static waterfall image background version is live under the existing production identifier exactly: `sheik-tonmoy-islam`.",
+      "reqIds": [
+        "REQ-35"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-make-typography-across-the-entire-site-all-pages-routes-more-readable-over-the-static-waterfall-background-by-applying-a-stronger-text-color-and-a-strong-high-contrast-text-shadow-globally-with-headings-and-body-text-using-the-same-visibility-style",
+      "title": "Make typography across the entire site (all pages/routes) more readable over the static waterfall background by applying a stronger text color and a strong, high-contrast text shadow globally, with headings and body text using the same visibility style.",
+      "reqIds": [
+        "REQ-36"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-adjust-global-theme-tokens-styles-so-commonly-used-secondary-text-e-g-elements-using-muted-secondary-foreground-styles-also-remains-readable-over-the-waterfall-background-while-preserving-the-existing-design-language",
+      "title": "Adjust global theme tokens/styles so commonly used secondary text (e.g., elements using muted/secondary foreground styles) also remains readable over the waterfall background while preserving the existing design language.",
+      "reqIds": [
+        "REQ-37"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-rebuild-and-republish-the-site-so-the-typography-readability-improvements-are-live-under-the-existing-production-identifier-exactly-sheik-tonmoy-islam",
+      "title": "Rebuild and republish the site so the typography readability improvements are live under the existing production identifier exactly: \"sheik-tonmoy-islam\".",
+      "reqIds": [
+        "REQ-38"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-site-wide-typography-visibility-styling-so-headings-and-body-text-use-the-same-more-saturated-text-color-and-a-lighter-subtler-lower-contrast-text-shadow-compared-to-the-current-strong-high-contrast-shadow-across-all-routes-pages",
+      "title": "Update the site-wide typography visibility styling so headings and body text use the same more-saturated text color and a lighter/subtler (lower-contrast) text-shadow compared to the current strong, high-contrast shadow, across all routes/pages.",
+      "reqIds": [
+        "REQ-39"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-about-page-typography-is-clearly-visible-and-looks-good-using-the-same-global-typography-visibility-styling-no-special-case-styling-unique-to-the-about-page",
+      "title": "Ensure the About page typography is clearly visible and looks good using the same global typography visibility styling (no special-case styling unique to the About page).",
+      "reqIds": [
+        "REQ-40"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -225,9 +364,34 @@
       "summary": "Remove all pictures/images from the website entirely (no portraits or uploaded photos displayed on any page) and ensure no broken image placeholders remain",
       "reqIds": [],
       "status": "in_progress"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Re-enable images and add the previously uploaded bio picture (\"Tonmoy islam pic.png\") to the website",
+      "reqIds": [],
+      "status": "in_progress"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Replace the current blue-gradient theme with a full-page, animated video-style 3D waterfall background on every page (site-wide)",
+      "reqIds": [],
+      "status": "in_progress"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Generate a static waterfall background image and replace the current animated 3D waterfall video with this image as the site-wide background across all pages",
+      "reqIds": [],
+      "status": "in_progress"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Improve typography readability across the entire site (all pages): apply a stronger text color and strong high-contrast text-shadow globally so text doesn’t blend into the waterfall background; headings and body use the same visibility style",
+      "reqIds": [],
+      "status": "in_progress"
     }
   ],
-  "projectName": "Multi-page blue-gradient portfolio website for Sheik Tonmoy Islam (with uploaded photos)",
+  "gameProjectType": "none",
+  "projectName": "Multi-page blue-gradient portfolio website for Sheik Tonmoy Islam",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

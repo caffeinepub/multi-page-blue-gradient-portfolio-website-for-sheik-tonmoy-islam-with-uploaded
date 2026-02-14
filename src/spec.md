@@ -1,13 +1,12 @@
 # Specification
 
 ## Summary
-**Goal:** Remove all images from the portfolio website UI (no portraits, logos, or background images) while keeping the layout clean and responsive, then republish the updated site.
+**Goal:** Improve site-wide typography readability by using a more saturated text color and a subtler, lower-contrast text shadow consistently across all pages (including About).
 
 **Planned changes:**
-- Remove/replace any rendered `<img>` usage across all pages/sections (Home, About, Services, Skills, Portfolio, Contact, Header, Footer) so no images render anywhere.
-- Replace image-based hero/background visuals with CSS-only styling (e.g., gradients/shapes) and ensure no broken-image placeholders remain.
-- Replace the header/footer logo image with a text-only brand mark.
-- Remove or disable portrait-related components/usages so they are not imported or rendered anywhere (e.g., RightSidePortrait, ProfilePortrait, SectionCornerPortrait, SectionMediumPortrait), and ensure the layout remains visually balanced after removing portrait columns/space.
-- Republish the site so the no-images version is live under the existing production identifier: "sheik-tonmoy-islam".
+- Adjust global typography styles in `frontend/src/index.css` to reduce the current heavy/multi-layer text-shadow to a lighter, subtler shadow.
+- Update the primary global text color to a more saturated value that remains readable over the existing static waterfall background.
+- Ensure headings and body text share the same visibility treatment (no separate/stronger heading-specific shadow or readability rules).
+- Verify the About page remains clearly readable using the same global typography styling (no About-only readability CSS).
 
-**User-visible outcome:** The live site at https://sheik-tonmoy-islam.caffeine.xyz/ shows the full portfolio with text/CSS-only styling (no portraits, logos, or decorative images) across all routes, with a clean responsive layout and no broken image frames.
+**User-visible outcome:** Text across the entire site (headings and body, including the About page) appears clearer and more vibrant, with a softer shadow that improves readability without the current strong/high-contrast shadowing.

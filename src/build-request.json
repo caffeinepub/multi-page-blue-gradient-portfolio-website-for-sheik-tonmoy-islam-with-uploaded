@@ -1,74 +1,57 @@
 {
   "kind": "build_request",
-  "title": "Remove all images from the portfolio site (no portraits, logos, or background images) and republish",
+  "title": "Update global typography to more saturated color with subtler shadow (site-wide, including About)",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-21",
-      "text": "Remove all pictures/images from the website UI so that no <img> elements render anywhere (including portraits, logos, and decorative background images), and ensure the layout remains visually clean using only CSS gradients/shapes/text.",
+      "id": "REQ-39",
+      "text": "Update the site-wide typography visibility styling so headings and body text use the same more-saturated text color and a lighter/subtler (lower-contrast) text-shadow compared to the current strong, high-contrast shadow, across all routes/pages.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "recent-messages"
+          "msg-1"
         ],
         "quotes": [
-          "no picture into this website.",
-          "to proceed."
+          "headings and body text should use the same stronger‑color, low‑contrast, low‑shadow visibility style across the entire site.",
+          "lighter/subtler compared , simply more saturated"
         ]
       },
       "acceptanceCriteria": [
-        "No pages render any <img> elements (Home, About, Services, Skills, Portfolio, Contact, Header, Footer).",
-        "The Home hero section uses a CSS-based background (e.g., gradient) instead of loading /assets/generated/hero-bg.dim_1920x1080.png.",
-        "Header and Footer do not load /assets/generated/logo-sti.dim_512x512.png; replace with a text-only brand mark.",
-        "No broken-image icons/empty image frames/portrait borders remain visible after image removal.",
-        "All pages remain responsive and visually balanced after removing the right-side portrait column/space."
+        "In `frontend/src/index.css`, the global text-shadow applied to typography elements is reduced to a subtler/lower-contrast shadow than the current heavy multi-layer shadow.",
+        "The primary readable text color used across the site is adjusted to be more saturated while remaining readable over the static waterfall background.",
+        "Headings and body text share the same visibility treatment (no separate/stronger shadow rules for headings vs paragraphs).",
+        "No page requires per-page overrides to achieve readability; the global rule applies consistently."
       ]
     },
     {
-      "id": "REQ-22",
-      "text": "Remove or disable all portrait-related components/usages so they are not imported/rendered anywhere (including RightSidePortrait, ProfilePortrait usages if any, and legacy SectionCornerPortrait/SectionMediumPortrait if referenced).",
+      "id": "REQ-40",
+      "text": "Ensure the About page typography is clearly visible and looks good using the same global typography visibility styling (no special-case styling unique to the About page).",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "recent-messages"
+          "msg-1"
         ],
         "quotes": [
-          "no picture into this website."
+          "about page font must be visible and looking great.",
+          "about page the rest of the site once updated?"
         ]
       },
       "acceptanceCriteria": [
-        "No page imports or renders RightSidePortrait (currently used in HeroSection and all main pages).",
-        "Portrait configuration in frontend/src/lib/portrait.ts is not referenced by any rendered component route.",
-        "SectionCornerPortrait and SectionMediumPortrait are not rendered anywhere in the app (directly or indirectly)."
-      ]
-    },
-    {
-      "id": "REQ-23",
-      "text": "Republish the site so the updated no-images version is live under the existing production identifier exactly: \"sheik-tonmoy-islam\".",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "recent-messages"
-        ],
-        "quotes": [
-          "to proceed."
-        ]
-      },
-      "acceptanceCriteria": [
-        "A production build is generated and deployed successfully.",
-        "The live site at https://sheik-tonmoy-islam.caffeine.xyz/ reflects the removal of all images across all pages.",
-        "Manual spot-check: navigating all routes shows no images and no broken-image placeholders."
+        "On `frontend/src/pages/AboutPage.tsx`, the main header, subtitle, and biography paragraphs are readable over the waterfall background using the same global typography styling as other pages.",
+        "Common secondary text styles used on the About page (e.g., `text-foreground/80`, `text-foreground/70`, or similar muted treatments) remain readable after the global adjustments.",
+        "No About-page-only CSS rules are introduced for readability; improvements come from global tokens/styles or global typography rules."
       ]
     }
   ],
   "constraints": [
-    "Do not edit files in frontend immutablePaths: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui.",
-    "Backend remains single-actor; no backend changes are required for removing images."
+    "Do not edit any files under the frontend immutable paths list (e.g., `frontend/src/main.tsx`, `frontend/src/hooks/useActor.ts`, `frontend/src/hooks/useInternetIdentity.ts(x)`, and `frontend/src/components/ui`).",
+    "Keep the static waterfall background implementation intact (do not change background image URL/path or overlay layering behavior).",
+    "Backend is single-actor Motoko; no backend changes are required for typography-only updates."
   ],
   "nonGoals": [
-    "Do not add the newly uploaded images (Tonmoy islam pic-3.png, Tonmoy islam pic-4.png) anywhere on the site.",
-    "Do not introduce new third-party services or external asset hosting.",
-    "Do not change contact form backend persistence behavior."
+    "Changing site content/copy, page structure, routing, or navigation.",
+    "Replacing or regenerating the waterfall background image asset.",
+    "Adding new fonts or redesigning the overall theme beyond the requested color saturation and shadow subtlety adjustments."
   ],
   "imageRequirements": {
     "required": [],

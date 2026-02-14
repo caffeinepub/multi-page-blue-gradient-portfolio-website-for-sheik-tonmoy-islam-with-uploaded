@@ -26,87 +26,60 @@ export default function ContactPage() {
               Touch
             </span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto lg:mx-0">
+          <p className="text-xl text-foreground/90 max-w-3xl mx-auto lg:mx-0">
             Let's discuss how I can help bring your project to life
           </p>
         </div>
 
-        <div className="grid gap-12 md:grid-cols-2 max-w-5xl mx-auto">
+        <div className="grid gap-12 lg:grid-cols-2">
           {/* Contact Form */}
-          <div>
+          <div className="order-2 lg:order-1">
             <ContactForm />
           </div>
 
           {/* Contact Information */}
-          <div className="space-y-8">
-            <div>
+          <div className="order-1 lg:order-2 space-y-8">
+            <div className="bg-card/80 backdrop-blur-sm rounded-xl p-8 border border-border shadow-lg">
               <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
-              <p className="text-muted-foreground mb-8">
-                Feel free to reach out through the contact form or connect with me directly. I'm
-                always open to discussing new projects, creative ideas, or opportunities to be part
-                of your vision.
-              </p>
-            </div>
-
-            <div className="space-y-6">
-              <div className="flex items-start space-x-4">
-                <div className="shrink-0">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-cyan-500">
-                    <Mail className="h-6 w-6 text-white" />
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-cyan-500 text-white flex-shrink-0">
+                    <Mail className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">Email</h3>
+                    <p className="text-sm text-foreground/70">
+                      Send me an email and I'll get back to you as soon as possible
+                    </p>
                   </div>
                 </div>
-                <div>
-                  <h3 className="font-semibold mb-1">Email</h3>
-                  <a
-                    href="mailto:gamil-official.tonmoyislam@gmail.com"
-                    className="text-muted-foreground hover:text-foreground transition-colors underline"
-                  >
-                    gamil-official.tonmoyislam@gmail.com
-                  </a>
-                </div>
-              </div>
 
-              <div className="flex items-start space-x-4">
-                <div className="shrink-0">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-cyan-500">
-                    <Phone className="h-6 w-6 text-white" />
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-cyan-500 text-white flex-shrink-0">
+                    <MapPin className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">Location</h3>
+                    <p className="text-sm text-foreground/70">
+                      Available for remote work and local consultations
+                    </p>
                   </div>
                 </div>
-                <div>
-                  <h3 className="font-semibold mb-1">WhatsApp</h3>
-                  <a
-                    href="https://wa.me/8801999785559"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-foreground transition-colors underline"
-                  >
-                    01999785559
-                  </a>
-                </div>
-              </div>
 
-              <div className="flex items-start space-x-4">
-                <div className="shrink-0">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-cyan-500">
-                    <MapPin className="h-6 w-6 text-white" />
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-cyan-500 text-white flex-shrink-0">
+                    <Phone className="h-6 w-6" />
                   </div>
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-1">Location</h3>
-                  <p className="text-muted-foreground">Available for remote work worldwide</p>
+                  <div>
+                    <h3 className="font-semibold mb-1">Response Time</h3>
+                    <p className="text-sm text-foreground/70">
+                      I typically respond within 24-48 hours
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div className="mt-12 p-6 rounded-lg bg-gradient-to-br from-blue-600/10 to-cyan-500/10 border border-blue-200/20">
-              <h3 className="font-semibold text-lg mb-2">Response Time</h3>
-              <p className="text-muted-foreground">
-                I typically respond to all inquiries within 24-48 hours. For urgent matters, please
-                indicate this in your message.
-              </p>
-            </div>
-
-            {/* Share Site Link Card */}
             <ShareSiteLinkCard />
           </div>
         </div>

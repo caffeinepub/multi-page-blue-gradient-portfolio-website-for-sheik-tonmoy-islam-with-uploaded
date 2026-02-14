@@ -64,7 +64,7 @@ export default function ServicesPage() {
               Services
             </span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto lg:mx-0">
+          <p className="text-xl text-foreground/90 max-w-3xl mx-auto lg:mx-0">
             Comprehensive solutions tailored to your business needs
           </p>
         </div>
@@ -82,9 +82,9 @@ export default function ServicesPage() {
         </div>
 
         {/* CTA Section */}
-        <div className="max-w-3xl mx-auto bg-gradient-to-br from-blue-600/10 to-cyan-500/10 rounded-2xl p-12 border border-blue-200/20 text-center lg:text-left">
+        <div className="max-w-3xl mx-auto bg-card/80 backdrop-blur-sm rounded-2xl p-12 border border-border text-center lg:text-left shadow-lg">
           <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
-          <p className="text-lg text-muted-foreground mb-8">
+          <p className="text-lg text-foreground/80 mb-8">
             Let's discuss how I can help bring your project to life with my diverse skill set and
             professional expertise.
           </p>

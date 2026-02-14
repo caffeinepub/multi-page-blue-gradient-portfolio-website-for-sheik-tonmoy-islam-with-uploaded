@@ -84,7 +84,7 @@ export default function SkillsPage() {
               Skills
             </span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto lg:mx-0">
+          <p className="text-xl text-foreground/90 max-w-3xl mx-auto lg:mx-0">
             A comprehensive skill set across multiple disciplines
           </p>
         </div>

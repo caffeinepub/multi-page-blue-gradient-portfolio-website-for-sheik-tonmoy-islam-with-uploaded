@@ -1,125 +1,76 @@
-# Deployment Guide - Sheik Tonmoy Islam Portfolio
+# Deployment Documentation
 
 ## Production Identifier
 **sheik-tonmoy-islam**
 
-This identifier is used for the production deployment at:
-https://sheik-tonmoy-islam.caffeine.xyz/
-
 ## Pre-Deployment Checklist
+- [ ] All TypeScript compilation errors resolved
+- [ ] No console errors in development mode
+- [ ] All routes tested and functional
+- [ ] Contact form submission tested
+- [ ] Waterfall background image present at `frontend/public/assets/generated/waterfall-bg.dim_1920x1080.png`
 
-### Content Verification
-- [ ] All page routes are accessible (Home, About, Services, Skills, Portfolio, Contact)
-- [ ] Navigation links work correctly in both desktop and mobile views
-- [ ] Contact form submits successfully and displays appropriate feedback
-- [ ] All text content is accurate and free of typos
-- [ ] Footer attribution link includes correct UTM parameters
-
-### Design & Layout Verification
-- [ ] No `<img>` elements render anywhere on the site
-- [ ] Header displays text-only brand mark (STI badge + text)
-- [ ] Footer displays text-only brand mark (STI badge + text)
-- [ ] Hero section uses CSS gradient background (no background image)
-- [ ] All pages are responsive across mobile, tablet, and desktop breakpoints
-- [ ] Color scheme and gradients are consistent across all pages
-- [ ] Dark mode (if implemented) works correctly
-
-### Technical Verification
-- [ ] No console errors in browser developer tools
-- [ ] No broken links or 404 errors
-- [ ] SEO meta tags are present and accurate on all pages
-- [ ] Open Graph tags are configured for social sharing
-- [ ] Page load times are acceptable
-- [ ] All interactive elements (buttons, forms, links) are functional
+## Build Process
+1. Run `dfx generate backend` to update backend bindings
+2. Run `npm run build` in frontend directory
+3. Deploy backend canister: `dfx deploy backend`
+4. Deploy frontend canister with assets: `dfx deploy frontend`
 
 ## Post-Deployment Verification
 
-After deploying to production, verify the following:
+### Critical Functionality
+- [ ] Site loads without errors at production URL
+- [ ] Waterfall background image displays on all pages
+- [ ] Navigation works across all pages (Home, About, Services, Skills, Portfolio, Contact)
+- [ ] Header navigation highlights active route correctly
+- [ ] Mobile navigation drawer opens and closes properly
+- [ ] Footer displays with correct year and Caffeine.ai attribution with UTM tracking
 
-1. **Homepage (/)**: 
-   - Hero section displays with CSS gradient background
-   - No images render
-   - CTA buttons navigate correctly
-   - Stats display properly
+### Page-Specific Checks
+- [ ] **Home**: Hero section displays with waterfall background, CTAs navigate correctly
+- [ ] **About**: Bio portrait renders, highlights grid displays, values section visible
+- [ ] **Services**: All six service cards display correctly, CTA button navigates to Contact
+- [ ] **Skills**: All skill categories render with progress bars
+- [ ] **Portfolio**: Category filter works, project cards display, external links open in new tabs
+- [ ] **Contact**: Form fields accept input, validation works, submission succeeds, share link card displays current URL
 
-2. **About Page (/about)**:
-   - Biography content displays correctly
-   - Highlights grid renders properly
-   - Core values section is visible
-   - No portrait images render
+### Visual & UX Checks
+- [ ] Waterfall background image visible behind all content on every page
+- [ ] Background remains fixed while content scrolls (full-viewport cover behavior)
+- [ ] Content remains readable over background (overlay/scrim working)
+- [ ] **Typography visibility**: All headings and body text are clearly readable with strong text-shadow across all routes
+- [ ] **Muted/secondary text**: Text using muted-foreground and secondary-foreground tokens remains readable over waterfall background
+- [ ] Cards and surfaces have appropriate backdrop blur and opacity
+- [ ] All interactive elements (buttons, links, form fields) are clickable and not blocked by background layers
+- [ ] Responsive layout works on mobile, tablet, and desktop
+- [ ] No horizontal scroll on any viewport size
+- [ ] Dark mode toggle works (if implemented)
 
-3. **Services Page (/services)**:
-   - All six service cards display
-   - Icons render correctly
-   - CTA section is visible
-   - No portrait images render
+### Performance & Accessibility
+- [ ] Background image loads efficiently
+- [ ] Page load time acceptable
+- [ ] No console errors or warnings
+- [ ] Keyboard navigation works throughout site
+- [ ] Focus indicators visible on interactive elements
 
-4. **Skills Page (/skills)**:
-   - All skill categories display
-   - Skill meters show correct levels
-   - Grid layout is responsive
-   - No portrait images render
+## Known Issues
+- None at this time
 
-5. **Portfolio Page (/portfolio)**:
-   - Category filter works correctly
-   - Project cards display properly
-   - External links (if any) open in new tabs
-   - No portrait images render
+## Rollback Plan
+If critical issues are discovered:
+1. Revert to previous canister version using `dfx canister install --mode=reinstall`
+2. Restore previous frontend build from backup
+3. Document issue for future fix
 
-6. **Contact Page (/contact)**:
-   - Contact form accepts input
-   - Form validation works
-   - Success/error messages display
-   - Contact information is accurate
-   - Share site link card functions correctly
-   - No portrait images render
+## Contact Form Backend
+- Backend stores submissions in memory (Map data structure)
+- Submissions persist until canister upgrade/reinstall
+- Query `getAllSubmissions()` to view all submissions
+- Query `getSubmission(name)` to retrieve specific submission
 
-7. **Header & Footer**:
-   - Navigation works on all pages
-   - Mobile menu opens and closes correctly
-   - Footer links navigate properly
-   - Caffeine.ai attribution link includes UTM parameters
-   - Text-only brand marks display correctly (no logo images)
-
-## Troubleshooting
-
-### Common Issues
-
-**Issue: Images still appearing**
-- Verify that no `<img>` tags exist in any component files
-- Check that portrait components have been deleted
-- Clear browser cache and hard refresh (Ctrl+Shift+R or Cmd+Shift+R)
-
-**Issue: Layout appears broken**
-- Verify that all pages have been updated to remove portrait columns
-- Check that grid layouts have been adjusted for single-column content
-- Test responsive breakpoints
-
-**Issue: Navigation not working**
-- Verify all routes are defined in App.tsx
-- Check that Link components use correct paths
-- Ensure router is properly configured
-
-**Issue: Contact form not submitting**
-- Check browser console for errors
-- Verify backend actor is initialized
-- Test form validation
-
-**Issue: Styling inconsistencies**
-- Verify Tailwind classes are correct
-- Check that gradient utilities are defined in index.css
-- Ensure theme colors are configured in tailwind.config.js
-
-## Rollback Procedure
-
-If critical issues are discovered after deployment:
-
-1. Document the specific issue(s)
-2. Notify the development team
-3. If necessary, revert to the previous stable version
-4. Address issues in development environment
-5. Re-test thoroughly before redeploying
-
-## Support
-
-For deployment issues or questions, contact the Caffeine.ai support team.
+## Notes
+- Production identifier must remain exactly **sheik-tonmoy-islam** for consistency
+- Waterfall background image must be present at `frontend/public/assets/generated/waterfall-bg.dim_1920x1080.png` before build
+- Overlay tint ensures content readability across all pages
+- Background uses fixed positioning with full viewport coverage for consistent appearance across all routes
+- Global typography treatment applies strong text-shadow and high-contrast colors to all text elements for consistent readability over waterfall background

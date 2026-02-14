@@ -1,140 +1,38 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Remove all images/portraits/logos from portfolio UI and republish",
+  "title": "Global typography visibility refresh (more saturated color, subtler shadow)",
   "requirements": [
     {
-      "id": "REQ-21",
-      "summary": "Remove all rendered images from the UI and replace image-based visuals with CSS gradients/shapes/text while keeping the layout responsive and visually balanced.",
+      "id": "REQ-39",
+      "summary": "Adjust global typography visibility treatment to use a more saturated readable text color and a subtler/lower-contrast text-shadow shared by headings and body text site-wide.",
       "acceptanceCriteria": [
-        "No pages render any <img> elements (Home, About, Services, Skills, Portfolio, Contact, Header, Footer).",
-        "The Home hero section uses a CSS-based background (e.g., gradient) instead of loading /assets/generated/hero-bg.dim_1920x1080.png.",
-        "Header and Footer do not load /assets/generated/logo-sti.dim_512x512.png; replace with a text-only brand mark.",
-        "No broken-image icons/empty image frames/portrait borders remain visible after image removal.",
-        "All pages remain responsive and visually balanced after removing the right-side portrait column/space."
+        "In `frontend/src/index.css`, the global text-shadow applied to typography elements is reduced to a subtler/lower-contrast shadow than the current heavy multi-layer shadow.",
+        "The primary readable text color used across the site is adjusted to be more saturated while remaining readable over the static waterfall background.",
+        "Headings and body text share the same visibility treatment (no separate/stronger shadow rules for headings vs paragraphs).",
+        "No page requires per-page overrides to achieve readability; the global rule applies consistently."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/home/HeroSection.tsx",
+          "path": "frontend/src/index.css",
           "operation": "modify",
-          "description": "Remove the hero background <img> that loads /assets/generated/hero-bg.dim_1920x1080.png and replace it with a CSS-only background (gradient/overlay layers); remove the hero portrait area so no <img> can render and the section remains visually balanced."
-        },
-        {
-          "path": "frontend/src/components/layout/HeaderNav.tsx",
-          "operation": "modify",
-          "description": "Remove the logo <img> that loads /assets/generated/logo-sti.dim_512x512.png and replace it with a text-only brand mark while preserving spacing/alignment in desktop and mobile navigation."
-        },
-        {
-          "path": "frontend/src/components/layout/SiteFooter.tsx",
-          "operation": "modify",
-          "description": "Remove the footer logo <img> that loads /assets/generated/logo-sti.dim_512x512.png and replace it with a text-only brand mark; ensure footer layout remains clean without any image frames."
-        },
-        {
-          "path": "frontend/src/pages/AboutPage.tsx",
-          "operation": "modify",
-          "description": "Remove the right-side portrait column and update the page grid/layout to a single-column content layout (or equivalent) so no portrait space remains and responsiveness is preserved."
-        },
-        {
-          "path": "frontend/src/pages/ServicesPage.tsx",
-          "operation": "modify",
-          "description": "Remove the right-side portrait column and adjust layout spacing so the services grid and CTA remain visually balanced across breakpoints without any reserved portrait area."
-        },
-        {
-          "path": "frontend/src/pages/SkillsPage.tsx",
-          "operation": "modify",
-          "description": "Remove the right-side portrait column and adjust the grid so skill sections render full-width appropriately with no unused portrait column on large screens."
-        },
-        {
-          "path": "frontend/src/pages/PortfolioPage.tsx",
-          "operation": "modify",
-          "description": "Remove the right-side portrait column and adjust layout so filters and project grid occupy the available width cleanly on all breakpoints."
-        },
-        {
-          "path": "frontend/src/pages/ContactPage.tsx",
-          "operation": "modify",
-          "description": "Remove the right-side portrait column and adjust the contact page layout so the form and info sections remain balanced and responsive with no unused portrait space."
+          "description": "Update global theme tokens (notably `--foreground` / `--muted-foreground`) to a slightly more saturated, still-readable color over the existing waterfall background, and replace the current heavy multi-layer `text-shadow` with a lighter, lower-contrast shadow applied uniformly to typography elements (no separate heading vs body rules)."
         }
       ]
     },
     {
-      "id": "REQ-22",
-      "summary": "Remove/disable all portrait-related components and configuration so they are not imported or rendered anywhere in the app.",
+      "id": "REQ-40",
+      "summary": "Confirm About page typography remains clearly visible using only the updated global typography styling (no About-only readability rules).",
       "acceptanceCriteria": [
-        "No page imports or renders RightSidePortrait (currently used in HeroSection and all main pages).",
-        "Portrait configuration in frontend/src/lib/portrait.ts is not referenced by any rendered component route.",
-        "SectionCornerPortrait and SectionMediumPortrait are not rendered anywhere in the app (directly or indirectly)."
+        "On `frontend/src/pages/AboutPage.tsx`, the main header, subtitle, and biography paragraphs are readable over the waterfall background using the same global typography styling as other pages.",
+        "Common secondary text styles used on the About page (e.g., `text-foreground/80`, `text-foreground/70`, or similar muted treatments) remain readable after the global adjustments.",
+        "No About-page-only CSS rules are introduced for readability; improvements come from global tokens/styles or global typography rules."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/home/HeroSection.tsx",
+          "path": "frontend/src/index.css",
           "operation": "modify",
-          "description": "Remove the RightSidePortrait import and all portrait rendering from the hero so no portrait-related component is referenced."
-        },
-        {
-          "path": "frontend/src/pages/AboutPage.tsx",
-          "operation": "modify",
-          "description": "Remove the RightSidePortrait import and any portrait-related rendering/structure so the page no longer references portrait components."
-        },
-        {
-          "path": "frontend/src/pages/ServicesPage.tsx",
-          "operation": "modify",
-          "description": "Remove the RightSidePortrait import and any portrait-related rendering/structure so the page no longer references portrait components."
-        },
-        {
-          "path": "frontend/src/pages/SkillsPage.tsx",
-          "operation": "modify",
-          "description": "Remove the RightSidePortrait import and any portrait-related rendering/structure so the page no longer references portrait components."
-        },
-        {
-          "path": "frontend/src/pages/PortfolioPage.tsx",
-          "operation": "modify",
-          "description": "Remove the RightSidePortrait import and any portrait-related rendering/structure so the page no longer references portrait components."
-        },
-        {
-          "path": "frontend/src/pages/ContactPage.tsx",
-          "operation": "modify",
-          "description": "Remove the RightSidePortrait import and any portrait-related rendering/structure so the page no longer references portrait components."
-        },
-        {
-          "path": "frontend/src/components/common/RightSidePortrait.tsx",
-          "operation": "delete",
-          "description": "Remove the portrait component to ensure it cannot be imported/rendered and no <img> usage remains."
-        },
-        {
-          "path": "frontend/src/components/common/ProfilePortrait.tsx",
-          "operation": "delete",
-          "description": "Remove the portrait component to ensure it cannot be imported/rendered and no <img> usage remains."
-        },
-        {
-          "path": "frontend/src/components/common/SectionCornerPortrait.tsx",
-          "operation": "delete",
-          "description": "Remove the legacy decorative portrait component to ensure it cannot be rendered directly or indirectly."
-        },
-        {
-          "path": "frontend/src/components/common/SectionMediumPortrait.tsx",
-          "operation": "delete",
-          "description": "Remove the legacy decorative portrait component to ensure it cannot be rendered directly or indirectly."
-        },
-        {
-          "path": "frontend/src/lib/portrait.ts",
-          "operation": "delete",
-          "description": "Remove the centralized portrait configuration so it cannot be referenced by any rendered component route."
-        }
-      ]
-    },
-    {
-      "id": "REQ-23",
-      "summary": "Update deployment guidance to republish the no-images version under the existing production identifier \"sheik-tonmoy-islam\".",
-      "acceptanceCriteria": [
-        "A production build is generated and deployed successfully.",
-        "The live site at https://sheik-tonmoy-islam.caffeine.xyz/ reflects the removal of all images across all pages.",
-        "Manual spot-check: navigating all routes shows no images and no broken-image placeholders."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/DEPLOYMENT.md",
-          "operation": "modify",
-          "description": "Update the pre-/post-deployment checklist and verification steps to reflect the no-images requirement (remove portrait/logo asset checks; add verification that no <img> renders anywhere) while keeping the production identifier exactly `sheik-tonmoy-islam`."
+          "description": "Ensure the global typography visibility rule and global color tokens also cover typical About-page content styling (including muted `text-foreground/70` and `text-foreground/80` usage and typography elements produced by Tailwind Typography's `prose` classes) so the About page remains readable without introducing page-specific styling."
         }
       ]
     }

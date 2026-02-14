@@ -1,80 +1,35 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-14T17:30:24.021Z",
+  "generatedAt": "2026-02-14T18:44:05.066Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 3,
-    "implemented": 3,
+    "total": 2,
+    "implemented": 2,
     "items": [
       {
-        "id": "REQ-21",
-        "summary": "Remove all pictures/images from the website UI so that no <img> elements render anywhere (including portraits, logos, and decorative background images), and ensure the layout remains visually clean using only CSS gradients/shapes/text.",
+        "id": "REQ-39",
+        "summary": "Update the site-wide typography visibility styling so headings and body text use the same more-saturated text color and a lighter/subtler (lower-contrast) text-shadow compared to the current strong, high-contrast shadow, across all routes/pages.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/home/HeroSection.tsx",
-          "frontend/src/components/layout/HeaderNav.tsx",
-          "frontend/src/components/layout/SiteFooter.tsx",
-          "frontend/src/pages/AboutPage.tsx",
-          "frontend/src/pages/ServicesPage.tsx",
-          "frontend/src/pages/SkillsPage.tsx",
-          "frontend/src/pages/PortfolioPage.tsx",
-          "frontend/src/pages/ContactPage.tsx"
+          "frontend/src/index.css"
         ],
         "matchedFiles": [
-          "frontend/src/components/home/HeroSection.tsx",
-          "frontend/src/components/layout/HeaderNav.tsx",
-          "frontend/src/components/layout/SiteFooter.tsx",
-          "frontend/src/pages/AboutPage.tsx",
-          "frontend/src/pages/ServicesPage.tsx",
-          "frontend/src/pages/SkillsPage.tsx",
-          "frontend/src/pages/PortfolioPage.tsx",
-          "frontend/src/pages/ContactPage.tsx"
+          "frontend/src/index.css"
         ]
       },
       {
-        "id": "REQ-22",
-        "summary": "Remove or disable all portrait-related components/usages so they are not imported/rendered anywhere (including RightSidePortrait, ProfilePortrait usages if any, and legacy SectionCornerPortrait/SectionMediumPortrait if referenced).",
+        "id": "REQ-40",
+        "summary": "Ensure the About page typography is clearly visible and looks good using the same global typography visibility styling (no special-case styling unique to the About page).",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/home/HeroSection.tsx",
-          "frontend/src/pages/AboutPage.tsx",
-          "frontend/src/pages/ServicesPage.tsx",
-          "frontend/src/pages/SkillsPage.tsx",
-          "frontend/src/pages/PortfolioPage.tsx",
-          "frontend/src/pages/ContactPage.tsx",
-          "frontend/src/components/common/RightSidePortrait.tsx",
-          "frontend/src/components/common/ProfilePortrait.tsx",
-          "frontend/src/components/common/SectionCornerPortrait.tsx",
-          "frontend/src/components/common/SectionMediumPortrait.tsx",
-          "frontend/src/lib/portrait.ts"
+          "frontend/src/index.css"
         ],
         "matchedFiles": [
-          "frontend/src/components/home/HeroSection.tsx",
-          "frontend/src/pages/AboutPage.tsx",
-          "frontend/src/pages/ServicesPage.tsx",
-          "frontend/src/pages/SkillsPage.tsx",
-          "frontend/src/pages/PortfolioPage.tsx",
-          "frontend/src/pages/ContactPage.tsx",
-          "frontend/src/components/common/RightSidePortrait.tsx",
-          "frontend/src/components/common/ProfilePortrait.tsx",
-          "frontend/src/components/common/SectionCornerPortrait.tsx",
-          "frontend/src/components/common/SectionMediumPortrait.tsx",
-          "frontend/src/lib/portrait.ts"
-        ]
-      },
-      {
-        "id": "REQ-23",
-        "summary": "Republish the site so the updated no-images version is live under the existing production identifier exactly: \"sheik-tonmoy-islam\".",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/DEPLOYMENT.md"
-        ],
-        "matchedFiles": [
-          "frontend/DEPLOYMENT.md"
+          "frontend/src/index.css"
         ]
       }
     ]
@@ -84,20 +39,7 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/DEPLOYMENT.md",
-    "frontend/src/components/common/ProfilePortrait.tsx",
-    "frontend/src/components/common/RightSidePortrait.tsx",
-    "frontend/src/components/common/SectionCornerPortrait.tsx",
-    "frontend/src/components/common/SectionMediumPortrait.tsx",
-    "frontend/src/components/home/HeroSection.tsx",
-    "frontend/src/components/layout/HeaderNav.tsx",
-    "frontend/src/components/layout/SiteFooter.tsx",
-    "frontend/src/lib/portrait.ts",
-    "frontend/src/pages/AboutPage.tsx",
-    "frontend/src/pages/ContactPage.tsx",
-    "frontend/src/pages/PortfolioPage.tsx",
-    "frontend/src/pages/ServicesPage.tsx",
-    "frontend/src/pages/SkillsPage.tsx",
+    "frontend/src/index.css",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

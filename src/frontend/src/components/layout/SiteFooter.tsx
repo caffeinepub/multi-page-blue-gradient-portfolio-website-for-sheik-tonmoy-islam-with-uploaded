@@ -15,7 +15,7 @@ export default function SiteFooter() {
   const appIdentifier = typeof window !== 'undefined' ? window.location.hostname : 'unknown-app';
 
   return (
-    <footer className="border-t bg-gradient-to-b from-background to-muted/20">
+    <footer className="relative z-10 border-t bg-background/80 backdrop-blur-md">
       <div className="container py-12">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {/* Brand Section */}

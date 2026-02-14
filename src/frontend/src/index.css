@@ -8,19 +8,19 @@
         
         /* Blue gradient theme - Light mode */
         --background: 0.99 0.01 240;
-        --foreground: 0.15 0.02 240;
+        --foreground: 0.98 0.08 240;
         --card: 1 0 0;
-        --card-foreground: 0.15 0.02 240;
+        --card-foreground: 0.98 0.08 240;
         --popover: 1 0 0;
-        --popover-foreground: 0.15 0.02 240;
+        --popover-foreground: 0.98 0.08 240;
         --primary: 0.55 0.18 240;
         --primary-foreground: 0.99 0 0;
         --secondary: 0.95 0.02 240;
-        --secondary-foreground: 0.25 0.03 240;
+        --secondary-foreground: 0.98 0.08 240;
         --muted: 0.96 0.01 240;
-        --muted-foreground: 0.50 0.02 240;
+        --muted-foreground: 0.92 0.06 240;
         --accent: 0.92 0.03 200;
-        --accent-foreground: 0.25 0.03 240;
+        --accent-foreground: 0.98 0.08 240;
         --destructive: 0.577 0.245 27.325;
         --destructive-foreground: 0.985 0 0;
         --border: 0.90 0.01 240;
@@ -36,21 +36,21 @@
     .dark {
         /* Blue gradient theme - Dark mode */
         --background: 0.12 0.02 240;
-        --foreground: 0.95 0.01 240;
+        --foreground: 0.98 0.08 240;
         --card: 0.18 0.02 240;
-        --card-foreground: 0.95 0.01 240;
+        --card-foreground: 0.98 0.08 240;
         --popover: 0.15 0.02 240;
-        --popover-foreground: 0.95 0.01 240;
+        --popover-foreground: 0.98 0.08 240;
         --primary: 0.65 0.20 220;
         --primary-foreground: 0.12 0.02 240;
         --secondary: 0.22 0.03 240;
-        --secondary-foreground: 0.95 0.01 240;
+        --secondary-foreground: 0.98 0.08 240;
         --muted: 0.25 0.02 240;
-        --muted-foreground: 0.65 0.02 240;
+        --muted-foreground: 0.88 0.06 240;
         --accent: 0.30 0.04 200;
-        --accent-foreground: 0.95 0.01 240;
+        --accent-foreground: 0.98 0.08 240;
         --destructive: 0.60 0.22 20;
-        --destructive-foreground: 0.95 0.01 240;
+        --destructive-foreground: 0.98 0.08 240;
         --border: 0.25 0.02 240;
         --input: 0.25 0.02 240;
         --ring: 0.60 0.18 220;
@@ -69,10 +69,46 @@
         @apply bg-background text-foreground;
         font-feature-settings: "rlig" 1, "calt" 1;
     }
+
+    /* Global typography visibility treatment for waterfall background */
+    h1, h2, h3, h4, h5, h6, p, span, a, li, label, div[class*="text"] {
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
 }
 
 @layer utilities {
     .text-gradient {
         @apply bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent;
     }
+}
+
+/* Waterfall Static Background Styles */
+.waterfall-background-static {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+    background-image: url('/assets/generated/waterfall-bg.dim_1920x1080.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.waterfall-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.3) 0%,
+        rgba(0, 0, 0, 0.2) 50%,
+        rgba(0, 0, 0, 0.4) 100%
+    );
 }
