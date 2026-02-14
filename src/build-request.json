@@ -1,0 +1,87 @@
+{
+  "kind": "build_request",
+  "title": "Remove all images from the portfolio site (no portraits, logos, or background images) and republish",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-21",
+      "text": "Remove all pictures/images from the website UI so that no <img> elements render anywhere (including portraits, logos, and decorative background images), and ensure the layout remains visually clean using only CSS gradients/shapes/text.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "recent-messages"
+        ],
+        "quotes": [
+          "no picture into this website.",
+          "to proceed."
+        ]
+      },
+      "acceptanceCriteria": [
+        "No pages render any <img> elements (Home, About, Services, Skills, Portfolio, Contact, Header, Footer).",
+        "The Home hero section uses a CSS-based background (e.g., gradient) instead of loading /assets/generated/hero-bg.dim_1920x1080.png.",
+        "Header and Footer do not load /assets/generated/logo-sti.dim_512x512.png; replace with a text-only brand mark.",
+        "No broken-image icons/empty image frames/portrait borders remain visible after image removal.",
+        "All pages remain responsive and visually balanced after removing the right-side portrait column/space."
+      ]
+    },
+    {
+      "id": "REQ-22",
+      "text": "Remove or disable all portrait-related components/usages so they are not imported/rendered anywhere (including RightSidePortrait, ProfilePortrait usages if any, and legacy SectionCornerPortrait/SectionMediumPortrait if referenced).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "recent-messages"
+        ],
+        "quotes": [
+          "no picture into this website."
+        ]
+      },
+      "acceptanceCriteria": [
+        "No page imports or renders RightSidePortrait (currently used in HeroSection and all main pages).",
+        "Portrait configuration in frontend/src/lib/portrait.ts is not referenced by any rendered component route.",
+        "SectionCornerPortrait and SectionMediumPortrait are not rendered anywhere in the app (directly or indirectly)."
+      ]
+    },
+    {
+      "id": "REQ-23",
+      "text": "Republish the site so the updated no-images version is live under the existing production identifier exactly: \"sheik-tonmoy-islam\".",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "recent-messages"
+        ],
+        "quotes": [
+          "to proceed."
+        ]
+      },
+      "acceptanceCriteria": [
+        "A production build is generated and deployed successfully.",
+        "The live site at https://sheik-tonmoy-islam.caffeine.xyz/ reflects the removal of all images across all pages.",
+        "Manual spot-check: navigating all routes shows no images and no broken-image placeholders."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not edit files in frontend immutablePaths: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui.",
+    "Backend remains single-actor; no backend changes are required for removing images."
+  ],
+  "nonGoals": [
+    "Do not add the newly uploaded images (Tonmoy islam pic-3.png, Tonmoy islam pic-4.png) anywhere on the site.",
+    "Do not introduce new third-party services or external asset hosting.",
+    "Do not change contact form backend persistence behavior."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}

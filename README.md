@@ -1,2 +1,3 @@
-# multi-page-blue-gradient-portfolio-website-for-sheik-tonmoy-islam-with-uploaded
-Exported from Caffeine project: Multi-page blue-gradient portfolio website for Sheik Tonmoy Islam (with uploaded photos)
+## 
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`

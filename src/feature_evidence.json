@@ -1,0 +1,76 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-remove-all-pictures-images-from-the-website-ui-so-that-no-img-elements-render-anywhere-including-portraits-logos-and-decorative-background-images-and-ensure-the-layout-remains-visually-clean-using-only-css-gradients-shapes-text",
+      "featureTitle": "Remove all pictures/images from the website UI so that no <img> elements render anywhere (including portraits, logos, and decorative background images), and ensure the layout remains visually clean using only CSS gradients/shapes/text.",
+      "files": [
+        "frontend/src/components/home/HeroSection.tsx",
+        "frontend/src/components/layout/HeaderNav.tsx",
+        "frontend/src/components/layout/SiteFooter.tsx",
+        "frontend/src/pages/AboutPage.tsx",
+        "frontend/src/pages/ContactPage.tsx",
+        "frontend/src/pages/PortfolioPage.tsx",
+        "frontend/src/pages/ServicesPage.tsx",
+        "frontend/src/pages/SkillsPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-21"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-remove-or-disable-all-portrait-related-components-usages-so-they-are-not-imported-rendered-anywhere-including-rightsideportrait-profileportrait-usages-if-any-and-legacy-sectioncornerportrait-sectionmediumportrait-if-referenced",
+      "featureTitle": "Remove or disable all portrait-related components/usages so they are not imported/rendered anywhere (including RightSidePortrait, ProfilePortrait usages if any, and legacy SectionCornerPortrait/SectionMediumPortrait if referenced).",
+      "files": [
+        "frontend/src/components/common/ProfilePortrait.tsx",
+        "frontend/src/components/common/RightSidePortrait.tsx",
+        "frontend/src/components/common/SectionCornerPortrait.tsx",
+        "frontend/src/components/common/SectionMediumPortrait.tsx",
+        "frontend/src/components/home/HeroSection.tsx",
+        "frontend/src/lib/portrait.ts",
+        "frontend/src/pages/AboutPage.tsx",
+        "frontend/src/pages/ContactPage.tsx",
+        "frontend/src/pages/PortfolioPage.tsx",
+        "frontend/src/pages/ServicesPage.tsx",
+        "frontend/src/pages/SkillsPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-22"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-republish-the-site-so-the-updated-no-images-version-is-live-under-the-existing-production-identifier-exactly-sheik-tonmoy-islam",
+      "featureTitle": "Republish the site so the updated no-images version is live under the existing production identifier exactly: \"sheik-tonmoy-islam\".",
+      "files": [
+        "frontend/DEPLOYMENT.md"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-23"
+      ],
+      "confidence": "high"
+    }
+  ]
+}
