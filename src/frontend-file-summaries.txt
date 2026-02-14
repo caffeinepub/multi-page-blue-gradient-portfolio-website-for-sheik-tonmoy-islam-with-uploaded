@@ -24,7 +24,7 @@
   "frontend/src/hooks/useSubmitContactForm.ts": "React Query mutation hook that submits contact form data to the backend actor and invalidates related queries.",
   "frontend/src/lib/emailValidation.ts": "Utility function for validating email addresses using regex pattern.",
   "frontend/src/lib/seo.ts": "SEO utility that dynamically updates document title and meta tags (description, Open Graph) for each page.",
-  "frontend/src/index.css": "Global styles with OKLCH-based color system featuring more saturated foreground/muted-foreground tokens (chroma increased from 0.01 to 0.08 for foreground, 0.01 to 0.06 for muted-foreground), subtler two-layer text-shadow (reduced opacity and fewer layers) applied uniformly to all typography elements for consistent readability over the waterfall background across all routes.",
+  "frontend/src/index.css": "Global styles with OKLCH-based color system featuring saturated foreground/muted-foreground tokens (chroma 0.08 and 0.06 respectively), with the global typography text-shadow rule removed for clearer readability across all pages while maintaining the waterfall background and overlay styles.",
   "frontend/index.html": "HTML entry point with SEO meta tags, Open Graph properties, and proper document structure.",
   "frontend/tailwind.config.js": "Tailwind configuration extending the theme with blue gradient colors, custom shadows, Inter font family, and design tokens.",
   "frontend/src/components/common/SectionCornerPortrait.tsx": "Small circular portrait component for top-right corner placement, now using centralized portrait source with URL encoding.",

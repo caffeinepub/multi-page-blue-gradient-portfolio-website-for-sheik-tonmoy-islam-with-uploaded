@@ -1,12 +1,10 @@
 # Specification
 
 ## Summary
-**Goal:** Improve site-wide typography readability by using a more saturated text color and a subtler, lower-contrast text shadow consistently across all pages (including About).
+**Goal:** Remove the global site-wide typography text-shadow so all headings and body text render without shadows across every page for clearer readability.
 
 **Planned changes:**
-- Adjust global typography styles in `frontend/src/index.css` to reduce the current heavy/multi-layer text-shadow to a lighter, subtler shadow.
-- Update the primary global text color to a more saturated value that remains readable over the existing static waterfall background.
-- Ensure headings and body text share the same visibility treatment (no separate/stronger heading-specific shadow or readability rules).
-- Verify the About page remains clearly readable using the same global typography styling (no About-only readability CSS).
+- Update `frontend/src/index.css` to remove or modify the global typography selector(s) that apply `text-shadow` (e.g., headings, paragraphs, links, list items, labels, and any text utility selectors) so no text-shadow is applied.
+- Verify typography remains readable without shadows across all routes (Home, About, Services, Skills, Portfolio, Contact); if needed, adjust only global color tokens (e.g., `--foreground`, `--muted-foreground`) to maintain contrast.
 
-**User-visible outcome:** Text across the entire site (headings and body, including the About page) appears clearer and more vibrant, with a softer shadow that improves readability without the current strong/high-contrast shadowing.
+**User-visible outcome:** Text throughout the site (all pages) appears cleaner and sharper with no text-shadow, while the waterfall background and overlay remain unchanged behind the content.

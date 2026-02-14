@@ -2,8 +2,8 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-site-wide-typography-visibility-styling-so-headings-and-body-text-use-the-same-more-saturated-text-color-and-a-lighter-subtler-lower-contrast-text-shadow-compared-to-the-current-strong-high-contrast-shadow-across-all-routes-pages",
-      "featureTitle": "Update the site-wide typography visibility styling so headings and body text use the same more-saturated text color and a lighter/subtler (lower-contrast) text-shadow compared to the current strong, high-contrast shadow, across all routes/pages.",
+      "featureId": "feature-remove-the-global-site-wide-typography-text-shadow-so-that-headings-and-body-text-render-with-no-text-shadow-across-all-routes-pages-home-about-services-skills-portfolio-contact-for-clearer-readability-over-the-waterfall-background",
+      "featureTitle": "Remove the global site-wide typography text-shadow so that headings and body text render with no text-shadow across all routes/pages (Home, About, Services, Skills, Portfolio, Contact) for clearer readability over the waterfall background.",
       "files": [
         "frontend/src/index.css"
       ],
@@ -15,25 +15,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-39"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-ensure-the-about-page-typography-is-clearly-visible-and-looks-good-using-the-same-global-typography-visibility-styling-no-special-case-styling-unique-to-the-about-page",
-      "featureTitle": "Ensure the About page typography is clearly visible and looks good using the same global typography visibility styling (no special-case styling unique to the About page).",
-      "files": [
-        "frontend/src/index.css"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-40"
+        "REQ-41"
       ],
       "confidence": "high"
     }

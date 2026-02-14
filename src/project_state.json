@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 23,
+  "projectStateVersion": 25,
   "summary": "Update the existing multi-page portfolio website for Sheik Tonmoy Islam so the visual theme is fully replaced with a full-page, static (generated) waterfall picture background applied across every page; then rebuild and redeploy under the existing domain identifier \"sheik-tonmoy-islam\".",
   "architectural_notes": [
     "Implement as a multi-page site with separate routes/pages for Home, About, Services, Skills, Portfolio/Projects, Contact.",
@@ -9,13 +9,13 @@
     "Re-enable images for the bio/profile picture using the previously uploaded asset \"Tonmoy islam pic.png\".",
     "Theme direction change: replace the blue-gradient theme with a full-page animated (video-style) 3D waterfall background across all pages.",
     "Theme direction update: replace the animated 3D waterfall video background with a static (generated) waterfall picture background across all pages.",
-    "Typography visibility spec update (site-wide, all pages incl. About): headings and body text use the same stronger (more saturated) text color with a lighter/subtler (lower-contrast) text shadow vs the previously requested strong high-contrast shadow."
+    "Typography update: remove text-shadow globally (headings + body) across all pages for clearer text over the waterfall background."
   ],
   "known_issues": [
     "Initial build attempt failed with platform error: \"The AI couldn't implement your request. Please simplify or rephrase your prompt.\"",
     "Publishing blocked by domain validation error: \"Domain Sheik Tonmoy Islam 742 @ must be between 5 and 50 characters and contain only letters, numbers, and hyphens.\"",
     "Site must be updated to remove all images and ensure no broken/missing image placeholders remain anywhere in the UI.",
-    "Site-wide typography readability issue: text blends into the waterfall background; requires stronger text color and strong shadow for contrast on all pages."
+    "Typography clarity request: remove text-shadow globally across all pages to make text fully clear/easy on the eyes (may require adjusting text color strength if needed after shadow removal)."
   ],
   "isFixRequest": true,
   "existing_features": [
@@ -338,6 +338,14 @@
         "REQ-40"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-remove-the-global-site-wide-typography-text-shadow-so-that-headings-and-body-text-render-with-no-text-shadow-across-all-routes-pages-home-about-services-skills-portfolio-contact-for-clearer-readability-over-the-waterfall-background",
+      "title": "Remove the global site-wide typography text-shadow so that headings and body text render with no text-shadow across all routes/pages (Home, About, Services, Skills, Portfolio, Contact) for clearer readability over the waterfall background.",
+      "reqIds": [
+        "REQ-41"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -386,6 +394,12 @@
     {
       "id": "AR-11",
       "summary": "Improve typography readability across the entire site (all pages): apply a stronger text color and strong high-contrast text-shadow globally so text doesn’t blend into the waterfall background; headings and body use the same visibility style",
+      "reqIds": [],
+      "status": "in_progress"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Remove text-shadow from site-wide typography (headings and body) and apply globally across all pages to improve clarity",
       "reqIds": [],
       "status": "in_progress"
     }

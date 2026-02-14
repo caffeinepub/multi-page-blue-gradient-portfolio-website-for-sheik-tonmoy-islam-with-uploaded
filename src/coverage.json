@@ -1,29 +1,18 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-14T18:44:05.066Z",
+  "generatedAt": "2026-02-14T18:56:11.181Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 2,
-    "implemented": 2,
+    "total": 1,
+    "implemented": 1,
     "items": [
       {
-        "id": "REQ-39",
-        "summary": "Update the site-wide typography visibility styling so headings and body text use the same more-saturated text color and a lighter/subtler (lower-contrast) text-shadow compared to the current strong, high-contrast shadow, across all routes/pages.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/index.css"
-        ],
-        "matchedFiles": [
-          "frontend/src/index.css"
-        ]
-      },
-      {
-        "id": "REQ-40",
-        "summary": "Ensure the About page typography is clearly visible and looks good using the same global typography visibility styling (no special-case styling unique to the About page).",
+        "id": "REQ-41",
+        "summary": "Remove the global site-wide typography text-shadow so that headings and body text render with no text-shadow across all routes/pages (Home, About, Services, Skills, Portfolio, Contact) for clearer readability over the waterfall background.",
         "status": "implemented",
         "plannedFiles": [
           "frontend/src/index.css"

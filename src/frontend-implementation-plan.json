@@ -1,38 +1,22 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Global typography visibility refresh (more saturated color, subtler shadow)",
+  "title": "Remove global typography text-shadow for clearer readability",
   "requirements": [
     {
-      "id": "REQ-39",
-      "summary": "Adjust global typography visibility treatment to use a more saturated readable text color and a subtler/lower-contrast text-shadow shared by headings and body text site-wide.",
+      "id": "REQ-41",
+      "summary": "Remove the global site-wide text-shadow applied to typography so all headings/body text render without shadows while keeping the waterfall background/overlay unchanged.",
       "acceptanceCriteria": [
-        "In `frontend/src/index.css`, the global text-shadow applied to typography elements is reduced to a subtler/lower-contrast shadow than the current heavy multi-layer shadow.",
-        "The primary readable text color used across the site is adjusted to be more saturated while remaining readable over the static waterfall background.",
-        "Headings and body text share the same visibility treatment (no separate/stronger shadow rules for headings vs paragraphs).",
-        "No page requires per-page overrides to achieve readability; the global rule applies consistently."
+        "In `frontend/src/index.css`, the global typography rule that applies `text-shadow` to elements (e.g., h1–h6, p, span, a, li, label, div[class*=\"text\"]) is removed or updated so `text-shadow` is not applied.",
+        "No headings or body text on any page shows a text-shadow in the browser (verify at least Home, About, Services, Skills, Portfolio, Contact).",
+        "The waterfall background and overlay remain unchanged and continue to sit behind all page content (no interaction blocking).",
+        "Typography remains readable after shadow removal; if any text becomes hard to read, adjust only global color tokens (e.g., `--foreground`, `--muted-foreground`) rather than adding back shadows or page-specific overrides."
       ],
       "file_operations": [
         {
           "path": "frontend/src/index.css",
           "operation": "modify",
-          "description": "Update global theme tokens (notably `--foreground` / `--muted-foreground`) to a slightly more saturated, still-readable color over the existing waterfall background, and replace the current heavy multi-layer `text-shadow` with a lighter, lower-contrast shadow applied uniformly to typography elements (no separate heading vs body rules)."
-        }
-      ]
-    },
-    {
-      "id": "REQ-40",
-      "summary": "Confirm About page typography remains clearly visible using only the updated global typography styling (no About-only readability rules).",
-      "acceptanceCriteria": [
-        "On `frontend/src/pages/AboutPage.tsx`, the main header, subtitle, and biography paragraphs are readable over the waterfall background using the same global typography styling as other pages.",
-        "Common secondary text styles used on the About page (e.g., `text-foreground/80`, `text-foreground/70`, or similar muted treatments) remain readable after the global adjustments.",
-        "No About-page-only CSS rules are introduced for readability; improvements come from global tokens/styles or global typography rules."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/index.css",
-          "operation": "modify",
-          "description": "Ensure the global typography visibility rule and global color tokens also cover typical About-page content styling (including muted `text-foreground/70` and `text-foreground/80` usage and typography elements produced by Tailwind Typography's `prose` classes) so the About page remains readable without introducing page-specific styling."
+          "description": "Remove (or neutralize) the global typography selector block that applies `text-shadow` to headings and common text elements so shadows are not applied anywhere. If readability regresses after removal, adjust only global color tokens (e.g., `--foreground`, `--muted-foreground`) in the same file; do not add page-specific overrides and do not change the waterfall background/overlay styles."
         }
       ]
     }
