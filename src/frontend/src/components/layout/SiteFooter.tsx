@@ -1,6 +1,5 @@
 import { Link } from '@tanstack/react-router';
 import { Separator } from '@/components/ui/separator';
-import { Heart } from 'lucide-react';
 
 const footerLinks = [
   { path: '/', label: 'Home' },
@@ -13,7 +12,6 @@ const footerLinks = [
 
 export default function SiteFooter() {
   const currentYear = new Date().getFullYear();
-  const appIdentifier = typeof window !== 'undefined' ? window.location.hostname : 'unknown-app';
 
   return (
     <footer className="relative z-10 border-t bg-background/80 backdrop-blur-md">
@@ -37,7 +35,7 @@ export default function SiteFooter() {
 
           {/* Quick Links */}
           <div className="flex flex-col space-y-4">
-            <h3 className="font-semibold text-lg text-foreground">Quick Links</h3>
+            <h3 className="font-semibold text-lg">Quick Links</h3>
             <nav className="flex flex-col space-y-2">
               {footerLinks.map((link) => (
                 <Link
@@ -53,7 +51,7 @@ export default function SiteFooter() {
 
           {/* Contact Info */}
           <div className="flex flex-col space-y-4">
-            <h3 className="font-semibold text-lg text-foreground">Get In Touch</h3>
+            <h3 className="font-semibold text-lg">Get In Touch</h3>
             <p className="text-sm text-muted-foreground">
               Ready to collaborate? Reach out through the contact page to discuss your project.
             </p>
@@ -70,19 +68,6 @@ export default function SiteFooter() {
         <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
           <p className="text-sm text-muted-foreground">
             © {currentYear} Sheik Tonmoy Islam. All rights reserved.
-          </p>
-          <p className="flex items-center gap-1 text-sm text-muted-foreground">
-            Built with <Heart className="h-4 w-4 fill-red-500 text-red-500" /> using{' '}
-            <a
-              href={`https://caffeine.ai/?utm_source=Caffeine-footer&utm_medium=referral&utm_content=${encodeURIComponent(
-                appIdentifier
-              )}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-medium hover:text-foreground transition-colors"
-            >
-              caffeine.ai
-            </a>
           </p>
         </div>
       </div>

@@ -69,8 +69,8 @@ export default function ServicesPage() {
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-16">
+        {/* Services Grid - Black text override for this section */}
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-16 [&_*]:!text-black [&_h3]:!text-black [&_p]:!text-black">
           {services.map((service, index) => (
             <InfoCard
               key={index}

@@ -7,6 +7,11 @@ import SkillsPage from './pages/SkillsPage';
 import PortfolioPage from './pages/PortfolioPage';
 import ContactPage from './pages/ContactPage';
 import BlogPage from './pages/BlogPage';
+import BlogDigitalMarketingArticlePage from './pages/blog/BlogDigitalMarketingArticlePage';
+import BlogGraphicDesignArticlePage from './pages/blog/BlogGraphicDesignArticlePage';
+import BlogVideoEditingArticlePage from './pages/blog/BlogVideoEditingArticlePage';
+import BlogWebDesignDevArticlePage from './pages/blog/BlogWebDesignDevArticlePage';
+import BlogLawLegalArticlePage from './pages/blog/BlogLawLegalArticlePage';
 
 const rootRoute = createRootRoute({
   component: SiteLayout,
@@ -54,6 +59,36 @@ const blogRoute = createRoute({
   component: BlogPage,
 });
 
+const blogDigitalMarketingRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/blog/digital-marketing',
+  component: BlogDigitalMarketingArticlePage,
+});
+
+const blogGraphicDesignRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/blog/graphic-design',
+  component: BlogGraphicDesignArticlePage,
+});
+
+const blogVideoEditingRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/blog/video-editing',
+  component: BlogVideoEditingArticlePage,
+});
+
+const blogWebDesignDevRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/blog/web-design-dev',
+  component: BlogWebDesignDevArticlePage,
+});
+
+const blogLawLegalRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/blog/law-legal',
+  component: BlogLawLegalArticlePage,
+});
+
 const routeTree = rootRoute.addChildren([
   homeRoute,
   aboutRoute,
@@ -62,6 +97,11 @@ const routeTree = rootRoute.addChildren([
   portfolioRoute,
   contactRoute,
   blogRoute,
+  blogDigitalMarketingRoute,
+  blogGraphicDesignRoute,
+  blogVideoEditingRoute,
+  blogWebDesignDevRoute,
+  blogLawLegalRoute,
 ]);
 
 const router = createRouter({ routeTree });

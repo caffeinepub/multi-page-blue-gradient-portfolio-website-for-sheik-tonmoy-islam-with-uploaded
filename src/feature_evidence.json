@@ -2,10 +2,11 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-blog-page-to-include-a-fifth-blog-section-focused-on-law-legal-content-using-the-same-card-layout-format-as-the-existing-four-sections-english-heading-short-english-description-and-one-static-image-with-proper-alt-text",
-      "featureTitle": "Update the Blog page to include a fifth blog section focused on Law/Legal content, using the same card layout format as the existing four sections (English heading, short English description, and one static image with proper alt text).",
+      "featureId": "feature-update-the-about-page-styling-so-that-only-the-infocards-in-the-what-sets-me-apart-section-render-black-text-both-the-infocard-title-and-description-while-all-other-about-page-text-including-the-main-biography-body-text-and-headings-keeps-its-existing-colors",
+      "featureTitle": "Update the About page styling so that ONLY the InfoCards in the \"What Sets Me Apart\" section render black text (both the InfoCard title and description), while all other About page text (including the main biography/body text and headings) keeps its existing colors.",
       "files": [
-        "frontend/src/pages/BlogPage.tsx"
+        "frontend/src/index.css",
+        "frontend/src/pages/AboutPage.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -15,25 +16,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-62"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-rebuild-and-republish-the-updated-site-so-the-blog-page-change-law-legal-section-image-is-live-under-the-existing-production-identifier-exactly-sheik-tonmoy-islam",
-      "featureTitle": "Rebuild and republish the updated site so the Blog page change (Law/Legal section + image) is live under the existing production identifier exactly: \"sheik-tonmoy-islam\".",
-      "files": [
-        "frontend/DEPLOYMENT.md"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-63"
+        "REQ-114"
       ],
       "confidence": "high"
     }

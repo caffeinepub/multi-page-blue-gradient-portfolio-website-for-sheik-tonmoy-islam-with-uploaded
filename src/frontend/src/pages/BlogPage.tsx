@@ -1,111 +1,96 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { Link } from '@tanstack/react-router';
 import { setSEO } from '../lib/seo';
 import Container from '../components/common/Container';
 import GradientBackground from '../components/common/GradientBackground';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-
-const blogSections = [
-  {
-    title: 'Digital Marketing',
-    description:
-      'Explore strategies and insights for effective digital marketing campaigns, SEO optimization, social media management, and content marketing to grow your online presence and reach your target audience.',
-    image: '/assets/generated/blog-digital-marketing.dim_1200x800.png',
-    alt: 'Digital Marketing strategies and tools illustration',
-  },
-  {
-    title: 'Graphic Design',
-    description:
-      'Discover the art of visual communication through graphic design. Learn about branding, logo design, typography, color theory, and creating compelling visuals that capture attention and convey your message effectively.',
-    image: '/assets/generated/blog-graphic-design.dim_1200x800.png',
-    alt: 'Graphic Design creative workspace and tools',
-  },
-  {
-    title: 'Video Editing',
-    description:
-      'Master the craft of video editing with tips on storytelling, transitions, color grading, audio mixing, and post-production techniques. Create engaging video content that resonates with your audience across all platforms.',
-    image: '/assets/generated/blog-video-editing.dim_1200x800.png',
-    alt: 'Video Editing timeline and production setup',
-  },
-  {
-    title: 'Website Design & Web Development',
-    description:
-      'Dive into modern web design and development practices. Learn about responsive design, user experience, frontend frameworks, backend integration, and building fast, accessible, and beautiful websites that deliver results.',
-    image: '/assets/generated/blog-web-design-dev.dim_1200x800.png',
-    alt: 'Website Design and Web Development workspace',
-  },
-  {
-    title: 'Law',
-    description:
-      'Navigate the complexities of legal practice with insights on legal research, case analysis, contract drafting, compliance, and regulatory frameworks. Stay informed about legal trends, best practices, and professional development in the legal field.',
-    image: '/assets/generated/blog-law-legal.dim_1200x800.png',
-    alt: 'Law and legal practice resources illustration',
-  },
-];
+import { Button } from '@/components/ui/button';
+import { blogArticles } from '../data/blogArticles';
+import { ArrowRight } from 'lucide-react';
+import { normalizeAssetPath, getFallbackImagePath } from '../lib/assetPaths';
 
 export default function BlogPage() {
   useEffect(() => {
     setSEO({
       title: 'Blog - Sheik Tonmoy Islam',
       description:
-        'Insights and articles on Digital Marketing, Graphic Design, Video Editing, Website Design & Web Development, and Law by Sheik Tonmoy Islam.',
-      ogTitle: 'Blog - Sheik Tonmoy Islam',
-      ogDescription:
-        'Expert insights on digital marketing, design, video editing, web development, and legal practice.',
-      ogType: 'website',
+        'Insights and articles on legal topics, business strategies, digital marketing, design, video editing, and web development.',
     });
   }, []);
 
+  const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
+
+  const handleImageError = (articleId: string) => {
+    setImageErrors((prev) => ({ ...prev, [articleId]: true }));
+  };
+
   return (
-    <GradientBackground>
-      <Container>
-        <div className="py-16 space-y-12">
-          {/* Page Header */}
-          <div className="text-center space-y-4">
-            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
-              Blog
-            </h1>
-            <p className="text-lg text-yellow-400 max-w-2xl mx-auto">
-              Insights, tips, and expertise across digital marketing, design, video production, web development, and legal practice
-            </p>
-          </div>
+    <GradientBackground variant="subtle">
+      <Container className="py-16 md:py-24">
+        {/* Header */}
+        <div className="text-center lg:text-left mb-16">
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl mb-6">
+            Blog &{' '}
+            <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+              Insights
+            </span>
+          </h1>
+          <p className="text-xl text-foreground/90 max-w-3xl mx-auto lg:mx-0">
+            Exploring topics across law, business, marketing, design, and technology
+          </p>
+        </div>
 
-          {/* Blog Sections */}
-          <div className="space-y-12">
-            {blogSections.map((section, index) => (
+        {/* Blog Articles Grid */}
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {blogArticles.map((article) => {
+            const imageSrc = imageErrors[article.id]
+              ? getFallbackImagePath()
+              : normalizeAssetPath(article.image);
+
+            // Map article IDs to proper route paths
+            const routePath = `/blog/${article.id}` as 
+              | '/blog/digital-marketing'
+              | '/blog/graphic-design'
+              | '/blog/video-editing'
+              | '/blog/web-design-dev'
+              | '/blog/law-legal';
+
+            return (
               <Card
-                key={section.title}
-                className="overflow-hidden bg-background/80 backdrop-blur-md border-border/40"
+                key={article.id}
+                className="overflow-hidden bg-background/80 backdrop-blur-md border-border/40 hover:border-border/60 transition-all duration-300 hover:shadow-xl flex flex-col"
               >
-                <div
-                  className={`grid grid-cols-1 ${
-                    index % 2 === 0 ? 'lg:grid-cols-2' : 'lg:grid-cols-2'
-                  } gap-0`}
-                >
-                  {/* Image */}
-                  <div className={`${index % 2 === 0 ? 'lg:order-1' : 'lg:order-2'} relative`}>
-                    <img
-                      src={section.image}
-                      alt={section.alt}
-                      loading="lazy"
-                      className="w-full h-full object-cover min-h-[300px] lg:min-h-[400px]"
-                    />
-                  </div>
-
-                  {/* Content */}
-                  <div className={`${index % 2 === 0 ? 'lg:order-2' : 'lg:order-1'}`}>
-                    <CardHeader>
-                      <CardTitle className="text-2xl md:text-3xl bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
-                        {section.title}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-yellow-400 leading-relaxed">{section.description}</p>
-                    </CardContent>
-                  </div>
+                <div className="aspect-video w-full overflow-hidden bg-muted flex items-center justify-center">
+                  <img
+                    src={imageSrc}
+                    alt={article.title}
+                    className="w-full h-full object-contain"
+                    onError={() => handleImageError(article.id)}
+                  />
                 </div>
+                <CardHeader>
+                  <CardTitle className="text-2xl text-foreground">
+                    {article.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="flex-1 flex flex-col">
+                  <p className="text-muted-foreground mb-6 line-clamp-3">
+                    {article.subtitle}
+                  </p>
+                  <div className="mt-auto">
+                    <Link to={routePath}>
+                      <Button
+                        variant="default"
+                        className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:opacity-90 text-white"
+                      >
+                        Read Article <ArrowRight className="ml-2 h-4 w-4" />
+                      </Button>
+                    </Link>
+                  </div>
+                </CardContent>
               </Card>
-            ))}
-          </div>
+            );
+          })}
         </div>
       </Container>
     </GradientBackground>

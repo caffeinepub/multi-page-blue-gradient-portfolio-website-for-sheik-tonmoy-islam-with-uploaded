@@ -40,7 +40,7 @@ export default function HeaderNav() {
                 className={
                   currentPath === link.path
                     ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white'
-                    : 'text-foreground hover:text-foreground'
+                    : ''
                 }
               >
                 {link.label}
@@ -52,7 +52,7 @@ export default function HeaderNav() {
         {/* Mobile Navigation */}
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild className="md:hidden">
-            <Button variant="ghost" size="icon" className="text-foreground">
+            <Button variant="ghost" size="icon">
               <Menu className="h-6 w-6" />
               <span className="sr-only">Toggle menu</span>
             </Button>
@@ -66,7 +66,7 @@ export default function HeaderNav() {
                     className={`w-full justify-start text-lg ${
                       currentPath === link.path
                         ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white'
-                        : 'text-foreground hover:text-foreground'
+                        : ''
                     }`}
                   >
                     {link.label}

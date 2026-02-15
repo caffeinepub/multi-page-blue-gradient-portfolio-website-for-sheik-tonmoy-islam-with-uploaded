@@ -1,9 +1,11 @@
 import Text "mo:core/Text";
 import Array "mo:core/Array";
-import Iter "mo:core/Iter";
 import Map "mo:core/Map";
-import Runtime "mo:core/Runtime";
+import Iter "mo:core/Iter";
 import Order "mo:core/Order";
+import Runtime "mo:core/Runtime";
+
+// No migration needed!
 
 actor {
   type Submission = {

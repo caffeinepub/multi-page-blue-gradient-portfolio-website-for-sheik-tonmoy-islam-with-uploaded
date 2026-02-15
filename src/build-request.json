@@ -1,60 +1,39 @@
 {
   "kind": "build_request",
-  "title": "Add Law/Legal section with image to Blog page",
+  "title": "About page: Only InfoCards should use black text",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-62",
-      "text": "Update the Blog page to include a fifth blog section focused on Law/Legal content, using the same card layout format as the existing four sections (English heading, short English description, and one static image with proper alt text).",
+      "id": "REQ-114",
+      "text": "Update the About page styling so that ONLY the InfoCards in the \"What Sets Me Apart\" section render black text (both the InfoCard title and description), while all other About page text (including the main biography/body text and headings) keeps its existing colors.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-1"
         ],
         "quotes": [
-          "the blog manu insight must added a lagel (Law) based content with image."
+          "ONLY the InfoCards on the About page should have black text .buildn it"
         ]
       },
       "acceptanceCriteria": [
-        "The Blog page renders 5 sections total (existing four + new Law/Legal section).",
-        "The new Law/Legal section includes: (1) an English title, (2) a short English description paragraph, (3) an <img> with non-empty alt text.",
-        "The new section uses the same visual layout and styling conventions as the other Blog section cards.",
-        "The new section’s image is referenced via an absolute path under /assets/generated/ (matching existing blog section image patterns).",
-        "SEO metadata for the Blog page is updated so the description and Open Graph description reflect that Law/Legal content is included."
-      ]
-    },
-    {
-      "id": "REQ-63",
-      "text": "Rebuild and republish the updated site so the Blog page change (Law/Legal section + image) is live under the existing production identifier exactly: \"sheik-tonmoy-islam\".",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "to start the build."
-        ]
-      },
-      "acceptanceCriteria": [
-        "A production build completes without errors.",
-        "The live site under identifier \"sheik-tonmoy-islam\" shows the Blog page with the new Law/Legal section and its image loading successfully (no broken images)."
+        "On /about, the InfoCards in the \"What Sets Me Apart\" grid display black text for the title and description.",
+        "On /about, the biography/body text remains unchanged (continues to follow the existing About biography styling).",
+        "On /about, headings such as \"About Me\", \"What Sets Me Apart\", and \"Core Values\" remain unchanged (no forced black text).",
+        "No other pages/routes have their text colors changed as a side-effect of this update."
       ]
     }
   ],
   "constraints": [
-    "Do not edit any files under frontend/src/components/ui (read-only shadcn components must be composed, not modified).",
-    "Do not modify immutable frontend hook entrypoints: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx.",
-    "Store any new images as static assets under frontend/public/assets/generated and reference them from the frontend via absolute paths (e.g., /assets/generated/...).",
-    "Backend must remain single-actor (no additional backend services)."
+    "Do not modify any files under frontend/src/components/ui (shadcn components).",
+    "Do not introduce new routes or change the backend; this is a frontend-only styling adjustment."
   ],
   "nonGoals": [
-    "Do not add individual blog post detail pages per section.",
-    "Do not change existing site-wide ocean animated background behavior or typography theme unless required to accommodate the new Blog section."
+    "Changing typography colors outside the About page InfoCards.",
+    "Changing the About page layout, content, or adding/removing sections.",
+    "Deploying/publishing to a new identifier/domain (not requested)."
   ],
   "imageRequirements": {
-    "required": [
-      "Law/Legal themed blog illustration (blog-law-legal.dim_1200x800.png)"
-    ],
+    "required": [],
     "edits": []
   }
 }

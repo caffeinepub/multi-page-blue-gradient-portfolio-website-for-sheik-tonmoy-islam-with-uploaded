@@ -1,12 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Add a new Law/Legal blog section (with image) to the Blog page using the existing blog card layout, and update Blog page SEO metadata to reflect the added content.
+**Goal:** Update the About page styling so only the “What Sets Me Apart” InfoCards display black text, without affecting any other text on the About page or other routes.
 
 **Planned changes:**
-- Add a fifth Blog page card/section for Law/Legal content, matching the existing blog section layout (English heading, short English description, and a static image with non-empty alt text).
-- Add and reference a new Law/Legal themed image from an absolute path under `/assets/generated/` to match the existing blog image patterns.
-- Update the Blog page SEO metadata (description and Open Graph description) to mention inclusion of Law/Legal content.
-- Rebuild and republish so the update is live under the production identifier `sheik-tonmoy-islam`.
+- Adjust styling for the InfoCard title and description within the “What Sets Me Apart” section on `/about` to render black text.
+- Ensure About page biography/body text and headings retain their existing colors and are not overridden.
+- Scope the styling change to `/about` only, avoiding side effects on other pages.
 
-**User-visible outcome:** The Blog page displays five sections total, including a new Law/Legal card with an image, and the live site reflects the update without broken images.
+**User-visible outcome:** On the About page, the “What Sets Me Apart” InfoCards show black titles and descriptions, while all other About page text remains unchanged.

@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 39,
-  "summary": "Update the existing multi-page portfolio website for Sheik Tonmoy Islam so the visual theme is fully replaced with a full-page blue ocean animated (CSS/3D-style subtle moving effect) background applied across every page, using a generated blue ocean image as the static fallback; add a new Blog page and Blog navigation links in both header and footer; update the Blog page to include an additional Law/Legal section with its own image; then rebuild and redeploy under the existing domain identifier \"sheik-tonmoy-islam\".",
+  "projectStateVersion": 69,
+  "summary": "Update the existing multi-page portfolio website for Sheik Tonmoy Islam so the visual theme is replaced with a full-page motion-graphic style animated background (CSS/3D-style subtle moving effect) inferred from the site’s branding/logo colors and applied across every page, with a generated static fallback image; update global typography so the text color follows the logo/theme palette and is automatically adjusted/tuned for readability over the waterfall/motion-graphic background; remove the footer text \"Built with using caffeine.ai\" from every page; keep the Blog system with category landing sections linking to individual long-form article sub-pages (one per category) with an image per article; ensure Blog navigation links exist in both header and footer; then rebuild and redeploy under the existing domain identifier \"sheik-tonmoy-islam\".",
   "architectural_notes": [
     "Implement as a multi-page site with separate routes/pages for Home, About, Services, Skills, Portfolio/Projects, Contact.",
     "Republish and replace the old published link using the valid domain identifier exactly: sheik-tonmoy-islam.",
@@ -18,10 +18,13 @@
     "Initial build attempt failed with platform error: \"The AI couldn't implement your request. Please simplify or rephrase your prompt.\"",
     "Publishing blocked by domain validation error: \"Domain Sheik Tonmoy Islam 742 @ must be between 5 and 50 characters and contain only letters, numbers, and hyphens.\"",
     "Site must be updated to remove all images and ensure no broken/missing image placeholders remain anywhere in the UI.",
-    "Typography clarity request: remove text-shadow globally across all pages to make text fully clear/easy on the eyes (may require adjusting text color strength if needed after shadow removal)."
+    "Typography clarity request: remove text-shadow globally across all pages to make text fully clear/easy on the eyes (may require adjusting text color strength if needed after shadow removal).",
+    "Blog landing page (/blog) images and all five blog article sub-page images are missing (blank space while image containers still occupy layout space).",
+    "Deployment failed: \"Launch unsuccessful: Deployment error\" (Version 23).",
+    "Text font color is not currently adapting to the background theme; needs global dynamic readability adjustment across all pages.",
+    "Blog images are being cropped/cut off on the sides; must render fully visible without cropping."
   ],
-  "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Law/Legal themed blog illustration (blog-law-legal.dim_1200x800.png)",
+  "isFixRequest": true,
   "existing_features": [
     {
       "id": "feature-create-a-responsive-multi-page-portfolio-website-with-separate-pages-for-home-about-services-skills-portfolio-projects-and-contact-including-a-persistent-top-navigation-and-footer",
@@ -526,6 +529,374 @@
         "REQ-63"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-update-the-blog-landing-page-blog-so-each-existing-blog-section-s-short-description-is-fully-replaced-with-the-provided-long-form-article-text-for-that-category-digital-marketing-graphic-design-video-editing-website-design-web-development-law-legal-formatted-for-readability-headings-numbered-items-paragraphs-and-kept-visually-unique-while-matching-the-current-site-styling",
+      "title": "Update the Blog landing page (\"/blog\") so each existing Blog section’s short description is fully replaced with the provided long-form article text for that category (Digital Marketing, Graphic Design, Video Editing, Website Design & Web Development, Law/Legal), formatted for readability (headings, numbered items, paragraphs) and kept visually unique while matching the current site styling.",
+      "reqIds": [
+        "REQ-64"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-individual-article-sub-pages-one-per-category-and-routes-for-digital-marketing-graphic-design-video-editing-website-design-web-development-and-law-legal-each-route-must-render-the-corresponding-long-form-article-content-in-full-and-include-a-clearly-visible-article-image-with-proper-alt-text",
+      "title": "Add individual article sub-pages (one per category) and routes for: Digital Marketing, Graphic Design, Video Editing, Website Design & Web Development, and Law/Legal. Each route must render the corresponding long-form article content in full and include a clearly visible article image with proper alt text.",
+      "reqIds": [
+        "REQ-65"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-blog-landing-page-blog-so-each-category-section-links-to-its-corresponding-article-sub-page-using-tanstack-router-links-with-an-obvious-call-to-action-e-g-read-full-article",
+      "title": "Update the Blog landing page (\"/blog\") so each category section links to its corresponding article sub-page using TanStack Router Links, with an obvious call-to-action (e.g., \"Read full article\").",
+      "reqIds": [
+        "REQ-66"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-generate-and-add-one-new-static-image-per-detailed-article-5-total-under-frontend-public-assets-generated-and-use-those-images-on-the-corresponding-article-sub-pages-not-via-the-backend",
+      "title": "Generate and add one new static image per detailed article (5 total) under frontend/public/assets/generated and use those images on the corresponding article sub-pages (not via the backend).",
+      "reqIds": [
+        "REQ-67"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-rebuild-and-republish-the-updated-site-so-the-new-blog-article-sub-pages-updated-blog-long-form-content-and-new-images-are-live-under-the-existing-production-identifier-exactly-sheik-tonmoy-islam",
+      "title": "Rebuild and republish the updated site so the new Blog article sub-pages, updated /blog long-form content, and new images are live under the existing production identifier exactly: \"sheik-tonmoy-islam\".",
+      "reqIds": [
+        "REQ-68"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-fix-the-blog-individual-article-sub-pages-so-their-dedicated-article-images-render-reliably-no-missing-broken-images-on-all-5-routes-blog-digital-marketing-blog-graphic-design-blog-video-editing-blog-web-design-dev-and-blog-law-legal",
+      "title": "Fix the Blog individual article sub-pages so their dedicated article images render reliably (no missing/broken images) on all 5 routes: /blog/digital-marketing, /blog/graphic-design, /blog/video-editing, /blog/web-design-dev, and /blog/law-legal.",
+      "reqIds": [
+        "REQ-69"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-blog-article-image-paths-used-by-the-article-sub-pages-match-actual-static-files-shipped-in-production-under-frontend-public-assets-generated-and-update-any-mismatched-references-including-any-helper-functions-data-fields-so-the-deployed-build-can-always-resolve-those-images-via-absolute-paths-e-g-assets-generated",
+      "title": "Ensure the blog article image paths used by the article sub-pages match actual static files shipped in production under frontend/public/assets/generated/, and update any mismatched references (including any helper functions/data fields) so the deployed build can always resolve those images via absolute paths (e.g., /assets/generated/...).",
+      "reqIds": [
+        "REQ-70"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-generate-five-new-static-blog-article-images-one-unique-image-per-blog-article-and-add-them-under-frontend-public-assets-generated",
+      "title": "Generate five new static blog article images (one unique image per blog article) and add them under `frontend/public/assets/generated/`.",
+      "reqIds": [
+        "REQ-72"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-blog-article-data-source-so-each-of-the-five-blog-article-entries-references-the-newly-generated-image-path-absolute-assets-generated-and-ensure-each-entry-keeps-a-non-empty-english-imagealt-string",
+      "title": "Update the blog article data source so each of the five blog article entries references the newly generated image path (absolute `/assets/generated/...`), and ensure each entry keeps a non-empty, English `imageAlt` string.",
+      "reqIds": [
+        "REQ-73"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-each-of-the-five-blog-article-sub-pages-to-render-the-article-image-in-a-responsive-side-by-side-layout-with-the-article-header-content-area-using-the-per-page-left-right-placement-specified-by-the-user-and-replacing-the-current-full-width-header-image-layout",
+      "title": "Update each of the five blog article sub-pages to render the article image in a responsive side-by-side layout with the article header/content area, using the per-page left/right placement specified by the user, and replacing the current full-width header image layout.",
+      "reqIds": [
+        "REQ-74"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-new-blog-article-images-load-reliably-in-production-no-missing-broken-images-by-using-absolute-assets-generated-paths-through-the-existing-asset-normalization-logic-and-preserving-the-existing-onerror-fallback-behavior",
+      "title": "Ensure the new blog article images load reliably in production (no missing/broken images) by using absolute `/assets/generated/...` paths through the existing asset normalization logic and preserving the existing onError fallback behavior.",
+      "reqIds": [
+        "REQ-75"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-fix-the-root-cause-of-missing-blank-images-on-the-blog-landing-page-blog-and-all-five-blog-article-sub-pages-by-ensuring-every-referenced-image-src-resolves-to-an-actual-static-file-shipped-in-production-under-frontend-public-assets-generated-and-is-referenced-via-an-absolute-path-starts-with-assets",
+      "title": "Fix the root cause of missing/blank images on the Blog landing page (\"/blog\") and all five Blog article sub-pages by ensuring every referenced image `src` resolves to an actual static file shipped in production under `frontend/public/assets/generated/` and is referenced via an absolute path (starts with `/assets/...`).",
+      "reqIds": [
+        "REQ-77"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-blog-landing-page-frontend-src-pages-blogpage-tsx-to-use-the-same-asset-path-normalization-and-resilient-fallback-behavior-as-the-article-pages-normalize-the-image-path-before-rendering-and-add-an-onerror-handler-that-swaps-to-a-known-good-fallback-image-so-users-never-see-a-blank-image-area",
+      "title": "Update the Blog landing page (`frontend/src/pages/BlogPage.tsx`) to use the same asset-path normalization and resilient fallback behavior as the article pages: normalize the image path before rendering, and add an `onError` handler that swaps to a known-good fallback image so users never see a blank image area.",
+      "reqIds": [
+        "REQ-78"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-make-the-fallback-image-path-returned-by-getfallbackimagepath-frontend-src-lib-assetpaths-ts-point-to-a-static-asset-that-is-guaranteed-to-exist-in-production-under-frontend-public-assets-generated-and-ensure-that-fallback-image-reliably-loads-on-both-the-blog-landing-page-and-all-five-article-sub-pages",
+      "title": "Make the fallback image path returned by `getFallbackImagePath()` (`frontend/src/lib/assetPaths.ts`) point to a static asset that is guaranteed to exist in production (under `frontend/public/assets/generated/`) and ensure that fallback image reliably loads on both the Blog landing page and all five article sub-pages.",
+      "reqIds": [
+        "REQ-79"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-footer-only-attribution-text-built-with-using-caffeine-ai-from-the-site-footer-so-it-no-longer-appears-on-any-page",
+      "title": "Remove the footer-only attribution text \"Built with … using caffeine.ai\" from the site footer so it no longer appears on any page.",
+      "reqIds": [
+        "REQ-81"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-current-site-wide-blue-ocean-animated-background-with-a-new-motion-graphic-style-animated-background-that-matches-the-existing-site-branding-infer-the-palette-from-the-current-logo-gradient-styles-used-in-the-header-footer-and-apply-it-globally-across-all-routes-via-the-existing-global-layout",
+      "title": "Replace the current site-wide blue-ocean animated background with a new motion-graphic style animated background that matches the existing site branding (infer the palette from the current logo/gradient styles used in the header/footer) and apply it globally across all routes via the existing global layout.",
+      "reqIds": [
+        "REQ-82"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-site-wide-readability-overlay-scrim-tuned-for-the-new-motion-graphic-background-so-that-headings-and-body-text-remain-clearly-readable-on-all-pages-without-requiring-per-page-special-case-styling",
+      "title": "Add a site-wide readability overlay/scrim tuned for the new motion-graphic background so that headings and body text remain clearly readable on all pages without requiring per-page special-case styling.",
+      "reqIds": [
+        "REQ-83"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-respect-reduced-motion-accessibility-preferences-for-the-new-motion-graphic-background-by-disabling-motion-animation-when-the-user-has-prefers-reduced-motion-enabled-and-displaying-only-the-static-fallback-background-image-overlay",
+      "title": "Respect reduced-motion accessibility preferences for the new motion-graphic background by disabling motion/animation when the user has prefers-reduced-motion enabled and displaying only the static fallback background image + overlay.",
+      "reqIds": [
+        "REQ-84"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-rebuild-and-republish-the-updated-site-to-production-under-the-existing-identifier-exactly-sheik-tonmoy-islam-and-ensure-the-live-url-loads-successfully",
+      "title": "Rebuild and republish the updated site to production under the existing identifier exactly \"sheik-tonmoy-islam\" and ensure the live URL loads successfully.",
+      "reqIds": [
+        "REQ-85"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-site-wide-motion-graphic-background-styling-to-match-a-darker-nigra-waterfall-theme-while-keeping-it-as-a-global-background-across-all-routes-via-frontend-src-components-layout-sitelayout-tsx-and-frontend-src-components-common-motiongraphicanimatedbackground-tsx",
+      "title": "Update the site-wide motion-graphic background styling to match a darker “Nigra waterfall” theme while keeping it as a global background across all routes via `frontend/src/components/layout/SiteLayout.tsx` and `frontend/src/components/common/MotionGraphicAnimatedBackground.tsx`.",
+      "reqIds": [
+        "REQ-86"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-refine-the-motion-graphic-animation-to-be-smoother-with-medium-speed-motion-not-slow-not-fast-by-adjusting-the-existing-motion-graphic-animation-timings-easing-transform-parameters-in-frontend-src-index-css",
+      "title": "Refine the motion-graphic animation to be smoother with medium-speed motion (not slow, not fast) by adjusting the existing `.motion-graphic-*` animation timings/easing/transform parameters in `frontend/src/index.css`.",
+      "reqIds": [
+        "REQ-87"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-adjust-the-global-readability-overlay-scrim-in-frontend-src-index-css-motion-graphic-overlay-to-improve-text-readability-over-the-new-darker-nigra-waterfall-background-by-tuning-overlay-darkness-contrast-while-keeping-the-overlay-non-interactive-and-behind-all-content",
+      "title": "Adjust the global readability overlay (scrim) in `frontend/src/index.css` (`.motion-graphic-overlay`) to improve text readability over the new darker “Nigra waterfall” background by tuning overlay darkness/contrast while keeping the overlay non-interactive and behind all content.",
+      "reqIds": [
+        "REQ-88"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-preserve-reduced-motion-accessibility-behavior-when-prefers-reduced-motion-reduce-is-enabled-the-animated-motion-graphic-layers-must-be-disabled-and-only-the-static-background-readability-overlay-must-be-shown-consistent-with-the-existing-logic-in-frontend-src-components-common-motiongraphicanimatedbackground-tsx-and-the-css-reduced-motion-media-query",
+      "title": "Preserve reduced-motion accessibility behavior: when `prefers-reduced-motion: reduce` is enabled, the animated motion-graphic layers must be disabled and only the static background + readability overlay must be shown, consistent with the existing logic in `frontend/src/components/common/MotionGraphicAnimatedBackground.tsx` and the CSS reduced-motion media query.",
+      "reqIds": [
+        "REQ-89"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-generate-one-new-high-resolution-photorealistic-waterfall-background-image-and-add-it-as-a-static-frontend-asset-under-frontend-public-assets-generated",
+      "title": "Generate one new high-resolution, photorealistic waterfall background image and add it as a static frontend asset under `frontend/public/assets/generated/`.",
+      "reqIds": [
+        "REQ-90"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-current-site-wide-background-implementation-currently-rendered-via-motiongraphicanimatedbackground-in-frontend-src-components-layout-sitelayout-tsx-and-styled-in-frontend-src-index-css-with-a-static-waterfall-background-image-that-is-visible-across-every-route-page-home-about-services-skills-portfolio-blog-contact",
+      "title": "Replace the current site-wide background implementation (currently rendered via `MotionGraphicAnimatedBackground` in `frontend/src/components/layout/SiteLayout.tsx` and styled in `frontend/src/index.css`) with a static waterfall background image that is visible across every route/page (Home, About, Services, Skills, Portfolio, Blog, Contact).",
+      "reqIds": [
+        "REQ-91"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-static-waterfall-background-has-an-always-on-readability-overlay-scrim-so-all-existing-headings-and-body-text-remain-clearly-readable-on-all-pages-without-needing-per-page-special-case-styling",
+      "title": "Ensure the static waterfall background has an always-on readability overlay (scrim) so all existing headings and body text remain clearly readable on all pages without needing per-page special-case styling.",
+      "reqIds": [
+        "REQ-92"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-rebuild-and-republish-the-updated-site-so-the-static-waterfall-picture-background-is-live-under-the-existing-production-identifier-exactly-sheik-tonmoy-islam",
+      "title": "Rebuild and republish the updated site so the static waterfall picture background is live under the existing production identifier exactly `sheik-tonmoy-islam`.",
+      "reqIds": [
+        "REQ-93"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-site-wide-typography-color-system-so-that-default-text-headings-and-body-follows-the-logo-theme-palette-globally-and-remains-readable-over-the-current-static-waterfall-background-overlay-without-requiring-any-per-page-typography-overrides",
+      "title": "Update the site-wide typography color system so that default text (headings and body) follows the logo/theme palette globally and remains readable over the current static waterfall background + overlay, without requiring any per-page typography overrides.",
+      "reqIds": [
+        "REQ-94"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-or-refactor-hard-coded-text-colors-and-shadow-based-readability-hacks-in-page-components-so-they-inherit-the-new-global-logo-themed-typography-tokens-e-g-replace-text-white-text-white-90-and-drop-shadow-usage-where-it-is-only-being-used-to-force-readability",
+      "title": "Remove or refactor hard-coded text colors and shadow-based readability hacks in page/components so they inherit the new global logo-themed typography tokens (e.g., replace `text-white`, `text-white/90`, and `drop-shadow-*` usage where it is only being used to force readability).",
+      "reqIds": [
+        "REQ-95"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-secondary-muted-text-styles-remain-readable-over-the-waterfall-background-by-tuning-the-global-muted-secondary-foreground-tokens-to-align-with-the-new-logo-themed-palette-while-preserving-the-existing-design-language",
+      "title": "Ensure secondary/\"muted\" text styles remain readable over the waterfall background by tuning the global muted/secondary foreground tokens to align with the new logo-themed palette while preserving the existing design language.",
+      "reqIds": [
+        "REQ-96"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-rebuild-and-republish-the-updated-site-so-the-global-logo-themed-readable-typography-changes-are-live-under-the-existing-production-identifier-exactly-sheik-tonmoy-islam",
+      "title": "Rebuild and republish the updated site so the global logo-themed readable typography changes are live under the existing production identifier exactly: \"sheik-tonmoy-islam\".",
+      "reqIds": [
+        "REQ-97"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-site-wide-typography-color-system-so-default-text-both-headings-and-body-automatically-remains-readable-over-the-current-global-static-waterfall-background-overlay-across-all-routes-pages-home-about-services-skills-portfolio-blog-contact",
+      "title": "Update the site-wide typography color system so default text (both headings and body) automatically remains readable over the current global static waterfall background + overlay across all routes/pages (Home, About, Services, Skills, Portfolio, Blog, Contact).",
+      "reqIds": [
+        "REQ-98"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-or-refactor-page-component-level-hard-coded-readability-overrides-that-conflict-with-the-global-background-based-typography-e-g-hard-coded-yellow-text-classes-so-pages-inherit-the-global-theme-tokens-consistently",
+      "title": "Remove or refactor page/component-level hard-coded readability overrides that conflict with the global background-based typography (e.g., hard-coded yellow text classes) so pages inherit the global theme tokens consistently.",
+      "reqIds": [
+        "REQ-99"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-section-specific-typography-so-that-only-these-specific-sections-render-with-black-font-color-when-displayed-on-their-white-light-template-1-about-page-section-titled-what-sets-me-apart-including-its-infocard-titles-descriptions-2-services-page-service-option-section-the-services-grid-cards-area-3-portfolio-page-my-portfolio-section-the-header-filter-projects-area-and-4-contact-page-main-content-sections-header-contact-info-form-area-all-other-sections-pages-must-keep-the-existing-global-text-styling",
+      "title": "Apply section-specific typography so that ONLY these specific sections render with black font color when displayed on their white/light template: (1) About page section titled \"What Sets Me Apart\" (including its InfoCard titles/descriptions), (2) Services page \"Service option\" section (the services grid/cards area), (3) Portfolio page \"My Portfolio\" section (the header/filter/projects area), and (4) Contact page main content sections (header + contact info + form area). All other sections/pages must keep the existing global text styling.",
+      "reqIds": [
+        "REQ-101"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-about-page-so-the-about-page-body-text-is-fully-white-with-no-text-shadow-and-no-black-shadow-about-page-headings-must-remain-unchanged",
+      "title": "Update the About page so the About page body text is fully white with NO text shadow (and no black shadow). About page headings must remain unchanged.",
+      "reqIds": [
+        "REQ-102"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-fix-blog-landing-page-blog-article-preview-images-so-they-are-fully-visible-no-side-cut-cropping-images-must-be-auto-sized-and-visually-clean-unique-by-using-non-cropping-fit-behavior-e-g-contain-instead-of-cover",
+      "title": "Fix Blog landing page (/blog) article preview images so they are fully visible (no side cut/cropping). Images must be auto-sized and visually clean/unique by using non-cropping fit behavior (e.g., contain) instead of cover.",
+      "reqIds": [
+        "REQ-103"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-fix-blog-article-sub-page-images-all-5-article-routes-so-the-article-image-in-the-side-by-side-layout-is-fully-visible-no-cropping-cut-off-use-non-cropping-fit-behavior-while-keeping-the-existing-left-right-side-by-side-layout",
+      "title": "Fix Blog article sub-page images (all 5 article routes) so the article image in the side-by-side layout is fully visible (no cropping/cut-off). Use non-cropping fit behavior while keeping the existing left/right side-by-side layout.",
+      "reqIds": [
+        "REQ-104"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-about-page-to-display-the-user-provided-full-text-block-exact-wording-and-ordering-as-provided-as-a-clearly-readable-content-section-on-the-about-page-including-the-headings-labels-what-sets-me-apart-my-portfolio-get-in-touch-contact-information-email-location-whatsapp-share-this-site-and-the-provided-share-url-https-adorable-plum-iki-draft-caffeine-xyz",
+      "title": "Update the About page to display the user-provided full text block (exact wording and ordering as provided) as a clearly readable content section on the About page, including the headings/labels: \"What Sets Me Apart\", \"My Portfolio\", \"Get In Touch\", \"Contact Information\", \"Email\", \"Location\", \"WhatsApp\", \"Share This Site\", and the provided share URL \"https://adorable-plum-iki-draft.caffeine.xyz\".",
+      "reqIds": [
+        "REQ-105"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-all-text-from-the-user-provided-about-page-text-block-renders-in-white-including-headings-labels-paragraphs-and-the-displayed-share-url-and-is-not-affected-by-any-existing-black-text-overrides-or-muted-foreground-styling-within-the-about-page-layout",
+      "title": "Ensure all text from the user-provided About-page text block renders in white (including headings, labels, paragraphs, and the displayed share URL) and is not affected by any existing black-text overrides or muted-foreground styling within the About page layout.",
+      "reqIds": [
+        "REQ-106"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-about-page-to-keep-only-the-original-about-page-biography-content-and-remove-the-previously-added-extra-content-block-including-the-headings-sections-what-sets-me-apart-the-empty-heading-inside-the-added-block-my-portfolio-get-in-touch-contact-information-email-location-whatsapp-share-this-site-and-the-share-url-https-adorable-plum-iki-draft-caffeine-xyz",
+      "title": "Update the About page to keep ONLY the original About page biography content and remove the previously added extra content block (including the headings/sections: \"What Sets Me Apart\" (the empty heading inside the added block), \"My Portfolio\", \"Get In Touch\", \"Contact Information\" (Email/Location/WhatsApp), \"Share This Site\", and the share URL \"https://adorable-plum-iki-draft.caffeine.xyz\").",
+      "reqIds": [
+        "REQ-107"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-about-page-only-forced-white-text-override-wrapper-that-was-applied-specifically-to-the-previously-added-about-page-text-block-so-the-remaining-about-page-content-uses-the-normal-global-theme-tokens-e-g-foreground-muted-foreground-without-about-specific-forced-overrides",
+      "title": "Remove the About-page-only forced white-text override wrapper that was applied specifically to the previously added About page text block, so the remaining About page content uses the normal global theme tokens (e.g., foreground/muted-foreground) without About-specific forced overrides.",
+      "reqIds": [
+        "REQ-108"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-about-page-so-the-body-text-renders-in-solid-white-with-no-black-text-shadow-while-keeping-all-about-page-headings-unchanged",
+      "title": "Update the About page so the body text renders in solid white with no black text-shadow, while keeping all About page headings unchanged.",
+      "reqIds": [
+        "REQ-110"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-on-the-about-page-ensure-any-content-displayed-inside-white-light-template-sections-uses-black-font-color-e-g-card-titles-descriptions-and-other-text-on-white-light-surfaces-without-changing-typography-styles-on-other-pages",
+      "title": "On the About page, ensure any content displayed inside white/light template sections uses black font color (e.g., card titles/descriptions and other text on white/light surfaces), without changing typography styles on other pages.",
+      "reqIds": [
+        "REQ-111"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-on-the-about-page-ensure-the-full-biography-text-block-starting-with-i-am-sheik-tonmoy-islam-and-ending-with-modern-businesses-renders-in-solid-pure-white-including-bold-strong-emphasis-text-with-no-text-shadow-regardless-of-global-theme-tokens",
+      "title": "On the About page, ensure the full biography text block (starting with “I am Sheik Tonmoy Islam…” and ending with “…modern businesses.”) renders in solid pure white (including bold/strong emphasis text) with no text-shadow, regardless of global theme tokens.",
+      "reqIds": [
+        "REQ-112"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-on-the-about-page-ensure-any-text-rendered-inside-the-white-light-template-cards-e-g-the-what-sets-me-apart-infocard-titles-and-descriptions-displays-in-black-font-color-for-readability-without-affecting-non-card-about-page-content-or-other-pages",
+      "title": "On the About page, ensure any text rendered inside the white/light template cards (e.g., the “What Sets Me Apart” InfoCard titles and descriptions) displays in black font color for readability, without affecting non-card About page content or other pages.",
+      "reqIds": [
+        "REQ-113"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-about-page-styling-so-that-only-the-infocards-in-the-what-sets-me-apart-section-render-black-text-both-the-infocard-title-and-description-while-all-other-about-page-text-including-the-main-biography-body-text-and-headings-keeps-its-existing-colors",
+      "title": "Update the About page styling so that ONLY the InfoCards in the \"What Sets Me Apart\" section render black text (both the InfoCard title and description), while all other About page text (including the main biography/body text and headings) keeps its existing colors.",
+      "reqIds": [
+        "REQ-114"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -590,12 +961,6 @@
       "status": "in_progress"
     },
     {
-      "id": "AR-15",
-      "summary": "Make ONLY the About page body text yellow while keeping About page headings unchanged (page-specific exception to global typography styling)",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
       "id": "AR-16",
       "summary": "Update the Skills (and/or Portfolio) page content to include detailed skill categories and descriptions: Legal (shorter summary), Digital Marketing (shorter summary), Graphics Design (detailed), Video Editing (basic but detailed), Website Design/WordPress (detailed), and include relevant images/pictures alongside the content",
       "reqIds": [],
@@ -618,6 +983,112 @@
       "summary": "Add a fifth Blog section for Law/Legal content (same format as other sections: heading, short description, and one relevant static image with proper alt text) and rebuild/redeploy",
       "reqIds": [],
       "status": "in_progress"
+    },
+    {
+      "id": "AR-20",
+      "summary": "Expand Blog into individual article sub-pages (one per category) and replace the main Blog section short descriptions with the provided long-form articles; add an image to each article page and rebuild/redeploy",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-23",
+      "summary": "Rebuild and republish the site so the blog article sub-page image fix is live under the existing production identifier exactly: sheik-tonmoy-islam.",
+      "reqIds": [
+        "REQ-71"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-24",
+      "summary": "Replace the existing images on each of the 5 Blog article sub-pages with newly generated, different images per page, and display them in a side-by-side layout with per-page left/right placement (DM left, GD right, VE left, Web Design & Dev right, Law/Legal left).",
+      "reqIds": [],
+      "status": "in_progress"
+    },
+    {
+      "id": "AR-29",
+      "summary": "Rebuild and republish the site so the updated blog article images and side-by-side layouts are live under the existing production identifier exactly `sheik-tonmoy-islam`.",
+      "reqIds": [
+        "REQ-76"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-30",
+      "summary": "Fix broken/missing images on the main Blog landing page and all five Blog article sub-pages in production (blank image areas where containers still render)",
+      "reqIds": [],
+      "status": "in_progress"
+    },
+    {
+      "id": "AR-34",
+      "summary": "Rebuild and republish the site so the Blog image fixes are live under the existing production identifier exactly: `sheik-tonmoy-islam`.",
+      "reqIds": [
+        "REQ-80"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-35",
+      "summary": "Remove the footer text \"Built with using caffeine.ai\" from every page (footer only)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-36",
+      "summary": "Replace the current blue-ocean animated background with a new motion-graphic style animated background inferred from the site’s branding/logo colors, and provide a static fallback image with clear text readability across all pages",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-37",
+      "summary": "Refine the site-wide motion-graphic animated background to a \"Nigra waterfall\" theme with smoother, medium-speed motion and adjust readability overlay/brightness/contrast for improved text readability (overlay direction still unspecified: darker vs lighter).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-38",
+      "summary": "Update site-wide typography so text color follows the logo/theme palette globally and is automatically tuned for readability against the current waterfall/motion-graphic background (no per-page exceptions), then rebuild/redeploy",
+      "reqIds": [],
+      "status": "in_progress"
+    },
+    {
+      "id": "AR-41",
+      "summary": "Rebuild and redeploy the updated site so the global background-themed typography readability changes are live under the existing production identifier exactly: \"sheik-tonmoy-islam\".",
+      "reqIds": [
+        "REQ-100"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-43",
+      "summary": "Update About page typography so body text is fully white with no shadow (headings unchanged)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-44",
+      "summary": "Fix Blog images so they are fully visible (no side cut/cropping), auto-sized, and visually unique (use non-cropping fit/contain behavior rather than forcing a square crop)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-46",
+      "summary": "Update the About page to keep ONLY the existing bio content and remove the previously added extra sections/content (including \"What Sets Me Apart\", \"My Portfolio\", \"Get In Touch\", \"Contact Information\", \"Share This Site\" and the share URL), then build the update.",
+      "reqIds": [],
+      "status": "in_progress"
+    },
+    {
+      "id": "AR-49",
+      "summary": "Rebuild and republish the site so the About page removal is live under the existing production identifier exactly: \"sheik-tonmoy-islam\".",
+      "reqIds": [
+        "REQ-109"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-50",
+      "summary": "Update the About page so ONLY the InfoCards text (titles + descriptions) renders in black for readability on the white card/template sections, then rebuild.",
+      "reqIds": [],
+      "status": "pending"
     }
   ],
   "gameProjectType": "none",
