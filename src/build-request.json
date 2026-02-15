@@ -1,93 +1,60 @@
 {
   "kind": "build_request",
-  "title": "Apply detailed Skills content (short legal/marketing, detailed design/video/WordPress) with images",
+  "title": "Add Law/Legal section with image to Blog page",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-51",
-      "text": "Update the Skills content to match the user-provided structure: Legal Skills (shorter summary), Digital Marketing (shorter summary), Graphics Design (detailed), Video Editing (basic but detailed), and Website Design (WordPress only, detailed). Replace the current meter-only skill lists with readable detailed sections that include headings, short paragraphs, and bullet lists for categories.",
+      "id": "REQ-62",
+      "text": "Update the Blog page to include a fifth blog section focused on Law/Legal content, using the same card layout format as the existing four sections (English heading, short English description, and one static image with proper alt text).",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-apply-this"
+          "msg-1"
         ],
         "quotes": [
-          "apply this",
-          "yes,yes i went shirter, yes i went detailed description"
+          "the blog manu insight must added a lagel (Law) based content with image."
         ]
       },
       "acceptanceCriteria": [
-        "The Skills page no longer shows only percentage meters for the main categories; it shows detailed written content per category.",
-        "Legal Skills and Digital Marketing are presented as shortened, portfolio-friendly summaries (not the full long text blocks), while Graphics Design, Video Editing (basic), and WordPress Website Design are presented with detailed descriptions.",
-        "The detailed content includes the user-requested items: legal areas (e.g., land, crime, tax), digital marketing items (Facebook page creation/optimization, post scheduling, ads, social media management, SEO, SMM), graphics design categories (logo, banner, flyer, t-shirt, etc.), video editing basic (image add, text writing, etc.), and WordPress website design categories (site builder/development related).",
-        "All user-facing text on the updated sections is in English."
+        "The Blog page renders 5 sections total (existing four + new Law/Legal section).",
+        "The new Law/Legal section includes: (1) an English title, (2) a short English description paragraph, (3) an <img> with non-empty alt text.",
+        "The new section uses the same visual layout and styling conventions as the other Blog section cards.",
+        "The new section’s image is referenced via an absolute path under /assets/generated/ (matching existing blog section image patterns).",
+        "SEO metadata for the Blog page is updated so the description and Open Graph description reflect that Law/Legal content is included."
       ]
     },
     {
-      "id": "REQ-52",
-      "text": "Add relevant images/pictures alongside the detailed Skills content by creating one visual per skills category and rendering them as static frontend assets. Each category section/card must display its corresponding image with proper alt text.",
+      "id": "REQ-63",
+      "text": "Rebuild and republish the updated site so the Blog page change (Law/Legal section + image) is live under the existing production identifier exactly: \"sheik-tonmoy-islam\".",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-apply-this"
+          "msg-1"
         ],
         "quotes": [
-          "totall description with image picture."
+          "to start the build."
         ]
       },
       "acceptanceCriteria": [
-        "Each of the five skill categories (Legal, Digital Marketing, Graphics Design, Video Editing, WordPress Website Design) displays one image next to/within its section/card.",
-        "All images are served from static assets in the frontend (no backend image serving).",
-        "All images include meaningful English alt text and do not break layout on mobile/tablet/desktop."
-      ]
-    },
-    {
-      "id": "REQ-53",
-      "text": "Update the Portfolio page to include (below the projects grid) a new \"Skills Details\" section that reuses the same detailed skill categories and images, since the user requested detailed skills on the portfolio page.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-portfolio-skills-request"
-        ],
-        "quotes": [
-          "in this web site my portfolio page are all skill are should be in detail."
-        ]
-      },
-      "acceptanceCriteria": [
-        "The Portfolio page includes a visible section labeled \"Skills Details\" (English) beneath the projects grid.",
-        "The \"Skills Details\" section displays the same detailed category content and images as the Skills page (no duplicated inconsistent text).",
-        "The Portfolio page remains responsive and maintains existing project filtering and grid behavior."
+        "A production build completes without errors.",
+        "The live site under identifier \"sheik-tonmoy-islam\" shows the Blog page with the new Law/Legal section and its image loading successfully (no broken images)."
       ]
     }
   ],
   "constraints": [
-    "Do not edit files in frontend immutablePaths (including frontend/src/hooks/useInternetIdentity.ts(x), frontend/src/hooks/useActor.ts, frontend/src/main.tsx, and frontend/src/components/ui).",
-    "Keep backend architecture single-actor; no backend changes are required for this request.",
-    "All user-facing text must be in English."
+    "Do not edit any files under frontend/src/components/ui (read-only shadcn components must be composed, not modified).",
+    "Do not modify immutable frontend hook entrypoints: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx.",
+    "Store any new images as static assets under frontend/public/assets/generated and reference them from the frontend via absolute paths (e.g., /assets/generated/...).",
+    "Backend must remain single-actor (no additional backend services)."
   ],
   "nonGoals": [
-    "Do not add new authentication methods beyond Internet Identity.",
-    "Do not add external integrations (email sending, analytics, third-party CMS, etc.).",
-    "Do not change contact form persistence behavior or backend schema."
+    "Do not add individual blog post detail pages per section.",
+    "Do not change existing site-wide ocean animated background behavior or typography theme unless required to accommodate the new Blog section."
   ],
   "imageRequirements": {
     "required": [
-      "Photorealistic legal-themed skills illustration (skills-legal.dim_1200x800.png)",
-      "Photorealistic digital marketing-themed skills illustration (skills-digital-marketing.dim_1200x800.png)",
-      "Photorealistic graphic design-themed skills illustration (skills-graphic-design.dim_1200x800.png)",
-      "Photorealistic basic video editing-themed skills illustration (skills-video-editing.dim_1200x800.png)",
-      "Photorealistic WordPress website design-themed skills illustration (skills-wordpress-webdesign.dim_1200x800.png)"
+      "Law/Legal themed blog illustration (blog-law-legal.dim_1200x800.png)"
     ],
     "edits": []
-  },
-  "userProfileUpdate": {
-    "goalsToAdd": [],
-    "goalsToRemove": [],
-    "preferencesToAdd": [],
-    "preferencesToRemove": [],
-    "miscToAdd": [],
-    "miscToRemove": [],
-    "fieldsToSet": {},
-    "fieldsToDelete": []
   }
 }

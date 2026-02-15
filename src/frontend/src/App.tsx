@@ -6,6 +6,7 @@ import ServicesPage from './pages/ServicesPage';
 import SkillsPage from './pages/SkillsPage';
 import PortfolioPage from './pages/PortfolioPage';
 import ContactPage from './pages/ContactPage';
+import BlogPage from './pages/BlogPage';
 
 const rootRoute = createRootRoute({
   component: SiteLayout,
@@ -47,6 +48,12 @@ const contactRoute = createRoute({
   component: ContactPage,
 });
 
+const blogRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/blog',
+  component: BlogPage,
+});
+
 const routeTree = rootRoute.addChildren([
   homeRoute,
   aboutRoute,
@@ -54,6 +61,7 @@ const routeTree = rootRoute.addChildren([
   skillsRoute,
   portfolioRoute,
   contactRoute,
+  blogRoute,
 ]);
 
 const router = createRouter({ routeTree });

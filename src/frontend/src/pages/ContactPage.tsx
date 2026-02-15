@@ -4,7 +4,7 @@ import GradientBackground from '../components/common/GradientBackground';
 import ShareSiteLinkCard from '../components/common/ShareSiteLinkCard';
 import { setSEO } from '../lib/seo';
 import ContactForm from '../components/contact/ContactForm';
-import { Mail, MapPin, Phone } from 'lucide-react';
+import { Mail, MapPin, MessageCircle } from 'lucide-react';
 
 export default function ContactPage() {
   useEffect(() => {
@@ -48,9 +48,12 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Email</h3>
-                    <p className="text-sm text-foreground/70">
-                      Send me an email and I'll get back to you as soon as possible
-                    </p>
+                    <a
+                      href="mailto:official.tonmoyislam@gmail.com"
+                      className="text-sm text-foreground/90 hover:text-foreground hover:underline transition-colors"
+                    >
+                      official.tonmoyislam@gmail.com
+                    </a>
                   </div>
                 </div>
 
@@ -61,20 +64,25 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold mb-1">Location</h3>
                     <p className="text-sm text-foreground/70">
-                      Available for remote work and local consultations
+                      453, Thukra, Dumuria, Khulna
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
                   <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-cyan-500 text-white flex-shrink-0">
-                    <Phone className="h-6 w-6" />
+                    <MessageCircle className="h-6 w-6" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Response Time</h3>
-                    <p className="text-sm text-foreground/70">
-                      I typically respond within 24-48 hours
-                    </p>
+                    <h3 className="font-semibold mb-1">WhatsApp</h3>
+                    <a
+                      href="https://wa.me/8801999785559"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-foreground/90 hover:text-foreground hover:underline transition-colors"
+                    >
+                      01999785559
+                    </a>
                   </div>
                 </div>
               </div>

@@ -1,12 +1,12 @@
 # Specification
 
 ## Summary
-**Goal:** Replace meter-only Skills listings with detailed, readable skill descriptions (with images) and surface the same “Skills Details” content on the Portfolio page.
+**Goal:** Add a new Law/Legal blog section (with image) to the Blog page using the existing blog card layout, and update Blog page SEO metadata to reflect the added content.
 
 **Planned changes:**
-- Update the Skills page to show five written skill sections with headings, short paragraphs, and bullet lists: Legal Skills (short summary), Digital Marketing (short summary), Graphics Design (detailed), Video Editing (basic but detailed), and WordPress Website Design (detailed, WordPress only).
-- Ensure the written Skills content includes the requested items (e.g., legal areas like land/crime/tax; digital marketing tasks like Facebook page setup/optimization, scheduling, ads, social media management, SEO/SMM; graphics design deliverables; basic video editing tasks; WordPress site design/build categories), all in English.
-- Add one static image per skill category on the Skills page, rendered alongside its section/card with meaningful English alt text and responsive layout behavior.
-- Add a “Skills Details” section below the Portfolio projects grid that reuses the same detailed skill content and the same five images (kept consistent with the Skills page).
+- Add a fifth Blog page card/section for Law/Legal content, matching the existing blog section layout (English heading, short English description, and a static image with non-empty alt text).
+- Add and reference a new Law/Legal themed image from an absolute path under `/assets/generated/` to match the existing blog image patterns.
+- Update the Blog page SEO metadata (description and Open Graph description) to mention inclusion of Law/Legal content.
+- Rebuild and republish so the update is live under the production identifier `sheik-tonmoy-islam`.
 
-**User-visible outcome:** The Skills page shows clear, English descriptions (not just meters) for five skill categories with a relevant image for each, and the Portfolio page includes a new “Skills Details” section below the projects grid showing the same detailed skills and images.
+**User-visible outcome:** The Blog page displays five sections total, including a new Law/Legal card with an image, and the live site reflects the update without broken images.

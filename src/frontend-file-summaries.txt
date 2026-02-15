@@ -1,8 +1,8 @@
 {
-  "frontend/src/App.tsx": "Main application component that sets up TanStack Router with routes for all pages (Home, About, Services, Skills, Portfolio, Contact) using a shared SiteLayout.",
+  "frontend/src/App.tsx": "Main application component that sets up TanStack Router with routes for all pages including the new Blog page, using a shared SiteLayout.",
   "frontend/src/components/layout/SiteLayout.tsx": "Root layout component that wraps all pages with OceanAnimatedBackground, persistent header navigation, and footer, now explicitly applying text-foreground class at the layout root to ensure yellow typography inherits across all content.",
-  "frontend/src/components/layout/HeaderNav.tsx": "Responsive navigation header with text-only brand mark (STI badge), desktop menu, and mobile sheet drawer, now explicitly using text-foreground classes on navigation buttons to ensure yellow text color while preserving white text on active gradient buttons.",
-  "frontend/src/components/layout/SiteFooter.tsx": "Site footer with semi-transparent backdrop blur styling, text-only branding, quick links, contact CTA, copyright notice, and Caffeine.ai attribution with UTM tracking, now explicitly using text-foreground on headings to ensure yellow typography while preserving muted-foreground for links and descriptions.",
+  "frontend/src/components/layout/HeaderNav.tsx": "Responsive navigation header with text-only brand mark (STI badge), desktop menu, and mobile sheet drawer, now including Blog link in navigation with consistent active-route styling.",
+  "frontend/src/components/layout/SiteFooter.tsx": "Site footer with semi-transparent backdrop blur styling, text-only branding, quick links including Blog, contact CTA, copyright notice, and Caffeine.ai attribution with UTM tracking.",
   "frontend/src/components/common/Container.tsx": "Reusable container component that provides consistent horizontal padding and max-width across all pages.",
   "frontend/src/components/common/GradientBackground.tsx": "Refactored wrapper component that no longer applies blue gradient backgrounds, now serves as a transparent structural wrapper preserving spacing without competing with the waterfall background.",
   "frontend/src/components/common/InfoCard.tsx": "Reusable card component with optional icon, title, description, and hover effects for consistent presentation across pages.",
@@ -18,7 +18,7 @@
   "frontend/src/components/portfolio/ProjectFilter.tsx": "Tab-based filter component for portfolio categories (All, Legal, Business, Marketing, Design, Video, Web).",
   "frontend/src/components/portfolio/ProjectsGrid.tsx": "Responsive grid displaying project cards with title, description, tools badges, and optional external links.",
   "frontend/src/data/projects.ts": "Static data file containing nine example projects across different categories with titles, descriptions, tools, and categories.",
-  "frontend/src/pages/ContactPage.tsx": "Contact page with form and contact information in two-column grid, using semi-transparent card backgrounds with backdrop blur for readability over the waterfall background.",
+  "frontend/src/pages/ContactPage.tsx": "Contact page with form and contact information displaying the user's actual email (official.tonmoyislam@gmail.com as mailto link), WhatsApp number (01999785559 as wa.me link), and location (453, Thukra, Dumuria, Khulna as plain text) in a two-column grid with semi-transparent card backgrounds.",
   "frontend/src/components/contact/ContactForm.tsx": "Contact form component with validation, loading states, and integration with backend submission hook.",
   "frontend/src/components/contact/SubmitStatus.tsx": "Alert component displaying success or error messages after contact form submission with appropriate styling.",
   "frontend/src/hooks/useSubmitContactForm.ts": "React Query mutation hook that submits contact form data to the backend actor and invalidates related queries.",
@@ -29,12 +29,13 @@
   "frontend/tailwind.config.js": "Tailwind configuration extending the theme with blue gradient colors, custom shadows, Inter font family, and design tokens.",
   "frontend/src/components/common/SectionCornerPortrait.tsx": "Small circular portrait component for top-right corner placement, now using centralized portrait source with URL encoding.",
   "frontend/src/components/common/ShareSiteLinkCard.tsx": "Reusable component that displays the current site URL with copy-to-clipboard and open-in-new-tab actions for easy sharing after deployment.",
-  "frontend/DEPLOYMENT.md": "Deployment documentation with updated verification checklist for ocean background theme and new yellow typography theme verification steps, maintaining production identifier `sheik-tonmoy-islam`.",
+  "frontend/DEPLOYMENT.md": "Deployment documentation with updated verification checklist including Blog page verification steps for all 5 sections (including new Law/Legal section) and image loading checks, maintaining production identifier `sheik-tonmoy-islam`.",
   "frontend/src/components/common/SectionMediumPortrait.tsx": "Medium-sized portrait component for top-right placement, now using centralized portrait source with URL encoding.",
   "frontend/src/lib/portrait.ts": "Centralized portrait image configuration with URL-encoded asset path for production-safe loading and consistent alt text across all components.",
   "frontend/src/components/common/RightSidePortrait.tsx": "New larger portrait component positioned on the right side of page content with responsive sizing (256px to 384px) and gradient styling.",
   "frontend/src/components/common/WaterfallVideoBackground.tsx": "Simplified background component that renders a fixed static waterfall image layer with overlay, replacing all video-based logic and asset references.",
   "frontend/src/components/common/OceanAnimatedBackground.tsx": "New global background component that renders a static ocean image layer with three subtle CSS-animated wave gradient layers and a readability overlay, all with pointer-events disabled to stay behind content.",
   "frontend/src/data/skillsDetails.ts": "Data file containing detailed content for five skill categories (Legal, Digital Marketing, Graphics Design, Video Editing, WordPress Website Design) with descriptions, bullet-point categories, and image paths for each skill area.",
-  "frontend/src/components/skills/SkillsDetailsSection.tsx": "Reusable component that renders detailed skill categories with images, descriptions, and bullet lists using shadcn Card components in a responsive two-column layout (image + content)."
+  "frontend/src/components/skills/SkillsDetailsSection.tsx": "Reusable component that renders detailed skill categories with images, descriptions, and bullet lists using shadcn Card components in a responsive two-column layout (image + content).",
+  "frontend/src/pages/BlogPage.tsx": "Blog page component displaying five niche sections (Digital Marketing, Graphic Design, Video Editing, Website Design & Web Development, Law) with alternating image-content layouts, responsive cards, and updated SEO metadata that includes Law/Legal content."
 }

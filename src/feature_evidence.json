@@ -2,12 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-skills-content-to-match-the-user-provided-structure-legal-skills-shorter-summary-digital-marketing-shorter-summary-graphics-design-detailed-video-editing-basic-but-detailed-and-website-design-wordpress-only-detailed-replace-the-current-meter-only-skill-lists-with-readable-detailed-sections-that-include-headings-short-paragraphs-and-bullet-lists-for-categories",
-      "featureTitle": "Update the Skills content to match the user-provided structure: Legal Skills (shorter summary), Digital Marketing (shorter summary), Graphics Design (detailed), Video Editing (basic but detailed), and Website Design (WordPress only, detailed). Replace the current meter-only skill lists with readable detailed sections that include headings, short paragraphs, and bullet lists for categories.",
+      "featureId": "feature-update-the-blog-page-to-include-a-fifth-blog-section-focused-on-law-legal-content-using-the-same-card-layout-format-as-the-existing-four-sections-english-heading-short-english-description-and-one-static-image-with-proper-alt-text",
+      "featureTitle": "Update the Blog page to include a fifth blog section focused on Law/Legal content, using the same card layout format as the existing four sections (English heading, short English description, and one static image with proper alt text).",
       "files": [
-        "frontend/src/components/skills/SkillsDetailsSection.tsx",
-        "frontend/src/data/skillsDetails.ts",
-        "frontend/src/pages/SkillsPage.tsx"
+        "frontend/src/pages/BlogPage.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -17,16 +15,15 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-51"
+        "REQ-62"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-add-relevant-images-pictures-alongside-the-detailed-skills-content-by-creating-one-visual-per-skills-category-and-rendering-them-as-static-frontend-assets-each-category-section-card-must-display-its-corresponding-image-with-proper-alt-text",
-      "featureTitle": "Add relevant images/pictures alongside the detailed Skills content by creating one visual per skills category and rendering them as static frontend assets. Each category section/card must display its corresponding image with proper alt text.",
+      "featureId": "feature-rebuild-and-republish-the-updated-site-so-the-blog-page-change-law-legal-section-image-is-live-under-the-existing-production-identifier-exactly-sheik-tonmoy-islam",
+      "featureTitle": "Rebuild and republish the updated site so the Blog page change (Law/Legal section + image) is live under the existing production identifier exactly: \"sheik-tonmoy-islam\".",
       "files": [
-        "frontend/src/components/skills/SkillsDetailsSection.tsx",
-        "frontend/src/data/skillsDetails.ts"
+        "frontend/DEPLOYMENT.md"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -36,26 +33,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-52"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-update-the-portfolio-page-to-include-below-the-projects-grid-a-new-skills-details-section-that-reuses-the-same-detailed-skill-categories-and-images-since-the-user-requested-detailed-skills-on-the-portfolio-page",
-      "featureTitle": "Update the Portfolio page to include (below the projects grid) a new \"Skills Details\" section that reuses the same detailed skill categories and images, since the user requested detailed skills on the portfolio page.",
-      "files": [
-        "frontend/src/components/skills/SkillsDetailsSection.tsx",
-        "frontend/src/pages/PortfolioPage.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-53"
+        "REQ-63"
       ],
       "confidence": "high"
     }

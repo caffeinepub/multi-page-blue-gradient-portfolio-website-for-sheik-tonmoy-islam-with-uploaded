@@ -1,99 +1,43 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Detailed Skills content with category images and Portfolio reuse",
+  "title": "Add Law/Legal blog card section and update Blog SEO metadata",
   "requirements": [
     {
-      "id": "REQ-51",
-      "summary": "Replace meter-only Skills categories with detailed English content sections for Legal (short), Digital Marketing (short), Graphics Design (detailed), Video Editing (basic but detailed), and WordPress Website Design (detailed, WordPress-only).",
+      "id": "REQ-62",
+      "summary": "Add a fifth Blog card section for Law/Legal with a static generated image and update Blog page SEO copy to mention Law/Legal.",
       "acceptanceCriteria": [
-        "The Skills page no longer shows only percentage meters for the main categories; it shows detailed written content per category.",
-        "Legal Skills and Digital Marketing are presented as shortened, portfolio-friendly summaries (not the full long text blocks), while Graphics Design, Video Editing (basic), and WordPress Website Design are presented with detailed descriptions.",
-        "The detailed content includes the user-requested items: legal areas (e.g., land, crime, tax), digital marketing items (Facebook page creation/optimization, post scheduling, ads, social media management, SEO, SMM), graphics design categories (logo, banner, flyer, t-shirt, etc.), video editing basic (image add, text writing, etc.), and WordPress website design categories (site builder/development related).",
-        "All user-facing text on the updated sections is in English."
+        "The Blog page renders 5 sections total (existing four + new Law/Legal section).",
+        "The new Law/Legal section includes: (1) an English title, (2) a short English description paragraph, (3) an <img> with non-empty alt text.",
+        "The new section uses the same visual layout and styling conventions as the other Blog section cards.",
+        "The new section’s image is referenced via an absolute path under /assets/generated/ (matching existing blog section image patterns).",
+        "SEO metadata for the Blog page is updated so the description and Open Graph description reflect that Law/Legal content is included."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/data/skillsDetails.ts",
+          "path": "frontend/public/assets/generated/blog-law-legal.dim_1200x800.png",
           "operation": "create",
-          "description": "Create a single source of truth for the five Skills Details categories (headings, short paragraphs, and bullet lists) matching the requested scope: Legal Skills (short), Digital Marketing (short), Graphics Design (detailed), Video Editing (basic but detailed), WordPress Website Design (WordPress-only, detailed)."
+          "description": "Add the required generated static image asset: frontend/public/assets/generated/blog-law-legal.dim_1200x800.png, to be referenced by the new Law/Legal Blog card using an absolute /assets/generated/... path."
         },
         {
-          "path": "frontend/src/components/skills/SkillsDetailsSection.tsx",
-          "operation": "create",
-          "description": "Add a reusable Skills Details section component that renders the categories from frontend/src/data/skillsDetails.ts with headings, paragraphs, and bullet lists. Use shadcn-ui Card (and related primitives) for consistent section/card layout. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/pages/SkillsPage.tsx",
+          "path": "frontend/src/pages/BlogPage.tsx",
           "operation": "modify",
-          "description": "Update the Skills page to render the new detailed Skills Details section (and remove the main-category meter grid usage). Ensure all visible text is English and matches the requested level of detail per category."
+          "description": "Update the Blog page to include a 5th entry in the existing blogSections array for “Law/Legal” with (a) English title, (b) short English description, (c) image set to /assets/generated/blog-law-legal.dim_1200x800.png and (d) non-empty alt text. Keep the same card layout by continuing to render via the existing map and the shadcn-ui Card/CardHeader/CardContent/CardTitle composition (do not modify any files under frontend/src/components/ui). Verify the component's usage instructions before implementing. Also update the setSEO() description and ogDescription strings to explicitly include Law/Legal content."
         }
       ]
     },
     {
-      "id": "REQ-52",
-      "summary": "Add one static image per skill category and render it alongside each detailed Skills section/card with meaningful English alt text and responsive layout.",
+      "id": "REQ-63",
+      "summary": "Update deployment documentation/checklist to ensure the production build and republish flow is executed for identifier \"sheik-tonmoy-islam\" and verifies the new Blog Law/Legal image loads.",
       "acceptanceCriteria": [
-        "Each of the five skill categories (Legal, Digital Marketing, Graphics Design, Video Editing, WordPress Website Design) displays one image next to/within its section/card.",
-        "All images are served from static assets in the frontend (no backend image serving).",
-        "All images include meaningful English alt text and do not break layout on mobile/tablet/desktop."
+        "A production build completes without errors.",
+        "The live site under identifier \"sheik-tonmoy-islam\" shows the Blog page with the new Law/Legal section and its image loading successfully (no broken images)."
       ],
       "file_operations": [
         {
-          "path": "frontend/public/assets/generated/skills-legal.dim_1200x800.png",
-          "operation": "create",
-          "description": "Add the generated static asset for the Legal Skills category image at frontend/public/assets/generated/skills-legal.dim_1200x800.png."
-        },
-        {
-          "path": "frontend/public/assets/generated/skills-digital-marketing.dim_1200x800.png",
-          "operation": "create",
-          "description": "Add the generated static asset for the Digital Marketing category image at frontend/public/assets/generated/skills-digital-marketing.dim_1200x800.png."
-        },
-        {
-          "path": "frontend/public/assets/generated/skills-graphic-design.dim_1200x800.png",
-          "operation": "create",
-          "description": "Add the generated static asset for the Graphics Design category image at frontend/public/assets/generated/skills-graphic-design.dim_1200x800.png."
-        },
-        {
-          "path": "frontend/public/assets/generated/skills-video-editing.dim_1200x800.png",
-          "operation": "create",
-          "description": "Add the generated static asset for the Video Editing category image at frontend/public/assets/generated/skills-video-editing.dim_1200x800.png."
-        },
-        {
-          "path": "frontend/public/assets/generated/skills-wordpress-webdesign.dim_1200x800.png",
-          "operation": "create",
-          "description": "Add the generated static asset for the WordPress Website Design category image at frontend/public/assets/generated/skills-wordpress-webdesign.dim_1200x800.png."
-        },
-        {
-          "path": "frontend/src/data/skillsDetails.ts",
+          "path": "frontend/DEPLOYMENT.md",
           "operation": "modify",
-          "description": "Wire each skills category to its corresponding static image path under frontend/public/assets/generated/ and define meaningful English alt text per category."
-        },
-        {
-          "path": "frontend/src/components/skills/SkillsDetailsSection.tsx",
-          "operation": "modify",
-          "description": "Render each category image with its corresponding alt text inside the Skills Details cards/sections, ensuring responsive behavior (image + content stacks on small screens and aligns side-by-side on larger screens). Use shadcn-ui Card layout patterns for consistency. Verify the component's usage instructions before implementing."
-        }
-      ]
-    },
-    {
-      "id": "REQ-53",
-      "summary": "Add a 'Skills Details' section beneath the projects grid on the Portfolio page, reusing the same detailed skills content and images as the Skills page.",
-      "acceptanceCriteria": [
-        "The Portfolio page includes a visible section labeled \"Skills Details\" (English) beneath the projects grid.",
-        "The \"Skills Details\" section displays the same detailed category content and images as the Skills page (no duplicated inconsistent text).",
-        "The Portfolio page remains responsive and maintains existing project filtering and grid behavior."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/PortfolioPage.tsx",
-          "operation": "modify",
-          "description": "Add a new section labeled \"Skills Details\" below the ProjectsGrid, rendering the shared SkillsDetailsSection component so content/images remain consistent with the Skills page."
-        },
-        {
-          "path": "frontend/src/components/skills/SkillsDetailsSection.tsx",
-          "operation": "modify",
-          "description": "Support a reusable rendering mode suitable for embedding on Portfolio (e.g., optional heading display or spacing variants), while still sourcing all content from frontend/src/data/skillsDetails.ts. Use shadcn-ui components for consistent typography/card structure. Verify the component's usage instructions before implementing."
+          "description": "Amend the pre-deployment/general verification checklist to explicitly include verifying the Blog page now has 5 sections and that the Law/Legal card image loads successfully (frontend/public/assets/generated/blog-law-legal.dim_1200x800.png referenced as /assets/generated/blog-law-legal.dim_1200x800.png), and reiterate republishing under the existing identifier \"sheik-tonmoy-islam\"."
         }
       ]
     }

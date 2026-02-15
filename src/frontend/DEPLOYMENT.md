@@ -21,8 +21,15 @@ This application is deployed under the identifier: **sheik-tonmoy-islam**
 - [ ] No new text-shadow has been introduced
 - [ ] Explicitly styled elements (e.g., white text on gradient buttons) remain unchanged and readable
 
+### Blog Page Verification
+- [ ] Blog page displays all 5 sections (Digital Marketing, Graphic Design, Video Editing, Website Design & Web Development, Law)
+- [ ] Law/Legal section image loads successfully (`/assets/generated/blog-law-legal.dim_1200x800.png`)
+- [ ] All blog section images display without broken image placeholders
+- [ ] Blog sections alternate image-content layout correctly
+- [ ] SEO metadata includes Law/Legal content in description
+
 ### General Verification
-- [ ] All routes are accessible (Home, About, Services, Skills, Portfolio, Contact)
+- [ ] All routes are accessible (Home, About, Services, Skills, Portfolio, Contact, Blog)
 - [ ] Navigation highlights active page correctly
 - [ ] Contact form submits successfully
 - [ ] Mobile responsive design works correctly

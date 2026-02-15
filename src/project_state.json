@@ -1,10 +1,9 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 33,
-  "summary": "Update the existing multi-page portfolio website for Sheik Tonmoy Islam so the visual theme is fully replaced with a full-page blue ocean animated (CSS/3D-style subtle moving effect) background applied across every page, using a generated blue ocean image as the static fallback; then rebuild and redeploy under the existing domain identifier \"sheik-tonmoy-islam\".",
+  "projectStateVersion": 39,
+  "summary": "Update the existing multi-page portfolio website for Sheik Tonmoy Islam so the visual theme is fully replaced with a full-page blue ocean animated (CSS/3D-style subtle moving effect) background applied across every page, using a generated blue ocean image as the static fallback; add a new Blog page and Blog navigation links in both header and footer; update the Blog page to include an additional Law/Legal section with its own image; then rebuild and redeploy under the existing domain identifier \"sheik-tonmoy-islam\".",
   "architectural_notes": [
     "Implement as a multi-page site with separate routes/pages for Home, About, Services, Skills, Portfolio/Projects, Contact.",
-    "Include explicit contact details on the Contact page: email gamil-official.tonmoyislam@gmail.com and WhatsApp 01999785559.",
     "Republish and replace the old published link using the valid domain identifier exactly: sheik-tonmoy-islam.",
     "Re-enable images for the bio/profile picture using the previously uploaded asset \"Tonmoy islam pic.png\".",
     "Theme direction change: replace the blue-gradient theme with a full-page animated (video-style) 3D waterfall background across all pages.",
@@ -12,7 +11,8 @@
     "Typography update: remove text-shadow globally (headings + body) across all pages for clearer text over the waterfall background.",
     "Theme direction update: replace the static waterfall picture background with a full-page blue ocean animated background (subtle CSS/3D-style motion) across all pages.",
     "Generate a blue ocean background image and use it as the static fallback background across all pages when animation isn’t available.",
-    "Typography update: change global text color to yellow across all pages; headings and body use the same color for improved visibility."
+    "Typography update: change global text color to yellow across all pages; headings and body use the same color for improved visibility.",
+    "Contact page contact details must be updated to email official.tonmoyislam@gmail.com and WhatsApp 01999785559 (replace previous values)."
   ],
   "known_issues": [
     "Initial build attempt failed with platform error: \"The AI couldn't implement your request. Please simplify or rephrase your prompt.\"",
@@ -21,7 +21,7 @@
     "Typography clarity request: remove text-shadow globally across all pages to make text fully clear/easy on the eyes (may require adjusting text color strength if needed after shadow removal)."
   ],
   "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Photorealistic legal-themed skills illustration (skills-legal.dim_1200x800.png)\n- Photorealistic digital marketing-themed skills illustration (skills-digital-marketing.dim_1200x800.png)\n- Photorealistic graphic design-themed skills illustration (skills-graphic-design.dim_1200x800.png)\n- Photorealistic basic video editing-themed skills illustration (skills-video-editing.dim_1200x800.png)\n- Photorealistic WordPress website design-themed skills illustration (skills-wordpress-webdesign.dim_1200x800.png)",
+  "imageRequirements": "## Required Images\n- Law/Legal themed blog illustration (blog-law-legal.dim_1200x800.png)",
   "existing_features": [
     {
       "id": "feature-create-a-responsive-multi-page-portfolio-website-with-separate-pages-for-home-about-services-skills-portfolio-projects-and-contact-including-a-persistent-top-navigation-and-footer",
@@ -446,6 +446,86 @@
         "REQ-53"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-update-the-contact-page-contact-information-section-to-replace-the-currently-displayed-email-related-placeholder-text-with-the-user-s-email-address-official-tonmoyislam-gmail-com-and-render-it-as-a-clickable-mailto-link",
+      "title": "Update the Contact page contact information section to replace the currently displayed email-related placeholder text with the user's email address \"official.tonmoyislam@gmail.com\" and render it as a clickable mailto link.",
+      "reqIds": [
+        "REQ-54"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-contact-page-contact-information-section-to-replace-the-currently-displayed-phone-response-time-placeholder-with-a-whatsapp-contact-entry-showing-01999785559-as-a-clickable-whatsapp-deep-link",
+      "title": "Update the Contact page contact information section to replace the currently displayed phone/response-time placeholder with a WhatsApp contact entry showing \"01999785559\" as a clickable WhatsApp deep link.",
+      "reqIds": [
+        "REQ-55"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-contact-page-location-entry-to-show-the-user-s-location-as-simple-plain-text-453-thukra-dumuria-khulna",
+      "title": "Update the Contact page Location entry to show the user's location as simple plain text: \"453, Thukra, Dumuria, Khulna\".",
+      "reqIds": [
+        "REQ-56"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-new-blog-route-at-blog-to-the-tanstack-router-route-tree-and-create-a-new-blog-page-component-that-matches-existing-page-conventions-uses-sitelayout-wrapper-automatically-uses-container-gradientbackground-and-sets-seo-metadata-via-setseo",
+      "title": "Add a new Blog route at \"/blog\" to the TanStack Router route tree and create a new Blog page component that matches existing page conventions (uses SiteLayout wrapper automatically, uses Container + GradientBackground, and sets SEO metadata via setSEO).",
+      "reqIds": [
+        "REQ-57"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-blog-navigation-item-that-links-to-blog-in-the-site-header-navigation-desktop-and-mobile-update-the-actual-header-component-used-by-the-app-frontend-src-components-layout-headernav-tsx",
+      "title": "Add a \"Blog\" navigation item that links to \"/blog\" in the site header navigation (desktop and mobile). Update the actual header component used by the app (frontend/src/components/layout/HeaderNav.tsx).",
+      "reqIds": [
+        "REQ-58"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-blog-navigation-item-that-links-to-blog-in-the-site-footer-quick-links-update-the-actual-footer-component-used-by-the-app-frontend-src-components-layout-sitefooter-tsx",
+      "title": "Add a \"Blog\" navigation item that links to \"/blog\" in the site footer quick links. Update the actual footer component used by the app (frontend/src/components/layout/SiteFooter.tsx).",
+      "reqIds": [
+        "REQ-59"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-blog-page-as-a-single-page-containing-four-clearly-separated-niche-sections-digital-marketing-graphic-design-video-editing-and-website-design-web-development-each-section-must-include-english-heading-text-a-short-english-description-and-one-relevant-static-image-with-proper-alt-text",
+      "title": "Implement the Blog page as a single page containing four clearly separated niche sections: Digital Marketing, Graphic Design, Video Editing, and Website Design & Web Development. Each section must include English heading text, a short English description, and one relevant static image with proper alt text.",
+      "reqIds": [
+        "REQ-60"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-four-blog-section-images-as-static-frontend-assets-under-frontend-public-assets-generated-and-reference-them-from-the-blog-page-using-absolute-paths-e-g-assets-generated",
+      "title": "Add the four Blog section images as static frontend assets under frontend/public/assets/generated/ and reference them from the Blog page using absolute paths (e.g., /assets/generated/...).",
+      "reqIds": [
+        "REQ-61"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-blog-page-to-include-a-fifth-blog-section-focused-on-law-legal-content-using-the-same-card-layout-format-as-the-existing-four-sections-english-heading-short-english-description-and-one-static-image-with-proper-alt-text",
+      "title": "Update the Blog page to include a fifth blog section focused on Law/Legal content, using the same card layout format as the existing four sections (English heading, short English description, and one static image with proper alt text).",
+      "reqIds": [
+        "REQ-62"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-rebuild-and-republish-the-updated-site-so-the-blog-page-change-law-legal-section-image-is-live-under-the-existing-production-identifier-exactly-sheik-tonmoy-islam",
+      "title": "Rebuild and republish the updated site so the Blog page change (Law/Legal section + image) is live under the existing production identifier exactly: \"sheik-tonmoy-islam\".",
+      "reqIds": [
+        "REQ-63"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -454,12 +534,6 @@
       "summary": "Create and deploy a multi-page React + Tailwind portfolio website (blue-gradient theme) with pages/sections: Home (with uploaded photo), About, Services, Skills, Portfolio/Projects, Contact",
       "reqIds": [],
       "status": "in_progress"
-    },
-    {
-      "id": "AR-3",
-      "summary": "Add contact details to the Contact section: email (gamil-official.tonmoyislam@gmail.com) and WhatsApp number (01999785559)",
-      "reqIds": [],
-      "status": "pending"
     },
     {
       "id": "AR-4",
@@ -524,6 +598,24 @@
     {
       "id": "AR-16",
       "summary": "Update the Skills (and/or Portfolio) page content to include detailed skill categories and descriptions: Legal (shorter summary), Digital Marketing (shorter summary), Graphics Design (detailed), Video Editing (basic but detailed), Website Design/WordPress (detailed), and include relevant images/pictures alongside the content",
+      "reqIds": [],
+      "status": "in_progress"
+    },
+    {
+      "id": "AR-17",
+      "summary": "Update Contact page to replace existing email/WhatsApp with email official.tonmoyislam@gmail.com and WhatsApp 01999785559, and add location as plain text: 453, Thukra, Dumuria, Khulna",
+      "reqIds": [],
+      "status": "in_progress"
+    },
+    {
+      "id": "AR-18",
+      "summary": "Add a Blog menu item in both header and footer; create a single Blog page with 4 niche sections (Digital Marketing, Graphic Design, Video Editing, Website Design & Web Development), each with its own relevant image, and ensure site-wide navigation links work",
+      "reqIds": [],
+      "status": "in_progress"
+    },
+    {
+      "id": "AR-19",
+      "summary": "Add a fifth Blog section for Law/Legal content (same format as other sections: heading, short description, and one relevant static image with proper alt text) and rebuild/redeploy",
       "reqIds": [],
       "status": "in_progress"
     }
