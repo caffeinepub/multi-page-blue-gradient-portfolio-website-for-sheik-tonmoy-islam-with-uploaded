@@ -50,6 +50,18 @@ This document outlines the verification steps required before and after deployin
 - [ ] Confirm blog article images load with proper dimensions
 - [ ] Test contact form submission and validation
 
+### 8. Branding & Site Title
+- [ ] Verify browser tab title is exactly "Sheik Tonmoy Islam" on all pages
+- [ ] Confirm header brand text "Sheik Tonmoy Islam" is visible on desktop
+- [ ] Confirm header brand text "Sheik Tonmoy Islam" is visible on mobile
+- [ ] Check that navigation does not change the browser tab title
+
+### 9. About Page Styling
+- [ ] Verify "What Sets Me Apart" InfoCards display black text (title + description)
+- [ ] Confirm biography paragraphs remain white text
+- [ ] Check that Core Values section text is unaffected
+- [ ] Test in both light and dark modes
+
 ## Post-Deployment Checks
 
 ### 1. Production Build
@@ -57,32 +69,31 @@ This document outlines the verification steps required before and after deployin
 - [ ] Check that all assets are accessible via CDN/hosting
 - [ ] Confirm no 404 errors for images or resources
 
-### 2. Cross-Browser Testing
+### 2. Production Identifier (CRITICAL)
+- [ ] **REQUIRED**: Deployment MUST use identifier: `sheik-tonmoy-islam` (hyphenated, lowercase)
+- [ ] Confirm live URL includes the identifier path: `https://[platform-domain]/sheik-tonmoy-islam`
+- [ ] Verify ShareSiteLinkCard displays the full URL including `/sheik-tonmoy-islam` path
+- [ ] Test copy-to-clipboard functionality with the complete shareable URL
+- [ ] If republishing, ensure the identifier remains `sheik-tonmoy-islam` (not a new/different identifier)
+- [ ] **RETURN TO USER**: Capture and provide the final live shareable URL after successful deployment
+
+### 3. Cross-Browser Testing
 - [ ] Test in Chrome/Edge (Chromium)
 - [ ] Test in Firefox
 - [ ] Test in Safari (if available)
 - [ ] Verify mobile responsiveness on actual devices
 
-### 3. Performance
+### 4. Performance
 - [ ] Check page load times
 - [ ] Verify images are optimized and loading efficiently
 - [ ] Confirm no console errors in production
 
-### 4. SEO & Metadata
-- [ ] Verify page titles are set correctly
+### 5. SEO & Metadata
+- [ ] Verify page title is exactly "Sheik Tonmoy Islam" on all routes
 - [ ] Check Open Graph tags for social sharing
 - [ ] Confirm meta descriptions are present
 
-### 5. Production Identifier
-- [ ] Verify deployment uses identifier: `sheik-tonmoy-islam`
-- [ ] Confirm URL structure matches expected format
-
-## Known Issues & Notes
-
-- Static waterfall background replaces previous motion-graphic animated background
-- Blog article images use v2 versions with verified dimensions (1600x900)
-- Contact form integrates with backend actor for submission storage
-- All typography now uses logo-themed blue→cyan palette with automatic readability adjustments
-
 ## Deployment Commands
+
+When deploying or republishing this site, **you MUST use the production identifier `sheik-tonmoy-islam`**:
 

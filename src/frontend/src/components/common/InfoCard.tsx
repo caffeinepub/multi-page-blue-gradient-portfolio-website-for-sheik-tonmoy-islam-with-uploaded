@@ -8,15 +8,29 @@ interface InfoCardProps {
   children?: ReactNode;
   className?: string;
   icon?: ReactNode;
+  titleClassName?: string;
+  descriptionClassName?: string;
 }
 
-export default function InfoCard({ title, description, children, className, icon }: InfoCardProps) {
+export default function InfoCard({ 
+  title, 
+  description, 
+  children, 
+  className, 
+  icon,
+  titleClassName,
+  descriptionClassName 
+}: InfoCardProps) {
   return (
     <Card className={cn('h-full transition-all hover:shadow-lg hover:scale-[1.02]', className)}>
       <CardHeader>
         {icon && <div className="mb-2">{icon}</div>}
-        <CardTitle className="text-xl">{title}</CardTitle>
-        {description && <CardDescription>{description}</CardDescription>}
+        <CardTitle className={cn('text-xl', titleClassName)}>{title}</CardTitle>
+        {description && (
+          <CardDescription className={descriptionClassName}>
+            {description}
+          </CardDescription>
+        )}
       </CardHeader>
       {children && <CardContent>{children}</CardContent>}
     </Card>

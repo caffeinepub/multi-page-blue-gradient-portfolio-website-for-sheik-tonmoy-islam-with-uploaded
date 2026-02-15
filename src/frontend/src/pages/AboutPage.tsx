@@ -90,8 +90,8 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Highlights Grid - Wrapped with specific class for black text styling */}
-        <div className="mb-16 about-highlights-section">
+        {/* Highlights Grid - Black text applied via InfoCard props */}
+        <div className="mb-16">
           <h2 className="text-3xl font-bold text-center lg:text-left mb-12">
             What Sets Me <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">Apart</span>
           </h2>
@@ -102,6 +102,8 @@ export default function AboutPage() {
                 title={highlight.title}
                 description={highlight.description}
                 icon={highlight.icon}
+                titleClassName="text-black dark:text-black"
+                descriptionClassName="text-black dark:text-black"
               />
             ))}
           </div>

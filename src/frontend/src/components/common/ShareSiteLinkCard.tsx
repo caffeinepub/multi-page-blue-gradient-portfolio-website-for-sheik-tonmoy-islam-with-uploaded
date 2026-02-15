@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { Copy, Check, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { getCanonicalSiteUrl } from '@/lib/siteUrl';
 
 export default function ShareSiteLinkCard() {
   const [copied, setCopied] = useState(false);
-  const siteUrl = window.location.origin;
+  const siteUrl = getCanonicalSiteUrl();
 
   const handleCopy = async () => {
     try {

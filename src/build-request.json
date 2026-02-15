@@ -1,36 +1,55 @@
 {
   "kind": "build_request",
-  "title": "About page: Only InfoCards should use black text",
+  "title": "Update Contact page: make contact-info section white and keep form text black",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-114",
-      "text": "Update the About page styling so that ONLY the InfoCards in the \"What Sets Me Apart\" section render black text (both the InfoCard title and description), while all other About page text (including the main biography/body text and headings) keeps its existing colors.",
+      "id": "REQ-122",
+      "text": "Update the Contact page so the entire Contact Information section (including its headings and the Email/Location/WhatsApp values/links) renders in white text, while keeping the Contact page header (\"Get In Touch\" + subtitle) unchanged.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1"
+          "recent-messages"
         ],
         "quotes": [
-          "ONLY the InfoCards on the About page should have black text .buildn it"
+          "the whole contact‑info section including headings but not the from,because from background is white.",
+          "no i donot change it."
         ]
       },
       "acceptanceCriteria": [
-        "On /about, the InfoCards in the \"What Sets Me Apart\" grid display black text for the title and description.",
-        "On /about, the biography/body text remains unchanged (continues to follow the existing About biography styling).",
-        "On /about, headings such as \"About Me\", \"What Sets Me Apart\", and \"Core Values\" remain unchanged (no forced black text).",
-        "No other pages/routes have their text colors changed as a side-effect of this update."
+        "On /contact, the \"Contact Information\" card’s heading text and all contact info labels/values (Email, Location, WhatsApp) display in white.",
+        "The Email and WhatsApp remain clickable links and still work (mailto link for email; wa.me link for WhatsApp).",
+        "The Contact page header (\"Get In Touch\" and its subtitle) remains as it currently appears (no color/style changes)."
+      ]
+    },
+    {
+      "id": "REQ-123",
+      "text": "Update the Contact form UI so the form area uses black text (including the form title/description, labels, and user-entered input/textarea text) because the form background is white/light, while preserving existing validation and submit-success/error messaging behavior.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "recent-messages"
+        ],
+        "quotes": [
+          "yes black font."
+        ]
+      },
+      "acceptanceCriteria": [
+        "On /contact, the contact form’s title/description and all field labels render in black.",
+        "Text typed into the Name/Email/Subject inputs and Message textarea renders in black.",
+        "Form validation errors and submit success/error status messages still appear correctly and remain readable.",
+        "No changes are made to the backend submission behavior; the form still submits as before."
       ]
     }
   ],
   "constraints": [
-    "Do not modify any files under frontend/src/components/ui (shadcn components).",
-    "Do not introduce new routes or change the backend; this is a frontend-only styling adjustment."
+    "Do not edit any files under frontend/src/components/ui (immutable shadcn UI sources); achieve styling changes via page/component composition and className overrides in app-owned components.",
+    "Do not modify backend schema or contact submission storage logic (single-actor backend remains unchanged)."
   ],
   "nonGoals": [
-    "Changing typography colors outside the About page InfoCards.",
-    "Changing the About page layout, content, or adding/removing sections.",
-    "Deploying/publishing to a new identifier/domain (not requested)."
+    "Changing Contact page header styling/text beyond keeping it unchanged.",
+    "Adding new contact fields or changing contact form validation rules.",
+    "Any deployment/republish steps (not requested beyond applying the UI changes)."
   ],
   "imageRequirements": {
     "required": [],

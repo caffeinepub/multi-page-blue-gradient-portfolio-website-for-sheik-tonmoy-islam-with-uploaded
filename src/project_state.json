@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 69,
+  "projectStateVersion": 77,
   "summary": "Update the existing multi-page portfolio website for Sheik Tonmoy Islam so the visual theme is replaced with a full-page motion-graphic style animated background (CSS/3D-style subtle moving effect) inferred from the site’s branding/logo colors and applied across every page, with a generated static fallback image; update global typography so the text color follows the logo/theme palette and is automatically adjusted/tuned for readability over the waterfall/motion-graphic background; remove the footer text \"Built with using caffeine.ai\" from every page; keep the Blog system with category landing sections linking to individual long-form article sub-pages (one per category) with an image per article; ensure Blog navigation links exist in both header and footer; then rebuild and redeploy under the existing domain identifier \"sheik-tonmoy-islam\".",
   "architectural_notes": [
     "Implement as a multi-page site with separate routes/pages for Home, About, Services, Skills, Portfolio/Projects, Contact.",
@@ -897,6 +897,78 @@
         "REQ-114"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-ensure-the-published-site-domain-identifier-is-exactly-sheik-tonmoy-islam-hyphenated-and-republish-redeploy-the-site-under-that-identifier-so-the-live-url-uses-that-name",
+      "title": "Ensure the published site domain/identifier is exactly \"sheik-tonmoy-islam\" (hyphenated) and republish/redeploy the site under that identifier so the live URL uses that name.",
+      "reqIds": [
+        "REQ-115"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-browser-tab-site-title-to-display-exactly-sheik-tonmoy-islam-no-extra-words-across-all-routes-pages-by-ensuring-the-initial-html-title-and-any-runtime-seo-title-updates-set-the-document-title-to-exactly-that-string",
+      "title": "Update the browser tab/site title to display exactly \"Sheik Tonmoy Islam\" (no extra words) across all routes/pages by ensuring the initial HTML title and any runtime SEO/title updates set the document title to exactly that string.",
+      "reqIds": [
+        "REQ-116"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-header-brand-title-text-displayed-in-the-site-header-shows-sheik-tonmoy-islam-as-the-visible-brand-name",
+      "title": "Ensure the header brand/title text displayed in the site header shows \"Sheik Tonmoy Islam\" as the visible brand name.",
+      "reqIds": [
+        "REQ-117"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-republish-redeploy-the-site-using-the-production-identifier-exactly-sheik-tonmoy-islam-and-provide-the-new-live-shareable-link-url",
+      "title": "Republish/redeploy the site using the production identifier exactly `sheik-tonmoy-islam` and provide the new live shareable link URL.",
+      "reqIds": [
+        "REQ-118"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-on-the-about-page-ensure-only-the-infocards-inside-the-what-sets-me-apart-section-render-black-text-for-both-the-infocard-title-and-description-while-all-other-about-page-text-keeps-its-existing-styling-colors",
+      "title": "On the About page, ensure ONLY the InfoCards inside the \"What Sets Me Apart\" section render black text for both the InfoCard title and description, while all other About page text keeps its existing styling/colors.",
+      "reqIds": [
+        "REQ-119"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-portfolio-page-so-only-the-portfolio-header-text-the-h1-my-portfolio-and-the-subtitle-a-showcase-of-projects-demonstrating-my-diverse-capabilities-renders-in-white-instead-of-black-while-keeping-the-rest-of-the-portfolio-page-filter-project-cards-grid-and-other-text-in-its-current-colors",
+      "title": "Update the Portfolio page so ONLY the Portfolio header text (the H1 “My Portfolio” and the subtitle “A showcase of projects demonstrating my diverse capabilities”) renders in white instead of black, while keeping the rest of the Portfolio page (filter, project cards/grid, and other text) in its current colors.",
+      "reqIds": [
+        "REQ-120"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-contact-page-so-the-contact-page-header-text-renders-in-white-and-ensure-the-contact-us-text-section-on-the-contact-page-currently-rendering-as-black-renders-in-white-as-well",
+      "title": "Update the Contact page so the Contact page header text renders in white, and ensure the “Contact Us” text/section on the Contact page (currently rendering as black) renders in white as well.",
+      "reqIds": [
+        "REQ-121"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-contact-page-so-the-entire-contact-information-section-including-its-headings-and-the-email-location-whatsapp-values-links-renders-in-white-text-while-keeping-the-contact-page-header-get-in-touch-subtitle-unchanged",
+      "title": "Update the Contact page so the entire Contact Information section (including its headings and the Email/Location/WhatsApp values/links) renders in white text, while keeping the Contact page header (\"Get In Touch\" + subtitle) unchanged.",
+      "reqIds": [
+        "REQ-122"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-contact-form-ui-so-the-form-area-uses-black-text-including-the-form-title-description-labels-and-user-entered-input-textarea-text-because-the-form-background-is-white-light-while-preserving-existing-validation-and-submit-success-error-messaging-behavior",
+      "title": "Update the Contact form UI so the form area uses black text (including the form title/description, labels, and user-entered input/textarea text) because the form background is white/light, while preserving existing validation and submit-success/error messaging behavior.",
+      "reqIds": [
+        "REQ-123"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -1089,6 +1161,24 @@
       "summary": "Update the About page so ONLY the InfoCards text (titles + descriptions) renders in black for readability on the white card/template sections, then rebuild.",
       "reqIds": [],
       "status": "pending"
+    },
+    {
+      "id": "AR-51",
+      "summary": "Update naming so the published domain identifier remains \"sheik-tonmoy-islam\" (hyphenated), and set both the browser tab/site title and the header logo/title text to display \"Sheik Tonmoy Islam\", then build/deploy",
+      "reqIds": [],
+      "status": "in_progress"
+    },
+    {
+      "id": "AR-52",
+      "summary": "Update text color so Portfolio page header text (\"My Portfolio\" + subtitle) is white instead of black, and on the Contact page make the header text and the \"Contact Us\" text white instead of black",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-53",
+      "summary": "Update Contact page typography: make the entire contact-info section (including headings) render white, while keeping the contact form text/labels black because the form background is white; keep the Contact page header unchanged; then build.",
+      "reqIds": [],
+      "status": "in_progress"
     }
   ],
   "gameProjectType": "none",

@@ -2,11 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-about-page-styling-so-that-only-the-infocards-in-the-what-sets-me-apart-section-render-black-text-both-the-infocard-title-and-description-while-all-other-about-page-text-including-the-main-biography-body-text-and-headings-keeps-its-existing-colors",
-      "featureTitle": "Update the About page styling so that ONLY the InfoCards in the \"What Sets Me Apart\" section render black text (both the InfoCard title and description), while all other About page text (including the main biography/body text and headings) keeps its existing colors.",
+      "featureId": "feature-update-the-contact-page-so-the-entire-contact-information-section-including-its-headings-and-the-email-location-whatsapp-values-links-renders-in-white-text-while-keeping-the-contact-page-header-get-in-touch-subtitle-unchanged",
+      "featureTitle": "Update the Contact page so the entire Contact Information section (including its headings and the Email/Location/WhatsApp values/links) renders in white text, while keeping the Contact page header (\"Get In Touch\" + subtitle) unchanged.",
       "files": [
-        "frontend/src/index.css",
-        "frontend/src/pages/AboutPage.tsx"
+        "frontend/src/pages/ContactPage.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -16,7 +15,25 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-114"
+        "REQ-122"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-the-contact-form-ui-so-the-form-area-uses-black-text-including-the-form-title-description-labels-and-user-entered-input-textarea-text-because-the-form-background-is-white-light-while-preserving-existing-validation-and-submit-success-error-messaging-behavior",
+      "featureTitle": "Update the Contact form UI so the form area uses black text (including the form title/description, labels, and user-entered input/textarea text) because the form background is white/light, while preserving existing validation and submit-success/error messaging behavior.",
+      "files": [
+        "frontend/src/components/contact/ContactForm.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-123"
       ],
       "confidence": "high"
     }

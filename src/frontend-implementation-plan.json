@@ -1,27 +1,38 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "About page: restrict black text styling to What Sets Me Apart InfoCards",
+  "title": "Contact page text color adjustments (white contact info, black form text)",
   "requirements": [
     {
-      "id": "REQ-114",
-      "summary": "Scope black text styling so only the InfoCards in the About page “What Sets Me Apart” section render black title/description text while all other About text retains existing colors.",
+      "id": "REQ-122",
+      "summary": "Make the Contact Information section render entirely in white text while leaving the Contact page header unchanged and keeping links functional.",
       "acceptanceCriteria": [
-        "On /about, the InfoCards in the \"What Sets Me Apart\" grid display black text for the title and description.",
-        "On /about, the biography/body text remains unchanged (continues to follow the existing About biography styling).",
-        "On /about, headings such as \"About Me\", \"What Sets Me Apart\", and \"Core Values\" remain unchanged (no forced black text).",
-        "No other pages/routes have their text colors changed as a side-effect of this update."
+        "On /contact, the \"Contact Information\" card’s heading text and all contact info labels/values (Email, Location, WhatsApp) display in white.",
+        "The Email and WhatsApp remain clickable links and still work (mailto link for email; wa.me link for WhatsApp).",
+        "The Contact page header (\"Get In Touch\" and its subtitle) remains as it currently appears (no color/style changes)."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/pages/AboutPage.tsx",
+          "path": "frontend/src/pages/ContactPage.tsx",
           "operation": "modify",
-          "description": "Add a dedicated wrapper class around the “What Sets Me Apart” section (or the highlights grid) so InfoCard-specific black text overrides can be precisely scoped to that section only."
-        },
+          "description": "Update the Contact Information section wrapper styles to enforce white text for headings, labels, values, and links (replacing the current black text override). Keep the page header section exactly as-is, and ensure the Email (mailto:) and WhatsApp (wa.me) anchors remain unchanged and clickable. Use shadcn-ui styling via className overrides only (do not edit immutable ui sources). Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-123",
+      "summary": "Adjust the Contact form UI to use black text throughout the form area (title/description, labels, and typed input/textarea text) while preserving validation and submit status behavior.",
+      "acceptanceCriteria": [
+        "On /contact, the contact form’s title/description and all field labels render in black.",
+        "Text typed into the Name/Email/Subject inputs and Message textarea renders in black.",
+        "Form validation errors and submit success/error status messages still appear correctly and remain readable.",
+        "No changes are made to the backend submission behavior; the form still submits as before."
+      ],
+      "file_operations": [
         {
-          "path": "frontend/src/index.css",
+          "path": "frontend/src/components/contact/ContactForm.tsx",
           "operation": "modify",
-          "description": "Update the existing About page light card text override to: (1) scope it under the new “What Sets Me Apart” wrapper, and (2) force true black for the InfoCard title/description elements only (no changes to headings/biography styles; no global changes outside /about)."
+          "description": "Update shadcn-ui Card/CardHeader/CardTitle/CardDescription/Label usage to render black text (remove current text-white classes) and add className overrides so Input/Textarea user-entered text renders black as well (without changing validation logic or submission flow). Ensure error messages and SubmitStatus remain readable on the white/light form background. Do not edit any files under frontend/src/components/ui; achieve changes via props/className overrides only. Verify the component's usage instructions before implementing."
         }
       ]
     }

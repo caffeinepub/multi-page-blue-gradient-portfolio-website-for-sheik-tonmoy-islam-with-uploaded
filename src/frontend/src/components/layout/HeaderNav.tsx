@@ -26,7 +26,7 @@ export default function HeaderNav() {
           <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-cyan-500 text-white font-bold text-xl">
             STI
           </div>
-          <span className="hidden font-bold text-xl sm:inline-block bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+          <span className="font-bold text-xl bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
             Sheik Tonmoy Islam
           </span>
         </Link>

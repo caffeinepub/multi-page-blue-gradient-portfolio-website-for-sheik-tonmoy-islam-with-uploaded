@@ -128,14 +128,3 @@
     color: #ffffff !important;
     text-shadow: none !important;
 }
-
-/* About Page "What Sets Me Apart" InfoCards - Black text only in this section */
-.about-page-wrapper .about-highlights-section h3,
-.about-page-wrapper .about-highlights-section p {
-    color: #000000 !important;
-}
-
-.dark .about-page-wrapper .about-highlights-section h3,
-.dark .about-page-wrapper .about-highlights-section p {
-    color: #000000 !important;
-}

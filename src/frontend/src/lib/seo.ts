@@ -7,8 +7,8 @@ interface SEOConfig {
 }
 
 export function setSEO(config: SEOConfig) {
-  // Set document title
-  document.title = config.title;
+  // Always set document title to exactly "Sheik Tonmoy Islam"
+  document.title = "Sheik Tonmoy Islam";
 
   // Set or update meta description
   setMetaTag('name', 'description', config.description);

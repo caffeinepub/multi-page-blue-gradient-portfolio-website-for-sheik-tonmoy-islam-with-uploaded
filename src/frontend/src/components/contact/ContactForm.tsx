@@ -72,28 +72,28 @@ export default function ContactForm() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-2xl">Send Me a Message</CardTitle>
-        <CardDescription>
+        <CardTitle className="text-2xl text-foreground">Send Me a Message</CardTitle>
+        <CardDescription className="text-muted-foreground">
           Fill out the form below and I'll get back to you as soon as possible
         </CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-2">
-            <Label htmlFor="name">Name *</Label>
+            <Label htmlFor="name" className="text-foreground">Name *</Label>
             <Input
               id="name"
               name="name"
               value={formData.name}
               onChange={handleChange}
               placeholder="Your full name"
-              className={errors.name ? 'border-destructive' : ''}
+              className={`text-foreground ${errors.name ? 'border-destructive' : ''}`}
             />
             {errors.name && <p className="text-sm text-destructive">{errors.name}</p>}
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="email">Email *</Label>
+            <Label htmlFor="email" className="text-foreground">Email *</Label>
             <Input
               id="email"
               name="email"
@@ -101,26 +101,26 @@ export default function ContactForm() {
               value={formData.email}
               onChange={handleChange}
               placeholder="your.email@example.com"
-              className={errors.email ? 'border-destructive' : ''}
+              className={`text-foreground ${errors.email ? 'border-destructive' : ''}`}
             />
             {errors.email && <p className="text-sm text-destructive">{errors.email}</p>}
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="subject">Subject *</Label>
+            <Label htmlFor="subject" className="text-foreground">Subject *</Label>
             <Input
               id="subject"
               name="subject"
               value={formData.subject}
               onChange={handleChange}
               placeholder="What is this regarding?"
-              className={errors.subject ? 'border-destructive' : ''}
+              className={`text-foreground ${errors.subject ? 'border-destructive' : ''}`}
             />
             {errors.subject && <p className="text-sm text-destructive">{errors.subject}</p>}
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="message">Message *</Label>
+            <Label htmlFor="message" className="text-foreground">Message *</Label>
             <Textarea
               id="message"
               name="message"
@@ -128,7 +128,7 @@ export default function ContactForm() {
               onChange={handleChange}
               placeholder="Tell me about your project or inquiry..."
               rows={6}
-              className={errors.message ? 'border-destructive' : ''}
+              className={`text-foreground ${errors.message ? 'border-destructive' : ''}`}
             />
             {errors.message && <p className="text-sm text-destructive">{errors.message}</p>}
           </div>
