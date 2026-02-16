@@ -16,23 +16,22 @@ export default function ProjectsGrid({ projects }: ProjectsGridProps) {
           className="group overflow-hidden transition-all hover:shadow-xl hover:scale-[1.02]"
         >
           <CardHeader>
-            <div className="flex items-start justify-between">
+            <div className="flex items-start justify-between gap-3">
               <div className="flex-1">
                 <CardTitle className="text-xl mb-2 group-hover:text-blue-600 transition-colors">
                   {project.title}
                 </CardTitle>
                 <CardDescription>{project.description}</CardDescription>
               </div>
-              {project.link && (
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-blue-600 transition-colors"
-                >
-                  <ExternalLink className="h-5 w-5" />
-                </a>
-              )}
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-blue-600 transition-colors flex-shrink-0"
+                aria-label={`View ${project.title} project`}
+              >
+                <ExternalLink className="h-5 w-5" />
+              </a>
             </div>
           </CardHeader>
           <CardContent>

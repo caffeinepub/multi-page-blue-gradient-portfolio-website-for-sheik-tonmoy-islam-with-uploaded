@@ -1,38 +1,63 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Contact page text color adjustments (white contact info, black form text)",
+  "title": "Update Portfolio projects dataset to 10 professional service entries with live links",
   "requirements": [
     {
-      "id": "REQ-122",
-      "summary": "Make the Contact Information section render entirely in white text while leaving the Contact page header unchanged and keeping links functional.",
+      "id": "REQ-125",
+      "summary": "Replace the Portfolio projects static dataset with exactly 10 professional service projects, each with required fields and valid https live links.",
       "acceptanceCriteria": [
-        "On /contact, the \"Contact Information\" card’s heading text and all contact info labels/values (Email, Location, WhatsApp) display in white.",
-        "The Email and WhatsApp remain clickable links and still work (mailto link for email; wa.me link for WhatsApp).",
-        "The Contact page header (\"Get In Touch\" and its subtitle) remains as it currently appears (no color/style changes)."
+        "`frontend/src/data/projects.ts` exports an array of exactly 10 projects.",
+        "Each of the 10 projects contains `title`, `description`, `category`, `tools` (non-empty array), and `link` (non-empty string).",
+        "All project `category` values match one of the existing filter categories: `legal`, `business`, `marketing`, `design`, `video`, `web`.",
+        "Each project `link` is a valid absolute URL (starts with `https://`)."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/pages/ContactPage.tsx",
+          "path": "frontend/src/data/projects.ts",
           "operation": "modify",
-          "description": "Update the Contact Information section wrapper styles to enforce white text for headings, labels, values, and links (replacing the current black text override). Keep the page header section exactly as-is, and ensure the Email (mailto:) and WhatsApp (wa.me) anchors remain unchanged and clickable. Use shadcn-ui styling via className overrides only (do not edit immutable ui sources). Verify the component's usage instructions before implementing."
+          "description": "Update the Project type to require `link: string` (not optional) and replace the exported `projects` array with exactly 10 generated professional service project entries, ensuring every entry includes title/description/category/tools (non-empty)/link (non-empty, starts with https://) and categories only from: legal, business, marketing, design, video, web."
         }
       ]
     },
     {
-      "id": "REQ-123",
-      "summary": "Adjust the Contact form UI to use black text throughout the form area (title/description, labels, and typed input/textarea text) while preserving validation and submit status behavior.",
+      "id": "REQ-126",
+      "summary": "Ensure the Portfolio UI renders 10 project cards and each card shows an external link icon opening the live link in a new tab with safe rel attributes.",
       "acceptanceCriteria": [
-        "On /contact, the contact form’s title/description and all field labels render in black.",
-        "Text typed into the Name/Email/Subject inputs and Message textarea renders in black.",
-        "Form validation errors and submit success/error status messages still appear correctly and remain readable.",
-        "No changes are made to the backend submission behavior; the form still submits as before."
+        "On `/portfolio`, the Projects grid renders 10 project cards when the filter is set to “All Projects”.",
+        "Every project card shows a clickable external link icon.",
+        "Clicking the external link icon opens the project `link` in a new browser tab and preserves `rel=\"noopener noreferrer\"` behavior."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/contact/ContactForm.tsx",
+          "path": "frontend/src/components/portfolio/ProjectsGrid.tsx",
           "operation": "modify",
-          "description": "Update shadcn-ui Card/CardHeader/CardTitle/CardDescription/Label usage to render black text (remove current text-white classes) and add className overrides so Input/Textarea user-entered text renders black as well (without changing validation logic or submission flow). Ensure error messages and SubmitStatus remain readable on the white/light form background. Do not edit any files under frontend/src/components/ui; achieve changes via props/className overrides only. Verify the component's usage instructions before implementing."
+          "description": "Adjust the project card rendering so every project always displays a clickable ExternalLink icon (since `link` is required), keeping `target=\"_blank\"` and `rel=\"noopener noreferrer\"`; continue using shadcn-ui Card/Badge primitives for consistent styling (Verify the component's usage instructions before implementing)."
+        },
+        {
+          "path": "frontend/src/pages/PortfolioPage.tsx",
+          "operation": "modify",
+          "description": "Confirm the Portfolio page passes the full `projects` list to ProjectsGrid when the selected category is `all`, ensuring the UI renders all 10 cards under “All Projects” without introducing new routes or pages."
+        }
+      ]
+    },
+    {
+      "id": "REQ-127",
+      "summary": "Preserve existing Portfolio category filtering behavior with the new 10 projects.",
+      "acceptanceCriteria": [
+        "Selecting each category tab (Legal/Business/Marketing/Design/Video/Web) filters the grid to only projects whose `category` matches the selected tab value.",
+        "Selecting “All Projects” shows all 10 projects again."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/PortfolioPage.tsx",
+          "operation": "modify",
+          "description": "Keep filtering logic based on the selected tab value so that non-`all` selections filter by exact category match, and `all` restores the full set of 10 projects."
+        },
+        {
+          "path": "frontend/src/components/portfolio/ProjectFilter.tsx",
+          "operation": "modify",
+          "description": "Ensure the category tab values remain exactly aligned with the allowed dataset categories (legal, business, marketing, design, video, web) plus `all`, preserving the existing tab-driven filtering UX; uses shadcn-ui Tabs components (Verify the component's usage instructions before implementing)."
         }
       ]
     }

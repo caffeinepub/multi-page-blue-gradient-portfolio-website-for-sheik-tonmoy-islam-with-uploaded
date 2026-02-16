@@ -1,11 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Update the /contact page styling so the Contact Information section renders in white text while the contact form renders in black text on its light background, without changing the page header.
+**Goal:** Update the Portfolio page to use exactly 10 completed professional service projects, each with a valid live link, while keeping existing filtering and link behavior.
 
 **Planned changes:**
-- Adjust Contact Information section styles so its heading and all Email/Location/WhatsApp labels and values/links display in white, while keeping email/WhatsApp links functional.
-- Adjust Contact form styles so the form title/description, field labels, and user-entered input/textarea text display in black.
-- Ensure validation errors and submit success/error messages remain readable and behavior stays unchanged (no backend changes).
+- Replace `frontend/src/data/projects.ts` with a static array of exactly 10 project entries containing: title, description, category (legal/business/marketing/design/video/web), tools/technologies (non-empty array), and a non-empty `https://` live link.
+- Ensure the Portfolio page renders all 10 projects in the grid when “All Projects” is selected and preserves category filtering for Legal/Business/Marketing/Design/Video/Web.
+- Ensure each project card displays a clickable external link icon that opens the live link in a new tab with `rel="noopener noreferrer"`.
 
-**User-visible outcome:** On the Contact page, the Contact Information card text is white and the form text (labels and typed input) is black, with the “Get In Touch” header unchanged and links/submission working as before.
+**User-visible outcome:** On the Portfolio page, visitors can browse 10 professional service projects, filter them by category, and open each project’s live link in a new tab from an external-link icon on the project card.
