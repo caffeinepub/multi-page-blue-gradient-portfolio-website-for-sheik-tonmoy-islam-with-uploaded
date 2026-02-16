@@ -1,6 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ExternalLink } from 'lucide-react';
+import ProjectImageGallery from './ProjectImageGallery';
 import type { Project } from '../../data/projects';
 
 interface ProjectsGridProps {
@@ -13,8 +14,15 @@ export default function ProjectsGrid({ projects }: ProjectsGridProps) {
       {projects.map((project, index) => (
         <Card
           key={index}
-          className="group overflow-hidden transition-all hover:shadow-xl hover:scale-[1.02]"
+          className="group overflow-hidden transition-all hover:shadow-xl hover:scale-[1.02] flex flex-col"
         >
+          {/* Image Gallery */}
+          {project.images && project.images.length > 0 && (
+            <div className="p-4 pb-0">
+              <ProjectImageGallery images={project.images} projectTitle={project.title} />
+            </div>
+          )}
+
           <CardHeader>
             <div className="flex items-start justify-between gap-3">
               <div className="flex-1">
@@ -34,7 +42,7 @@ export default function ProjectsGrid({ projects }: ProjectsGridProps) {
               </a>
             </div>
           </CardHeader>
-          <CardContent>
+          <CardContent className="mt-auto">
             <div className="flex flex-wrap gap-2">
               {project.tools.map((tool, toolIndex) => (
                 <Badge key={toolIndex} variant="secondary">
