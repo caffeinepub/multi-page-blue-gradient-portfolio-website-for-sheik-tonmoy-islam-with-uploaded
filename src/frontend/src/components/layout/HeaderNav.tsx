@@ -20,13 +20,13 @@ export default function HeaderNav() {
   const currentPath = router.location.pathname;
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b border-border/20 bg-slate-900/95 backdrop-blur-sm">
       <div className="container flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center space-x-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-cyan-500 text-white font-bold text-xl">
             STI
           </div>
-          <span className="font-bold text-xl bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+          <span className="font-bold text-xl text-white">
             Sheik Tonmoy Islam
           </span>
         </Link>
@@ -39,8 +39,8 @@ export default function HeaderNav() {
                 variant={currentPath === link.path ? 'default' : 'ghost'}
                 className={
                   currentPath === link.path
-                    ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white'
-                    : ''
+                    ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white hover:from-blue-700 hover:to-cyan-600'
+                    : 'text-white hover:text-white hover:bg-white/10'
                 }
               >
                 {link.label}
@@ -52,12 +52,12 @@ export default function HeaderNav() {
         {/* Mobile Navigation */}
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild className="md:hidden">
-            <Button variant="ghost" size="icon">
+            <Button variant="ghost" size="icon" className="text-white hover:text-white hover:bg-white/10">
               <Menu className="h-6 w-6" />
               <span className="sr-only">Toggle menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+          <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-slate-900 border-slate-800">
             <nav className="flex flex-col space-y-4 mt-8">
               {navLinks.map((link) => (
                 <Link key={link.path} to={link.path} onClick={() => setIsOpen(false)}>
@@ -65,8 +65,8 @@ export default function HeaderNav() {
                     variant={currentPath === link.path ? 'default' : 'ghost'}
                     className={`w-full justify-start text-lg ${
                       currentPath === link.path
-                        ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white'
-                        : ''
+                        ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white hover:from-blue-700 hover:to-cyan-600'
+                        : 'text-white hover:text-white hover:bg-white/10'
                     }`}
                   >
                     {link.label}

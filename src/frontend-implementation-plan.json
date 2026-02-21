@@ -1,649 +1,71 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "STI Portfolio - Regenerate Portfolio Project Images (12 per project) and Update Gallery Data/Rendering",
+  "title": "Fix header readability with proper contrast on all devices",
   "requirements": [
     {
-      "id": "REQ-133",
-      "summary": "Add exactly 120 newly generated portfolio images (12 per each of the 10 existing projects) as static assets under frontend/public/assets/generated using the specified filenames.",
+      "id": "REQ-1",
+      "summary": "Add a dark background color to the header section in HeaderNav.tsx to ensure proper contrast against white text",
       "acceptanceCriteria": [
-        "There are exactly 120 new image files present under `frontend/public/assets/generated/` with the exact filenames listed in `imageRequirements.required`.",
-        "Each of the 10 projects has exactly 12 images available (not fewer, not more).",
-        "All newly generated images follow a consistent, professional, human-designed visual style (different from the previous corporate/gradient/mockup style)."
+        "Header has a dark background color that provides sufficient contrast for light text",
+        "Background color is consistent across all viewport sizes (mobile, tablet, desktop)",
+        "The dark background does not conflict with the sticky header behavior"
       ],
       "file_operations": [
         {
-          "path": "frontend/public/assets/generated/portfolio-legal-compliance-v2-01.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-legal-compliance-v2-01.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-legal-compliance-v2-02.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-legal-compliance-v2-02.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-legal-compliance-v2-03.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-legal-compliance-v2-03.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-legal-compliance-v2-04.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-legal-compliance-v2-04.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-legal-compliance-v2-05.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-legal-compliance-v2-05.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-legal-compliance-v2-06.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-legal-compliance-v2-06.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-legal-compliance-v2-07.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-legal-compliance-v2-07.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-legal-compliance-v2-08.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-legal-compliance-v2-08.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-legal-compliance-v2-09.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-legal-compliance-v2-09.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-legal-compliance-v2-10.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-legal-compliance-v2-10.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-legal-compliance-v2-11.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-legal-compliance-v2-11.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-legal-compliance-v2-12.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-legal-compliance-v2-12.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-business-transformation-v2-01.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-business-transformation-v2-01.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-business-transformation-v2-02.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-business-transformation-v2-02.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-business-transformation-v2-03.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-business-transformation-v2-03.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-business-transformation-v2-04.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-business-transformation-v2-04.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-business-transformation-v2-05.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-business-transformation-v2-05.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-business-transformation-v2-06.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-business-transformation-v2-06.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-business-transformation-v2-07.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-business-transformation-v2-07.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-business-transformation-v2-08.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-business-transformation-v2-08.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-business-transformation-v2-09.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-business-transformation-v2-09.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-business-transformation-v2-10.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-business-transformation-v2-10.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-business-transformation-v2-11.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-business-transformation-v2-11.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-business-transformation-v2-12.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-business-transformation-v2-12.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-marketing-campaign-v2-01.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-marketing-campaign-v2-01.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-marketing-campaign-v2-02.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-marketing-campaign-v2-02.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-marketing-campaign-v2-03.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-marketing-campaign-v2-03.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-marketing-campaign-v2-04.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-marketing-campaign-v2-04.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-marketing-campaign-v2-05.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-marketing-campaign-v2-05.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-marketing-campaign-v2-06.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-marketing-campaign-v2-06.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-marketing-campaign-v2-07.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-marketing-campaign-v2-07.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-marketing-campaign-v2-08.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-marketing-campaign-v2-08.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-marketing-campaign-v2-09.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-marketing-campaign-v2-09.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-marketing-campaign-v2-10.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-marketing-campaign-v2-10.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-marketing-campaign-v2-11.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-marketing-campaign-v2-11.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-marketing-campaign-v2-12.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-marketing-campaign-v2-12.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-brand-identity-v2-01.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-brand-identity-v2-01.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-brand-identity-v2-02.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-brand-identity-v2-02.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-brand-identity-v2-03.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-brand-identity-v2-03.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-brand-identity-v2-04.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-brand-identity-v2-04.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-brand-identity-v2-05.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-brand-identity-v2-05.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-brand-identity-v2-06.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-brand-identity-v2-06.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-brand-identity-v2-07.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-brand-identity-v2-07.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-brand-identity-v2-08.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-brand-identity-v2-08.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-brand-identity-v2-09.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-brand-identity-v2-09.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-brand-identity-v2-10.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-brand-identity-v2-10.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-brand-identity-v2-11.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-brand-identity-v2-11.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-brand-identity-v2-12.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-brand-identity-v2-12.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-documentary-film-v2-01.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-documentary-film-v2-01.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-documentary-film-v2-02.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-documentary-film-v2-02.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-documentary-film-v2-03.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-documentary-film-v2-03.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-documentary-film-v2-04.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-documentary-film-v2-04.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-documentary-film-v2-05.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-documentary-film-v2-05.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-documentary-film-v2-06.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-documentary-film-v2-06.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-documentary-film-v2-07.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-documentary-film-v2-07.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-documentary-film-v2-08.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-documentary-film-v2-08.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-documentary-film-v2-09.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-documentary-film-v2-09.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-documentary-film-v2-10.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-documentary-film-v2-10.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-documentary-film-v2-11.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-documentary-film-v2-11.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-documentary-film-v2-12.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-documentary-film-v2-12.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-saas-webapp-v2-01.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-saas-webapp-v2-01.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-saas-webapp-v2-02.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-saas-webapp-v2-02.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-saas-webapp-v2-03.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-saas-webapp-v2-03.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-saas-webapp-v2-04.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-saas-webapp-v2-04.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-saas-webapp-v2-05.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-saas-webapp-v2-05.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-saas-webapp-v2-06.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-saas-webapp-v2-06.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-saas-webapp-v2-07.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-saas-webapp-v2-07.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-saas-webapp-v2-08.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-saas-webapp-v2-08.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-saas-webapp-v2-09.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-saas-webapp-v2-09.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-saas-webapp-v2-10.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-saas-webapp-v2-10.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-saas-webapp-v2-11.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-saas-webapp-v2-11.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-saas-webapp-v2-12.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-saas-webapp-v2-12.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-ip-management-v2-01.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-ip-management-v2-01.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-ip-management-v2-02.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-ip-management-v2-02.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-ip-management-v2-03.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-ip-management-v2-03.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-ip-management-v2-04.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-ip-management-v2-04.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-ip-management-v2-05.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-ip-management-v2-05.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-ip-management-v2-06.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-ip-management-v2-06.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-ip-management-v2-07.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-ip-management-v2-07.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-ip-management-v2-08.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-ip-management-v2-08.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-ip-management-v2-09.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-ip-management-v2-09.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-ip-management-v2-10.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-ip-management-v2-10.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-ip-management-v2-11.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-ip-management-v2-11.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-ip-management-v2-12.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-ip-management-v2-12.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-market-entry-v2-01.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-market-entry-v2-01.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-market-entry-v2-02.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-market-entry-v2-02.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-market-entry-v2-03.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-market-entry-v2-03.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-market-entry-v2-04.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-market-entry-v2-04.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-market-entry-v2-05.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-market-entry-v2-05.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-market-entry-v2-06.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-market-entry-v2-06.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-market-entry-v2-07.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-market-entry-v2-07.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-market-entry-v2-08.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-market-entry-v2-08.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-market-entry-v2-09.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-market-entry-v2-09.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-market-entry-v2-10.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-market-entry-v2-10.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-market-entry-v2-11.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-market-entry-v2-11.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-market-entry-v2-12.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-market-entry-v2-12.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-seo-overhaul-v2-01.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-seo-overhaul-v2-01.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-seo-overhaul-v2-02.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-seo-overhaul-v2-02.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-seo-overhaul-v2-03.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-seo-overhaul-v2-03.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-seo-overhaul-v2-04.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-seo-overhaul-v2-04.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-seo-overhaul-v2-05.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-seo-overhaul-v2-05.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-seo-overhaul-v2-06.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-seo-overhaul-v2-06.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-seo-overhaul-v2-07.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-seo-overhaul-v2-07.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-seo-overhaul-v2-08.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-seo-overhaul-v2-08.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-seo-overhaul-v2-09.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-seo-overhaul-v2-09.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-seo-overhaul-v2-10.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-seo-overhaul-v2-10.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-seo-overhaul-v2-11.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-seo-overhaul-v2-11.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-seo-overhaul-v2-12.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-seo-overhaul-v2-12.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-motion-explainer-v2-01.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-motion-explainer-v2-01.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-motion-explainer-v2-02.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-motion-explainer-v2-02.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-motion-explainer-v2-03.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-motion-explainer-v2-03.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-motion-explainer-v2-04.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-motion-explainer-v2-04.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-motion-explainer-v2-05.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-motion-explainer-v2-05.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-motion-explainer-v2-06.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-motion-explainer-v2-06.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-motion-explainer-v2-07.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-motion-explainer-v2-07.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-motion-explainer-v2-08.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-motion-explainer-v2-08.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-motion-explainer-v2-09.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-motion-explainer-v2-09.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-motion-explainer-v2-10.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-motion-explainer-v2-10.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-motion-explainer-v2-11.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-motion-explainer-v2-11.dim_1600x1000.png"
-        },
-        {
-          "path": "frontend/public/assets/generated/portfolio-motion-explainer-v2-12.dim_1600x1000.png",
-          "operation": "create",
-          "description": "Add the generated image asset: frontend/public/assets/generated/portfolio-motion-explainer-v2-12.dim_1600x1000.png"
+          "path": "frontend/src/components/layout/HeaderNav.tsx",
+          "operation": "modify",
+          "description": "Add a dark background color to the header element to provide proper contrast for light text. Apply the background using Tailwind classes that work with the existing color system defined in tailwind.config.js. Ensure the background color is applied to the sticky header container and remains consistent across all viewport sizes without affecting the existing sticky positioning behavior."
         }
       ]
     },
     {
-      "id": "REQ-134",
-      "summary": "Update projects data so each existing project keeps its current metadata but references exactly 12 new generated images with absolute /assets/generated paths and non-empty English alt text.",
+      "id": "REQ-2",
+      "summary": "Ensure the name 'Sheik Tonmoy Islam' in the header is clearly visible and readable against the new dark background on all devices",
       "acceptanceCriteria": [
-        "In `frontend/src/data/projects.ts`, each of the 10 project objects has an `images` array with length exactly 12.",
-        "Every `images[i].src` is an absolute path starting with `/assets/generated/` and matches a real file shipped in `frontend/public/assets/generated/`.",
-        "Every `images[i].alt` is present, non-empty, and written in English.",
-        "Project `title`, `description`, `category`, `tools`, and `link` values remain unchanged from the current version."
+        "The name 'Sheik Tonmoy Islam' has sufficient color contrast against the dark header background",
+        "Text is readable on mobile devices (320px+), tablets, and desktop screens",
+        "Font weight and size ensure readability without strain"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/data/projects.ts",
+          "path": "frontend/src/components/layout/HeaderNav.tsx",
           "operation": "modify",
-          "description": "Replace only the `images` arrays for the existing 10 project entries so each contains exactly 12 `{ src, alt }` objects pointing to the new v2 assets under `/assets/generated/` (e.g., `/assets/generated/portfolio-legal-compliance-v2-01.dim_1600x1000.png` through `-12`), with non-empty English alt text for every image; keep `title`, `description`, `category`, `tools`, and `link` unchanged."
+          "description": "Ensure the name 'Sheik Tonmoy Islam' displayed in the header (currently rendered as a Link to '/') uses appropriate text color classes that provide sufficient contrast against the new dark background. Verify font weight and size are adequate for readability across all device sizes. Use Tailwind text color utilities that contrast well with the dark background applied in REQ-1."
         }
       ]
     },
     {
-      "id": "REQ-135",
-      "summary": "Keep production-safe Portfolio gallery image loading behavior and update thumbnails to a non-cropping fit so images are not cut off.",
+      "id": "REQ-3",
+      "summary": "Ensure all navigation menu items in the header are clearly visible and readable against the new dark background on all devices",
       "acceptanceCriteria": [
-        "On the Portfolio page, each project card gallery can navigate through all 12 images (next/previous and thumbnail selection) without console errors.",
-        "If any portfolio image fails to load, the UI swaps to the fallback image via the existing `onError` behavior rather than showing a broken/blank image area.",
-        "Portfolio thumbnails do not crop/cut off image content on the sides; they use a non-cropping fit behavior (e.g., `object-contain`) while remaining visually clean and consistent."
+        "All navigation menu items have sufficient color contrast against the dark header background",
+        "Menu items are readable in both desktop navigation and mobile sheet menu",
+        "Active route highlighting remains visible with the new color scheme",
+        "Hover states for menu items provide clear visual feedback"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/portfolio/ProjectImageGallery.tsx",
+          "path": "frontend/src/components/layout/HeaderNav.tsx",
           "operation": "modify",
-          "description": "Update the thumbnail <img> rendering to use a non-cropping fit behavior (switch from `object-cover` to `object-contain`, with a clean background if needed), while preserving existing production-safe behavior (normalize image paths and fallback to `getFallbackImagePath()` via `onError`). Also ensure gallery state remains safe when the `images` prop changes (e.g., reset/clamp `currentIndex`) so navigation across 12 images does not produce console errors."
+          "description": "Update text colors for all navigation menu items (Home, About, Services, Skills, Portfolio, Blog, Contact) to ensure sufficient contrast against the new dark header background. This includes both the desktop navigation links and the mobile sheet menu items. Verify that the active route highlighting (currently using text-primary) remains visible and distinguishable with the new color scheme. Ensure hover states provide clear visual feedback using appropriate color utilities from the Tailwind configuration."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Verify header displays perfectly and remains readable across all device sizes including mobile (320px+), tablet, and desktop viewports",
+      "acceptanceCriteria": [
+        "Header layout and text remain readable on screens from 320px width up to large desktop sizes",
+        "No text overflow or layout breaking occurs at any standard viewport size",
+        "Mobile menu sheet displays with proper contrast and readability",
+        "Sticky header behavior works correctly on all device sizes"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/layout/HeaderNav.tsx",
+          "operation": "modify",
+          "description": "Review and test the header component to ensure all layout, spacing, and text rendering work correctly across device sizes from 320px width upward. Verify that the sticky header behavior (top-0 sticky z-50) functions properly on all viewport sizes. Ensure the mobile sheet menu maintains proper contrast and readability with the new dark background color scheme. Check that no text overflow or layout breaking occurs at any breakpoint, and that both the logo/name and navigation items remain properly aligned and visible."
         }
       ]
     }

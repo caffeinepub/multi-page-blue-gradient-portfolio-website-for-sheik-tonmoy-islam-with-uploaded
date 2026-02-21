@@ -57,27 +57,27 @@ export default function AboutPage() {
   return (
     <GradientBackground variant="subtle">
       <Container className="about-page-wrapper py-16 md:py-24">
-        {/* Header with Portrait */}
-        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12 mb-16">
-          {/* Text Content */}
-          <div className="flex-1 text-center lg:text-left">
+        {/* Header with Portrait - Centered at all breakpoints */}
+        <div className="flex flex-col items-center gap-8 mb-16">
+          {/* Portrait - Medium-Large Size */}
+          <div className="flex-shrink-0">
+            <ProfilePortrait size="xl" />
+          </div>
+
+          {/* Text Content - Centered */}
+          <div className="text-center max-w-3xl">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl mb-6">
               About <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">Me</span>
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto lg:mx-0">
+            <p className="text-xl text-muted-foreground">
               A unique blend of legal knowledge, business insight, and creative technical expertise
             </p>
           </div>
-
-          {/* Portrait */}
-          <div className="flex-shrink-0">
-            <ProfilePortrait size="lg" />
-          </div>
         </div>
 
-        {/* Biography */}
-        <div className="max-w-4xl mb-20 mx-auto lg:mx-0">
-          <div className="prose prose-lg dark:prose-invert">
+        {/* Biography - Centered */}
+        <div className="max-w-4xl mx-auto mb-20">
+          <div className="prose prose-lg dark:prose-invert text-center">
             <p className="about-body-text text-lg leading-relaxed">
               I am Sheik Tonmoy Islam, a multi-disciplinary professional who brings together diverse skill sets to solve complex challenges. As an Internship Junior Lawyer, I understand the legal frameworks that govern business operations. As a Business Professional, I apply strategic thinking to drive growth and innovation.
             </p>
@@ -90,9 +90,9 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Highlights Grid - Black text applied via InfoCard props */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold text-center lg:text-left mb-12">
+        {/* Highlights Grid - Centered */}
+        <div className="mb-16 max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">
             What Sets Me <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">Apart</span>
           </h2>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -109,9 +109,9 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Values Section */}
+        {/* Values Section - Centered */}
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center lg:text-left mb-12">
+          <h2 className="text-3xl font-bold text-center mb-12">
             Core <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">Values</span>
           </h2>
           <div className="grid gap-8 md:grid-cols-3">

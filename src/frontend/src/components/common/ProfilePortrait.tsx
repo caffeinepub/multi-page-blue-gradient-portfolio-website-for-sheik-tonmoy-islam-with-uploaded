@@ -2,7 +2,7 @@ import { PORTRAIT_SRC, PORTRAIT_ALT } from '../../lib/portrait';
 
 interface ProfilePortraitProps {
   className?: string;
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'sm' | 'md' | 'lg' | 'xl';
 }
 
 export default function ProfilePortrait({ className = '', size = 'md' }: ProfilePortraitProps) {
@@ -10,6 +10,7 @@ export default function ProfilePortrait({ className = '', size = 'md' }: Profile
     sm: 'w-32 h-32',
     md: 'w-48 h-48',
     lg: 'w-64 h-64',
+    xl: 'w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96',
   };
 
   return (

@@ -12,12 +12,22 @@ interface ProjectImageGalleryProps {
 export default function ProjectImageGallery({ images, projectTitle }: ProjectImageGalleryProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [imageErrors, setImageErrors] = useState<Set<number>>(new Set());
+  const [imageSources, setImageSources] = useState<Map<number, string>>(new Map());
 
   // Reset currentIndex when images prop changes to prevent out-of-bounds errors
   useEffect(() => {
     if (images && images.length > 0) {
       setCurrentIndex((prev) => Math.min(prev, images.length - 1));
     }
+  }, [images]);
+
+  // Initialize image sources
+  useEffect(() => {
+    const sources = new Map<number, string>();
+    images.forEach((image, index) => {
+      sources.set(index, normalizeAssetPath(image.src));
+    });
+    setImageSources(sources);
   }, [images]);
 
   if (!images || images.length === 0) {
@@ -32,13 +42,24 @@ export default function ProjectImageGallery({ images, projectTitle }: ProjectIma
     setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   };
 
-  const handleImageError = (index: number) => {
+  const handleImageError = (index: number, imgElement: HTMLImageElement) => {
+    // Immediately swap to fallback to avoid blank image area
+    const fallbackSrc = getFallbackImagePath();
+    imgElement.src = fallbackSrc;
+    
+    // Track error state
     setImageErrors((prev) => new Set(prev).add(index));
+    
+    // Update the source map so subsequent renders use fallback
+    setImageSources((prev) => {
+      const updated = new Map(prev);
+      updated.set(index, fallbackSrc);
+      return updated;
+    });
   };
 
   const currentImage = images[currentIndex];
-  const hasError = imageErrors.has(currentIndex);
-  const imageSrc = hasError ? getFallbackImagePath() : normalizeAssetPath(currentImage.src);
+  const imageSrc = imageSources.get(currentIndex) || normalizeAssetPath(currentImage.src);
 
   return (
     <div className="relative w-full">
@@ -48,7 +69,7 @@ export default function ProjectImageGallery({ images, projectTitle }: ProjectIma
           src={imageSrc}
           alt={currentImage.alt}
           className="w-full h-full object-contain"
-          onError={() => handleImageError(currentIndex)}
+          onError={(e) => handleImageError(currentIndex, e.currentTarget)}
           loading="lazy"
         />
 
@@ -86,8 +107,7 @@ export default function ProjectImageGallery({ images, projectTitle }: ProjectIma
       {images.length > 1 && (
         <div className="flex gap-2 mt-3 overflow-x-auto pb-1">
           {images.map((image, index) => {
-            const thumbHasError = imageErrors.has(index);
-            const thumbSrc = thumbHasError ? getFallbackImagePath() : normalizeAssetPath(image.src);
+            const thumbSrc = imageSources.get(index) || normalizeAssetPath(image.src);
             
             return (
               <button
@@ -104,7 +124,7 @@ export default function ProjectImageGallery({ images, projectTitle }: ProjectIma
                   src={thumbSrc}
                   alt={`${projectTitle} thumbnail ${index + 1}`}
                   className="w-full h-full object-contain"
-                  onError={() => handleImageError(index)}
+                  onError={(e) => handleImageError(index, e.currentTarget)}
                   loading="lazy"
                 />
               </button>

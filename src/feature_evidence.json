@@ -2,9 +2,11 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-generate-fully-new-professional-human-designed-looking-portfolio-images-for-each-of-the-10-existing-portfolio-projects-producing-exactly-12-images-per-project-120-total-and-save-them-as-static-assets-under-frontend-public-assets-generated-using-the-new-filenames-specified-in-this-build-request",
-      "featureTitle": "Generate fully new, professional, human-designed-looking portfolio images for each of the 10 existing portfolio projects, producing exactly 12 images per project (120 total), and save them as static assets under `frontend/public/assets/generated/` using the new filenames specified in this build request.",
-      "files": [],
+      "featureId": "feature-add-a-dark-background-color-to-the-header-section-in-headernav-tsx-to-ensure-proper-contrast-against-white-text",
+      "featureTitle": "Add a dark background color to the header section in HeaderNav.tsx to ensure proper contrast against white text",
+      "files": [
+        "frontend/src/components/layout/HeaderNav.tsx"
+      ],
       "components": [
         "core-infrastructure@1.0.2",
         "shadcn-ui@1.0.0",
@@ -13,15 +15,15 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-133"
+        "REQ-1"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-update-frontend-src-data-projects-ts-so-each-of-the-10-existing-project-entries-keeps-its-current-title-description-category-tools-link-unchanged-but-replaces-its-images-list-so-it-contains-exactly-12-image-objects-src-alt-that-reference-the-new-generated-portfolio-image-asset-paths-absolute-assets-generated-and-include-non-empty-english-alt-text-for-every-image",
-      "featureTitle": "Update `frontend/src/data/projects.ts` so each of the 10 existing project entries keeps its current title/description/category/tools/link unchanged, but replaces its `images` list so it contains exactly 12 image objects (`src`, `alt`) that reference the new generated portfolio image asset paths (absolute `/assets/generated/...`) and include non-empty English alt text for every image.",
+      "featureId": "feature-ensure-the-name-sheik-tonmoy-islam-in-the-header-is-clearly-visible-and-readable-against-the-new-dark-background-on-all-devices",
+      "featureTitle": "Ensure the name 'Sheik Tonmoy Islam' in the header is clearly visible and readable against the new dark background on all devices",
       "files": [
-        "frontend/src/data/projects.ts"
+        "frontend/src/components/layout/HeaderNav.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -31,15 +33,15 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-134"
+        "REQ-2"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-ensure-the-portfolio-ui-gallery-continues-to-render-multiple-images-per-project-without-broken-blank-image-areas-by-keeping-production-safe-image-loading-behavior-normalize-image-paths-and-fall-back-to-getfallbackimagepath-on-error-and-update-the-thumbnail-rendering-to-use-a-non-cropping-fit-behavior-so-thumbnails-do-not-cut-off-the-sides-of-the-portfolio-images",
-      "featureTitle": "Ensure the Portfolio UI gallery continues to render multiple images per project without broken/blank image areas by keeping production-safe image loading behavior (normalize image paths and fall back to `getFallbackImagePath()` on error), and update the thumbnail rendering to use a non-cropping fit behavior so thumbnails do not cut off the sides of the portfolio images.",
+      "featureId": "feature-ensure-all-navigation-menu-items-in-the-header-are-clearly-visible-and-readable-against-the-new-dark-background-on-all-devices",
+      "featureTitle": "Ensure all navigation menu items in the header are clearly visible and readable against the new dark background on all devices",
       "files": [
-        "frontend/src/components/portfolio/ProjectImageGallery.tsx"
+        "frontend/src/components/layout/HeaderNav.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -49,7 +51,25 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-135"
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-verify-header-displays-perfectly-and-remains-readable-across-all-device-sizes-including-mobile-320px-tablet-and-desktop-viewports",
+      "featureTitle": "Verify header displays perfectly and remains readable across all device sizes including mobile (320px+), tablet, and desktop viewports",
+      "files": [
+        "frontend/src/components/layout/HeaderNav.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
       ],
       "confidence": "high"
     }
