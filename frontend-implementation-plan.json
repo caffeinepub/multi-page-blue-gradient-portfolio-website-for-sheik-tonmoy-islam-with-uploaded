@@ -1,0 +1,406 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Implement comprehensive SEO optimization for multi-service professional website",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Add comprehensive meta tags to index.html including title optimized for all six service areas, meta description, and relevant keywords for national/international searches",
+      "acceptanceCriteria": [
+        "Title tag includes all six service areas in a natural, readable format",
+        "Meta description is compelling and includes all services within 155-160 characters",
+        "Keywords meta tag includes relevant terms for each service area",
+        "Meta tags are properly formatted and validated"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Update the <head> section to include optimized title tag that naturally incorporates all six service areas: Legal Consultant, Business Consultant, Digital Marketing, Graphic Design, Video Editing, and Web Development. Add comprehensive meta description highlighting all services within 155-160 characters. Include keywords meta tag with relevant terms for each service area targeting national and international searches. Ensure proper formatting and semantic correctness of all meta tags."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Implement JSON-LD structured data for Professional Service schema covering all six service areas with proper schema.org markup",
+      "acceptanceCriteria": [
+        "JSON-LD script includes ProfessionalService schema for each of the six service areas",
+        "Schema includes service name, description, provider information, and service type",
+        "Structured data validates successfully in Google's Rich Results Test",
+        "Schema is embedded in the document head or appropriate component"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/common/StructuredData.tsx",
+          "operation": "create",
+          "description": "Create a React component that generates JSON-LD structured data using schema.org ProfessionalService markup. Include schemas for all six service areas: legal consulting, business consulting, digital marketing, graphic design, video editing, and web development. Each schema should include service name, description, provider information (Sheik Tonmoy Islam), and serviceType. The component should render a <script type='application/ld+json'> tag with the structured data that validates in Google's Rich Results Test."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and add the StructuredData component to the root router configuration so it renders on all pages, ensuring the JSON-LD structured data is present site-wide."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Add Blog Post schema (Article/BlogPosting) to all five existing blog article pages with proper headline, author, datePublished, and image properties",
+      "acceptanceCriteria": [
+        "Each blog article page includes BlogPosting or Article schema",
+        "Schema includes headline, author, datePublished, dateModified, and image properties",
+        "Article schema validates in Google's Rich Results Test",
+        "Schema is dynamically generated based on article data from blogArticles.ts"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/blog/ArticleStructuredData.tsx",
+          "operation": "create",
+          "description": "Create a reusable React component that accepts BlogArticle data as props and generates JSON-LD structured data using schema.org BlogPosting or Article schema. Include headline, author (Sheik Tonmoy Islam), datePublished, dateModified, image URL, and articleBody properties dynamically generated from the article data. Ensure the schema validates in Google's Rich Results Test."
+        },
+        {
+          "path": "frontend/src/pages/blog/BlogDigitalMarketingArticlePage.tsx",
+          "operation": "modify",
+          "description": "Import and render the ArticleStructuredData component, passing the digital marketing article data to generate proper BlogPosting schema for this page."
+        },
+        {
+          "path": "frontend/src/pages/blog/BlogGraphicDesignArticlePage.tsx",
+          "operation": "modify",
+          "description": "Import and render the ArticleStructuredData component, passing the graphic design article data to generate proper BlogPosting schema for this page."
+        },
+        {
+          "path": "frontend/src/pages/blog/BlogLawLegalArticlePage.tsx",
+          "operation": "modify",
+          "description": "Import and render the ArticleStructuredData component, passing the law/legal article data to generate proper BlogPosting schema for this page."
+        },
+        {
+          "path": "frontend/src/pages/blog/BlogVideoEditingArticlePage.tsx",
+          "operation": "modify",
+          "description": "Import and render the ArticleStructuredData component, passing the video editing article data to generate proper BlogPosting schema for this page."
+        },
+        {
+          "path": "frontend/src/pages/blog/BlogWebDesignDevArticlePage.tsx",
+          "operation": "modify",
+          "description": "Import and render the ArticleStructuredData component, passing the web design/dev article data to generate proper BlogPosting schema for this page."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Enhance Open Graph tags in index.html with og:title, og:description, og:image, og:url, og:type optimized for social media sharing",
+      "acceptanceCriteria": [
+        "og:title accurately represents the multi-service professional brand",
+        "og:description includes all six service areas",
+        "og:image points to a professional preview image",
+        "og:type is set to 'website'",
+        "Tags render correctly in Facebook and LinkedIn preview tools"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Enhance the existing Open Graph meta tags in the <head> section. Update og:title to represent the multi-service professional brand including all six service areas. Add or update og:description to include legal consulting, business consulting, digital marketing, graphic design, video editing, and web development services. Set og:image to point to a professional preview image from the assets (e.g., frontend/public/assets/generated/logo-sti.dim_512x512.png or a suitable portrait). Add og:url with the canonical site URL. Set og:type to 'website'. Ensure tags are properly formatted for Facebook and LinkedIn preview tools."
+        },
+        {
+          "path": "frontend/src/lib/seo.ts",
+          "operation": "modify",
+          "description": "Update the setSEO utility to support dynamic Open Graph tags. Add parameters for ogTitle, ogDescription, and ogImage. Update the function to set or modify og:title, og:description, og:image, og:url, and og:type meta tags dynamically based on the current page context."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Generate an XML sitemap that includes all main pages and all five blog article pages with proper priority and changefreq values",
+      "acceptanceCriteria": [
+        "XML sitemap includes all navigable routes from App.tsx",
+        "Sitemap includes proper lastmod, changefreq, and priority values",
+        "Sitemap is accessible at /sitemap.xml",
+        "Sitemap validates against XML sitemap schema"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/sitemap.xml",
+          "operation": "create",
+          "description": "Create an XML sitemap file that includes all main pages (home /, about /about, services /services, skills /skills, portfolio /portfolio, contact /contact, blog /blog) and all five blog article pages (/blog/digital-marketing, /blog/graphic-design, /blog/law-legal, /blog/video-editing, /blog/web-design-dev). Include proper <loc>, <lastmod>, <changefreq>, and <priority> values for each URL. Home page should have highest priority (1.0), main pages medium-high priority (0.8-0.9), and blog articles medium priority (0.7). Set appropriate changefreq values (weekly for home, monthly for main pages, yearly for blog articles). Ensure the sitemap validates against XML sitemap schema and uses absolute URLs with the site domain."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Add robots.txt file to frontend/public allowing all crawlers and referencing the sitemap location",
+      "acceptanceCriteria": [
+        "robots.txt file exists in frontend/public",
+        "File includes 'User-agent: *' and 'Allow: /'",
+        "File includes sitemap reference",
+        "File is accessible at /robots.txt"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/robots.txt",
+          "operation": "create",
+          "description": "Create a robots.txt file that allows all search engine crawlers to access the entire site. Include 'User-agent: *' directive and 'Allow: /' to permit crawling. Add a Sitemap directive pointing to the sitemap.xml location (absolute URL). Ensure the file follows standard robots.txt format and is accessible at /robots.txt."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Enhance semantic HTML structure across all pages ensuring proper heading hierarchy, meaningful alt text for all images, and ARIA labels where appropriate",
+      "acceptanceCriteria": [
+        "Each page has exactly one h1 tag with primary keyword",
+        "Heading hierarchy follows proper nesting (h1 > h2 > h3)",
+        "All images include descriptive alt text relevant to service areas",
+        "Interactive elements have appropriate ARIA labels",
+        "HTML validates without accessibility warnings"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Review and ensure proper heading hierarchy with one h1 tag containing primary keywords for the multi-service professional portfolio. Verify all images have descriptive alt text. Add ARIA labels to interactive elements (buttons, links) for accessibility."
+        },
+        {
+          "path": "frontend/src/pages/AboutPage.tsx",
+          "operation": "modify",
+          "description": "Review and ensure proper heading hierarchy with one h1 tag (About) followed by properly nested h2 and h3 tags. Verify the ProfilePortrait component and all InfoCard components have descriptive alt text and accessible content. Add ARIA labels where appropriate."
+        },
+        {
+          "path": "frontend/src/pages/ServicesPage.tsx",
+          "operation": "modify",
+          "description": "Review and ensure proper heading hierarchy with one h1 tag (Services) followed by h2 tags for each service category. Verify all service icons and images have descriptive alt text relevant to each service area (legal, business, marketing, design, video, web). Add ARIA labels to interactive elements."
+        },
+        {
+          "path": "frontend/src/pages/SkillsPage.tsx",
+          "operation": "modify",
+          "description": "Review and ensure proper heading hierarchy with one h1 tag (Skills) followed by properly nested headings in the SkillsDetailsSection component. Verify all skill images have descriptive alt text. Add ARIA labels to interactive elements."
+        },
+        {
+          "path": "frontend/src/pages/PortfolioPage.tsx",
+          "operation": "modify",
+          "description": "Review and ensure proper heading hierarchy with one h1 tag (Portfolio) followed by properly nested headings. Verify all portfolio project images have descriptive alt text relevant to the project content. Add ARIA labels to the ProjectFilter tabs and interactive elements."
+        },
+        {
+          "path": "frontend/src/pages/ContactPage.tsx",
+          "operation": "modify",
+          "description": "Review and ensure proper heading hierarchy with one h1 tag (Contact) followed by properly nested headings. Verify all images and icons have descriptive alt text. Ensure the ContactForm component has proper ARIA labels for all form fields and buttons."
+        },
+        {
+          "path": "frontend/src/pages/BlogPage.tsx",
+          "operation": "modify",
+          "description": "Review and ensure proper heading hierarchy with one h1 tag (Blog) followed by h2 tags for article titles. Verify all blog article preview images have descriptive alt text relevant to the article topic. Add ARIA labels to article links."
+        },
+        {
+          "path": "frontend/src/components/home/HeroSection.tsx",
+          "operation": "modify",
+          "description": "Review and ensure the hero section uses h1 for the main heading (Sheik Tonmoy Islam) with proper keyword optimization. Verify all images and interactive elements have descriptive alt text and ARIA labels."
+        },
+        {
+          "path": "frontend/src/components/blog/ArticleSideBySideLayout.tsx",
+          "operation": "modify",
+          "description": "Review and ensure article images have descriptive alt text that defaults to the article title if not provided. Add ARIA labels to the image and content containers for screen reader accessibility."
+        },
+        {
+          "path": "frontend/src/components/portfolio/ProjectsGrid.tsx",
+          "operation": "modify",
+          "description": "Review and ensure all project card images have descriptive alt text. Add ARIA labels to project links and interactive gallery controls for accessibility."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Optimize page performance by implementing lazy loading for images, code splitting for routes, and ensuring Core Web Vitals metrics meet Google's recommended thresholds",
+      "acceptanceCriteria": [
+        "Images use loading='lazy' attribute where appropriate",
+        "Routes are code-split using React lazy/Suspense",
+        "LCP (Largest Contentful Paint) is under 2.5 seconds",
+        "CLS (Cumulative Layout Shift) is under 0.1",
+        "Lighthouse performance score is 90 or above"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Implement code splitting for all route components using React.lazy() and wrap the router with Suspense to enable lazy loading of page components. This will reduce initial bundle size and improve LCP by loading route code on-demand. Add a fallback loading indicator for Suspense."
+        },
+        {
+          "path": "frontend/src/components/portfolio/ProjectsGrid.tsx",
+          "operation": "modify",
+          "description": "Add loading='lazy' attribute to all project images to defer loading of off-screen images. Ensure images have explicit width and height attributes or aspect-ratio CSS to prevent layout shift (CLS). Consider adding a placeholder or skeleton while images load."
+        },
+        {
+          "path": "frontend/src/components/blog/ArticleSideBySideLayout.tsx",
+          "operation": "modify",
+          "description": "Add loading='lazy' attribute to article images. Ensure images have explicit dimensions or aspect-ratio to prevent layout shift. Add a loading state or placeholder to improve perceived performance."
+        },
+        {
+          "path": "frontend/src/pages/BlogPage.tsx",
+          "operation": "modify",
+          "description": "Add loading='lazy' attribute to blog article preview images. Ensure images have explicit dimensions to prevent CLS. Consider adding skeleton loaders for better perceived performance."
+        },
+        {
+          "path": "frontend/src/components/common/ProfilePortrait.tsx",
+          "operation": "modify",
+          "description": "Add loading='eager' or priority loading for above-the-fold portrait images (hero section), and loading='lazy' for portraits that appear below the fold. Ensure images have explicit dimensions to prevent CLS."
+        },
+        {
+          "path": "frontend/src/components/portfolio/ProjectImageGallery.tsx",
+          "operation": "modify",
+          "description": "Add loading='lazy' attribute to gallery images except the first/active image. Implement progressive image loading or blur-up technique to improve perceived performance. Ensure images have explicit dimensions to prevent CLS."
+        },
+        {
+          "path": "frontend/src/components/skills/SkillsDetailsSection.tsx",
+          "operation": "modify",
+          "description": "Add loading='lazy' attribute to skill detail images. Ensure images have explicit dimensions or aspect-ratio to prevent layout shift. Add loading indicators for better UX."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Update SEO utility (lib/seo.ts) to support dynamic meta descriptions and keywords for each page, ensuring services pages and blog articles have unique, keyword-optimized metadata",
+      "acceptanceCriteria": [
+        "SEO utility accepts and sets meta description parameter",
+        "SEO utility accepts and sets meta keywords parameter",
+        "Each major page (Services, Portfolio, Skills) has unique meta description",
+        "Blog articles use their article description for meta tags",
+        "Meta descriptions are compelling and include relevant service keywords"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/lib/seo.ts",
+          "operation": "modify",
+          "description": "Extend the setSEO function to accept optional description and keywords parameters. Add functionality to dynamically set or update the meta description and keywords meta tags in the document head. Ensure the function handles cases where tags already exist (update) or need to be created. Preserve existing functionality for title and Open Graph tags."
+        },
+        {
+          "path": "frontend/src/pages/ServicesPage.tsx",
+          "operation": "modify",
+          "description": "Call the updated setSEO function with a unique, keyword-optimized meta description for the Services page that highlights all six service areas: legal consulting, business consulting, digital marketing, graphic design, video editing, and web development. Include relevant keywords parameter targeting national/international searches."
+        },
+        {
+          "path": "frontend/src/pages/PortfolioPage.tsx",
+          "operation": "modify",
+          "description": "Call the updated setSEO function with a unique, keyword-optimized meta description for the Portfolio page that showcases professional work across all service areas. Include relevant keywords parameter."
+        },
+        {
+          "path": "frontend/src/pages/SkillsPage.tsx",
+          "operation": "modify",
+          "description": "Call the updated setSEO function with a unique, keyword-optimized meta description for the Skills page that highlights comprehensive expertise across legal, business, marketing, creative, and technical domains. Include relevant keywords parameter."
+        },
+        {
+          "path": "frontend/src/pages/AboutPage.tsx",
+          "operation": "modify",
+          "description": "Call the updated setSEO function with a unique, keyword-optimized meta description for the About page that introduces Sheik Tonmoy Islam's professional background and multi-disciplinary expertise. Include relevant keywords parameter."
+        },
+        {
+          "path": "frontend/src/pages/ContactPage.tsx",
+          "operation": "modify",
+          "description": "Call the updated setSEO function with a unique meta description for the Contact page encouraging potential clients to reach out for professional services. Include relevant keywords parameter."
+        },
+        {
+          "path": "frontend/src/pages/BlogPage.tsx",
+          "operation": "modify",
+          "description": "Call the updated setSEO function with a unique meta description for the Blog landing page that highlights insights and expertise across all service areas. Include relevant keywords parameter."
+        },
+        {
+          "path": "frontend/src/pages/blog/BlogDigitalMarketingArticlePage.tsx",
+          "operation": "modify",
+          "description": "Call the updated setSEO function with the article's description and keywords from blogArticles.ts data to set unique, article-specific meta tags for this page."
+        },
+        {
+          "path": "frontend/src/pages/blog/BlogGraphicDesignArticlePage.tsx",
+          "operation": "modify",
+          "description": "Call the updated setSEO function with the article's description and keywords from blogArticles.ts data to set unique, article-specific meta tags for this page."
+        },
+        {
+          "path": "frontend/src/pages/blog/BlogLawLegalArticlePage.tsx",
+          "operation": "modify",
+          "description": "Call the updated setSEO function with the article's description and keywords from blogArticles.ts data to set unique, article-specific meta tags for this page."
+        },
+        {
+          "path": "frontend/src/pages/blog/BlogVideoEditingArticlePage.tsx",
+          "operation": "modify",
+          "description": "Call the updated setSEO function with the article's description and keywords from blogArticles.ts data to set unique, article-specific meta tags for this page."
+        },
+        {
+          "path": "frontend/src/pages/blog/BlogWebDesignDevArticlePage.tsx",
+          "operation": "modify",
+          "description": "Call the updated setSEO function with the article's description and keywords from blogArticles.ts data to set unique, article-specific meta tags for this page."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Add canonical URL tags to all pages to prevent duplicate content issues and ensure proper indexing by search engines",
+      "acceptanceCriteria": [
+        "Each page includes a canonical link tag in the head",
+        "Canonical URLs use absolute paths including domain",
+        "Canonical URLs are consistent with the actual page URL",
+        "Blog article pages include proper canonical tags"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/lib/seo.ts",
+          "operation": "modify",
+          "description": "Extend the setSEO function to accept an optional canonicalUrl parameter. Add functionality to set or update the canonical link tag in the document head using absolute URLs. Use the siteUrl utility from lib/siteUrl.ts as the base domain and append the current path. Ensure the function handles cases where the canonical tag already exists (update) or needs to be created."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Call the updated setSEO function with the canonical URL for the home page (root path /)."
+        },
+        {
+          "path": "frontend/src/pages/AboutPage.tsx",
+          "operation": "modify",
+          "description": "Call the updated setSEO function with the canonical URL for the About page (/about)."
+        },
+        {
+          "path": "frontend/src/pages/ServicesPage.tsx",
+          "operation": "modify",
+          "description": "Call the updated setSEO function with the canonical URL for the Services page (/services)."
+        },
+        {
+          "path": "frontend/src/pages/SkillsPage.tsx",
+          "operation": "modify",
+          "description": "Call the updated setSEO function with the canonical URL for the Skills page (/skills)."
+        },
+        {
+          "path": "frontend/src/pages/PortfolioPage.tsx",
+          "operation": "modify",
+          "description": "Call the updated setSEO function with the canonical URL for the Portfolio page (/portfolio)."
+        },
+        {
+          "path": "frontend/src/pages/ContactPage.tsx",
+          "operation": "modify",
+          "description": "Call the updated setSEO function with the canonical URL for the Contact page (/contact)."
+        },
+        {
+          "path": "frontend/src/pages/BlogPage.tsx",
+          "operation": "modify",
+          "description": "Call the updated setSEO function with the canonical URL for the Blog landing page (/blog)."
+        },
+        {
+          "path": "frontend/src/pages/blog/BlogDigitalMarketingArticlePage.tsx",
+          "operation": "modify",
+          "description": "Call the updated setSEO function with the canonical URL for this blog article (/blog/digital-marketing)."
+        },
+        {
+          "path": "frontend/src/pages/blog/BlogGraphicDesignArticlePage.tsx",
+          "operation": "modify",
+          "description": "Call the updated setSEO function with the canonical URL for this blog article (/blog/graphic-design)."
+        },
+        {
+          "path": "frontend/src/pages/blog/BlogLawLegalArticlePage.tsx",
+          "operation": "modify",
+          "description": "Call the updated setSEO function with the canonical URL for this blog article (/blog/law-legal)."
+        },
+        {
+          "path": "frontend/src/pages/blog/BlogVideoEditingArticlePage.tsx",
+          "operation": "modify",
+          "description": "Call the updated setSEO function with the canonical URL for this blog article (/blog/video-editing)."
+        },
+        {
+          "path": "frontend/src/pages/blog/BlogWebDesignDevArticlePage.tsx",
+          "operation": "modify",
+          "description": "Call the updated setSEO function with the canonical URL for this blog article (/blog/web-design-dev)."
+        }
+      ]
+    }
+  ]
+}

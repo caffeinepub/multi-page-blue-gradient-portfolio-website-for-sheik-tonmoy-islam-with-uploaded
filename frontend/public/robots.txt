@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sheik-tonmoy-islam.com/sitemap.xml
